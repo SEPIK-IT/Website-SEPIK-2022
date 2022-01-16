@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/pendaftar',function(){
+    $pendaftar = DB::table('users')->get();
 
+    return view('pendaftaran',['petani' => $pendaftar]);
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
