@@ -15,7 +15,7 @@
                     <div class="text-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <input type="hidden" name="_method" value="PATCH">
+                            {{-- <input type="hidden" name="_method" value="PATCH"> --}}
 
                             <div class="form-group mt-3">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email Address') }}</label>
