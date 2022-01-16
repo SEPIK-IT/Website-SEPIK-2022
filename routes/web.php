@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/pendaftar',function(){
-    $pendaftar = DB::table('users')->get();
+    // $pendaftar = DB::table('users')->get();
 
-    return view('pendaftaran',['petani' => $pendaftar]);
+    return view('pendaftaran');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
