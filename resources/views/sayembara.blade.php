@@ -62,7 +62,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton"></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"></div>
                             </td>
                         </tr>
                     </table>
@@ -97,7 +97,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton"></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"></div>
                             </td>
                         </tr>
                     </table>
@@ -132,7 +132,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton"></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"></div>
                             </td>
                         </tr>
                     </table>
@@ -167,7 +167,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton"></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"></div>
                             </td>
                         </tr>
                     </table>
