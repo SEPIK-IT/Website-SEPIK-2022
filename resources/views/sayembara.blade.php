@@ -57,7 +57,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="capsulebutton"><div class="innerbutton"></div></div>
+                                <div class="card" style="cursor: pointer; background: #51442d; height: 3rem; border-radius: 80px;" onclick="location.href='#'"><p class="text-center" style="color: white;">Rp. 15.000,-</p><div class="card" style="background: #a68d60; height: 3rem; width: 50%; position: absolute; z-index: 2; border-radius: 80px;"></div></div>
                             </td>
                         </tr>
                         <tr>
@@ -92,7 +92,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="capsulebutton"><div class="innerbutton"></div></div>
+                                <div class="capsulebutton" style="cursor: pointer;" onclick="location.href='#'"><div class="innerbutton"></div></div>
                             </td>
                         </tr>
                         <tr>
@@ -127,7 +127,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="capsulebutton"><div class="innerbutton"></div></div>
+                                <div class="capsulebutton" style="cursor: pointer;" onclick="location.href='#'"><div class="innerbutton"></div></div>
                             </td>
                         </tr>
                         <tr>
@@ -162,7 +162,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="capsulebutton"><div class="innerbutton"></div></div>
+                                <div class="capsulebutton" style="cursor: pointer;" onclick="location.href='#'"><div class="innerbutton"></div></div>
                             </td>
                         </tr>
                         <tr>
