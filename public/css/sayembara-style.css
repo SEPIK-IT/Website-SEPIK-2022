@@ -16,6 +16,7 @@ body {
     font-family: rutaban !important;
 }
 
+
 /* .bg {
     background: url("/img/sayembarabg.png") no-repeat center center fixed;
     background-size: cover;
@@ -102,8 +103,7 @@ a {
     z-index: 0;
 }
 
-table {
-}
+table {}
 
 .ml40 {
     margin-left: 50vh;

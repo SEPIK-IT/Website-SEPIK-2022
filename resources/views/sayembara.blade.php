@@ -58,12 +58,12 @@
                         <tr>
                             <td>
                                 {{-- <div class="capsulebutton" style="cursor: pointer;" onclick="location.href='#'"><span class="position-relative text-end">test</span><div class="innerbutton text-center">test</div></div> --}}
-                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center">test</div> <div class="mx-5 text-white">test</div></div>
+                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center text-white">test</div> <div class="mx-5 text-white">test</div></div>
                             </td>
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">test</p></div>
                             </td>
                         </tr>
                     </table>
@@ -93,12 +93,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center">test</div> <div class="mx-5 text-white">test</div></div>
+                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center text-white">test</div> <div class="mx-5 text-white">test</div></div>
                             </td>
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">test</p></div>
                             </td>
                         </tr>
                     </table>
@@ -128,12 +128,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center">test</div> <div class="mx-5 text-white">test</div></div>
+                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center text-white">test</div> <div class="mx-5 text-white">test</div></div>
                             </td>
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">test</p></div>
                             </td>
                         </tr>
                     </table>
@@ -141,8 +141,8 @@
             </div>
         </div>
         <!---->
-        <div class="mx-xxl-5 px-xxl-5 mb-2 mt-5 pt-5">
-            <div class="mx-xxl-5 px-xxl-5 mt-5 pt-5">
+        <div class="mx-xxl-5 px-xxl-5 my-5 py-5">
+            <div class="mx-xxl-5 px-xxl-5 my-5 py-5">
                 <div class="mx-xxl-5 px-xxl-5">
                     <table class="mx-auto">
                         <tr>
@@ -163,12 +163,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center">test</div> <div class="mx-5 text-white">test</div></div>
+                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center text-white">test</div> <div class="mx-5 text-white">test</div></div>
                             </td>
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='#'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">test</p></div>
                             </td>
                         </tr>
                     </table>
