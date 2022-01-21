@@ -82,7 +82,7 @@ a {
 
 .innerbutton {
     height: 50px;
-    width: 55%;
+    width: 60%;
     background: #a68d60;
     border-radius: 80px;
     z-index: 1;
@@ -97,7 +97,7 @@ a {
 
 .capsulebutton {
     height: 50px;
-    width: 85%;
+    width: 95%;
     background: #51442d;
     border-radius: 80px;
     z-index: 0;
