@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <title>SEPIK 2022 - Sayembara</title>
 </head>
-<body>
+<body class="m-0 p-0">
     <img class="background-image" src="{{ asset('img/bg.png') }}">
     <div class="container">
         <div class="title mtlarge">
@@ -57,7 +57,8 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="capsulebutton" style="cursor: pointer;" onclick="location.href='#'"><div class="innerbutton"></div></div>
+                                {{-- <div class="capsulebutton" style="cursor: pointer;" onclick="location.href='#'"><span class="position-relative text-end">test</span><div class="innerbutton text-center">test</div></div> --}}
+                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center">test</div> <div class="mx-5 text-white">test</div></div>
                             </td>
                         </tr>
                         <tr>
@@ -92,7 +93,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="capsulebutton" style="cursor: pointer;" onclick="location.href='#'"><div class="innerbutton"></div></div>
+                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center">test</div> <div class="mx-5 text-white">test</div></div>
                             </td>
                         </tr>
                         <tr>
@@ -127,7 +128,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="capsulebutton" style="cursor: pointer;" onclick="location.href='#'"><div class="innerbutton"></div></div>
+                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center">test</div> <div class="mx-5 text-white">test</div></div>
                             </td>
                         </tr>
                         <tr>
@@ -162,7 +163,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="capsulebutton" style="cursor: pointer;" onclick="location.href='#'"><div class="innerbutton"></div></div>
+                                <div style="cursor: pointer;" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center">test</div> <div class="mx-5 text-white">test</div></div>
                             </td>
                         </tr>
                         <tr>
