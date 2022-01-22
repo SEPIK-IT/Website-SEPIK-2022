@@ -1,0 +1,43 @@
+@font-face {
+    font-family: euphorigenic;
+    src: url('font/euphorigenic.ttf');
+}
+
+@font-face {
+    font-family: rutaban;
+    src: url('font/rutaban.ttf');
+}
+body{
+    background-color: rgba(247,243,240,255);
+    color: rgba(68,57,38,255);
+    font-family: rutaban;
+}
+
+.bold{
+    font-family: euphorigenic;
+}
+
+.btn-sepik{
+    background-color: rgba(68,57,38,255);
+    color: white;
+}
+
+input, select, textarea, .rp{
+    border: 1px solid rgba(68,57,38,255)!important;
+    background-color: rgba(68,57,38,255);
+}
+
+input[type=file]::file-selector-button {
+    background-color: rgba(68,57,38,255);
+    color: white;
+}
+
+input[type=file]::file-selector-button:hover{
+    background-color: rgba(247,243,240,255) !important;
+    color: black !important;
+}
+
+.imgBukti{
+    max-width: 300px;
+    cursor: pointer;
+}
