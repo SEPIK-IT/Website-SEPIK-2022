@@ -3,6 +3,11 @@
     src: url("../font/rutaban/RUTAN___.TTF");
 }
 
+@font-face {
+    font-family: euphorigenic;
+    src: url("../font/euphorigenic/euphorigenic.ttf");
+}
+
 body {
     margin: 0 !important;
     padding: 0 !;
@@ -144,7 +149,7 @@ table {}
 .sidebar .judul {
     padding: 0px 0px 0px 32px;
     text-decoration: none;
-    font-family: euphorigenic;
+    font-family: euphorigenic !important;
     font-size: 25px;
     color: #443926;
     display: block;
