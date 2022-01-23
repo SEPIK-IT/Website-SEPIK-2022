@@ -82,7 +82,7 @@ a {
 
 .innerbutton {
     height: 50px;
-    width: 60%;
+    width: 55%;
     background: #a68d60;
     border-radius: 80px;
     z-index: 1;
@@ -123,4 +123,73 @@ table {}
 
 .mtlarge {
     margin-top: 10vh;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    /* color: #443926;*/
+    background-color: #ad966d;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.sidebar .judul {
+    padding: 0px 0px 0px 32px;
+    text-decoration: none;
+    font-family: euphorigenic;
+    font-size: 25px;
+    color: #443926;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar .sub-judul {
+    padding: 0px 0px 0px 42px;
+    text-decoration: none;
+    font-family: rutaban;
+    font-size: 25px;
+    color: #443926;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar .judul:hover {
+    color: black;
+}
+
+.sidebar .closebtn {
+    color: #443926;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidebar .closebtn:hover {
+    color: black;
+}
+
+#code {
+    display: hidden;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar .judul {
+        font-size: 18px;
+    }
 }
