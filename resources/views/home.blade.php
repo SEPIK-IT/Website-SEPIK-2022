@@ -533,6 +533,11 @@ body {
         <script type="text/javascript">
   
         </script>
+		<script type="text/javascript" src="{{ url('js/skrollr.js') }}"></script>
+<script type="text/javascript" src="skrollr.min.js"></script>
+<script type="text/javascript">
+	var s = skrollr.init();
+</script>
         <body>
         	
         	<div id="haha" class="container-fluid" data-0="transform:translateX(0%);" data-1000="transform:translateX(-450%);" style="">
@@ -772,10 +777,5 @@ function closeNav() {
 }
 
 </script>
-<script type="text/javascript" src="{{ url('js/skrollr.js') }}"></script>
-<script type="text/javascript" src="skrollr.min.js"></script>
-	<script type="text/javascript">
-	var s = skrollr.init();
-	</script>
 </body>
 </html>

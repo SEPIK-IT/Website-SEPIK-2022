@@ -18,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('index');
+});
+Route::get('/home', function () {
+    return view('home');
+});
 Route::get('/sayembara', function () {
     return view('sayembara');
 });
