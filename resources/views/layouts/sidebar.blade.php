@@ -6,7 +6,7 @@
     <a class="judul" href="/">Home</a>
     <a class="judul" href="#">About</a>
     <a class="judul" href="#papan">Timeline</a>
-    <a class="judul" href="#">Login</a>
+    <a class="judul" href="/login">Login</a>
     <a class="judul" href="#signEvent">Events</a>
     <a class="sub-judul" href="/sayembara">Sayembara</a>
     <a class="sub-judul" href="#">socmed</a>
