@@ -32,6 +32,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/contest_registration', [ContestRegistController::class, 'index'])->name('contestRegistration');
+Route::get('/registrasi-lomba/{competition}', [ContestRegistController::class, 'index'])
+    ->middleware('auth')
+    ->name('contestRegistration');
 
 Auth::routes(['verify'=> true]);

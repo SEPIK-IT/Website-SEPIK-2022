@@ -21,10 +21,10 @@
                 <div class="title-header mx-xxl-5 px-xxl-5">
                     <div class="title-header mx-xxl-5 px-xxl-5">
                         <div class="title-header mx-xxl-5 px-xxl-5 mt-5 pt-5">
-                            <h1 class="display-2 fw-bolder text-center">Sayembara Surabaya Epik</h1> 
+                            <h1 class="display-2 fw-bolder text-center">Sayembara Surabaya Epik</h1>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="title-descriptions mx-xxl-5 px-xxl-5">
                 <div class="title-descriptions mx-xxl-5 px-xxl-5">
@@ -69,7 +69,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contest_registration'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='{{route('contestRegistration', ['competition' => 4])}}'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
                             </td>
                         </tr>
                     </table>
@@ -107,7 +107,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contest_registration'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='{{route('contestRegistration', ['competition' => 3])}}'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
                             </td>
                         </tr>
                     </table>
@@ -145,7 +145,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contest_registration'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='{{route('contestRegistration', ['competition' => 1])}}'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
                             </td>
                         </tr>
                     </table>
@@ -165,7 +165,7 @@
                         <tr class="ps-5">
                             <td>
                                 <h2>DESAIN ILUSTRASI</h2>
-                                <hr class="sayembaradivider"">
+                                <hr class="sayembaradivider">
                             </td>
                         </tr>
                         <tr>
@@ -183,7 +183,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contest_registration'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='{{route('contestRegistration', ['competition' => 2])}}'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
                             </td>
                         </tr>
                     </table>
@@ -198,24 +198,24 @@
               if (screenWidth<=400){
                   $('#haha2').show();
                   $('#haha').hide();
-              
 
 
 
-              
-                  
+
+
+
               }
               else{
                   $('#haha').show();
                   $('#haha2').hide();
 
-                  
-          
-                  
-                  
+
+
+
+
               }
-              
-              
+
+
 
 });
 
