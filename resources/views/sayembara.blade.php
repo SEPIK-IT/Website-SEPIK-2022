@@ -69,7 +69,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contestRegist'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contest_registration'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
                             </td>
                         </tr>
                     </table>
@@ -107,7 +107,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contestRegist'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contest_registration'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
                             </td>
                         </tr>
                     </table>
@@ -145,7 +145,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contestRegist'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contest_registration'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
                             </td>
                         </tr>
                     </table>
@@ -183,7 +183,7 @@
                         </tr>
                         <tr>
                             <td class="pt-2">
-                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contestRegist'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
+                                <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='/contest_registration'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
                             </td>
                         </tr>
                     </table>

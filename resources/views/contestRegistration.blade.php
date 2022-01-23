@@ -15,6 +15,8 @@
 </head>
 
 <body class="bg">
+    <button id="tooglebar" onclick="openNav()" style="background-color: transparent; z-index: 0; position: absolute; margin-left: 90%; margin-top: 2.5%;"><i class="fas fa-bars fa-2x"></i></button>
+    @extends('layouts.sidebar')
     <div class="container-fluid" >
         <div class="row">
             <div class="col-2 p-0">
@@ -146,6 +148,64 @@
                 $('#divAsalUniv').hide()
             }
         })
+    </script>
+     <script type="text/javascript">
+            $(document).ready(function () {
+                var screenWidth = window.screen.width;
+
+                if (screenWidth<=400){
+                    $('#haha2').show();
+                    $('#haha').hide();
+                
+
+
+
+                
+                    
+                }
+                else{
+                    $('#haha').show();
+                    $('#haha2').hide();
+
+                    
+            
+                    
+                    
+                }
+                
+                
+
+    });
+
+
+
+                var s = skrollr.init();
+        // $("body").fadeOut(1000, function(){redirectPage('home.html')});
+    // 		$( "#banner" ).click(function() {
+    //   $("body").fadeOut(1000);
+    //   location.replace("https://www.w3schools.com");
+    // });
+
+    // $('.container-fluid').attr('data-1000','transform:translateX(-900%)');
+    // alert($('.container-fluid').attr('data-1000'));
+    $(document).on('click', "#banner", function(event) {
+    event.preventDefault();
+    linkLocation = 'www.youtube.com';
+    $("body").fadeOut(1000, function(){location.replace("login.html")});
+    });
+
+
+    function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    }
+
     </script>
 </body>
 </html>
