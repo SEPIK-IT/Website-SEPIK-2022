@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ContestRegistController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+require __DIR__.'/auth.php';
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/sayembara', function () {
+    return view('sayembara');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::get('/contest_registration', [ContestRegistController::class, 'index'])->name('contestRegistration');
+
+Auth::routes(['verify'=> true]);
