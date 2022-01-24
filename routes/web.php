@@ -25,4 +25,5 @@ Route::get('/contestRegist', [ContestRegistController::class, 'index'])->name('c
 
 Auth::routes(['verify'=> true]);
 
-Route::get('/donasi', [DonasiController::class, 'index'])->name('Donasi');
+Route::get('/donasi/{page?}', [DonasiController::class, 'index'])->name('Donasi');
+// Route::get('/donasi/donasi', [DonasiController::class, 'index'])->name('Donasi');
