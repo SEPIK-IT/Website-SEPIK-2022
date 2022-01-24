@@ -14,7 +14,7 @@
 <body class="m-0 p-0">
     @extends('layouts.sidebar')
     <button id="tooglebar" onclick="openNav()" style="background-color: transparent; z-index: 0; position: absolute; margin-left: 10%;"><i class="fas fa-bars fa-2x"></i></button>
-    <img class="background-image" src="{{ asset('img/bg.png') }}">
+    <div class="background-image"></div>
     <div class="container">
         <div class="title mtlarge">
             <div class="title-header mx-xxl-5 px-xxl-5">
@@ -132,7 +132,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <p class="textjustify">Sayembara Mash-up lagu akan dibuka untuk umum, baik untuk warga Surabaya maupun dari luar Kota Surabaya. Lomba ini bersifat tim yang beranggotakan maksimal 3 anggota, yang sudah termasuk pemusik dan vokalis</p>
+                                <p class="textjustify">Sayembara Mash-up lagu akan dibuka untuk umum, baik untuk warga Surabaya maupun dari luar Kota Surabaya. Sayembara ini dapat diikuti oleh individu atau tim yang beranggotakan maksimal 3 orang yang sudah termasuk vokalis dan pemusik (apabila tidak menggunakan pemusik, peserta diperbolehkan menggunakan minus one/karaoke)</p>
                             </td>
                         </tr>
                         <tr>
