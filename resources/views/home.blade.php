@@ -542,9 +542,9 @@ body {
 <script type="text/javascript">
 	var s = skrollr.init();
 </script>
-        <body id="skrollr-body">
+        <body>
         	
-        	<div id="haha" class="container-fluid" data-0="transform:translateX(0%);" data-1000="transform:translateX(-450%);" style="">
+        	<div id="haha" class="container-fluid" data-0="transform:translateX(0%);" data-1000="transform:translateX(-450%);" id="skrollr-body" style="">
         				<div style="" class="">
         		
         		
