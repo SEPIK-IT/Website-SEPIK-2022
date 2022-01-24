@@ -9,7 +9,7 @@
             </div>
 
             <div class="col align-self-center p-4">
-                <div class="h1">{{ __('Sign In') }}</div>
+                <div class="h1">{{ __('Masuk') }}</div>
 
                 <div class="">
                     <div class="text-body">
@@ -18,7 +18,7 @@
                             {{-- <input type="hidden" name="_method" value="PATCH"> --}}
 
                             <div class="form-group mt-3">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email Address') }}</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Surel (Surat Elektronik)') }}</label>
 
                                 <div class="col">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -34,7 +34,7 @@
 
                             <div class="form-group mt-2">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Kata Sandi') }}</label>
 
                                 <div class="col">
                                     <input id="password" type="password"
@@ -56,7 +56,7 @@
                                             {{ old('remember') ? 'checked' : '' }}>
 
                                         <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
+                                            {{ __('Ingat Saya') }}
                                         </label>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                             <div class="form-group">
                                 <div class="col">
                                     <button type="submit" class="btn btn-submit my-4">
-                                        {{ __('Login') }}
+                                        {{ __('Masuk') }}
                                     </button>
                                 </div>
                             </div>
@@ -75,8 +75,8 @@
 
                 <div class="card mt-4" style="background-color: transparent">
                     <div class="card-body text-center">
-                        <h5 class="mt-3">Don't have an account?</h5>
-                        <p>let's make a new one!</p>
+                        <h5 class="mt-3">Belum punya akun?</h5>
+                        <p>Buat rek!</p>
                                 <button type="submit" class="btn btn-submit-2 my-2" onclick="location.href='{{route('register')}}'">
                                     {{ __('Register Here') }}
                                 </button>
