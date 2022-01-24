@@ -25,15 +25,15 @@
                     <th>#</th>
                     <th>Nama</th>
                     <th>Email</th>
-                    <th>Password</th>
                 </thead>
                 <tbody class = "text-center">
+                    @foreach ($data as $item)
                     <tr>
-                        <td>1</td>
-                        <td>Steven</td>
-                        <td>@gmail.com</td>
-                        <td>12345678</td>
+                        <td>{{ $item['id'] }} </td>
+                        <td>{{ $item['name'] }}</td>
+                        <td>{{ $item['email'] }}</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
