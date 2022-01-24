@@ -78,7 +78,7 @@
                         <h5 class="mt-3">Belum punya akun?</h5>
                         <p>Buat rek!</p>
                                 <button type="submit" class="btn btn-submit-2 my-2" onclick="location.href='{{route('register')}}'">
-                                    {{ __('Register Here') }}
+                                    {{ __('Daftar Di Sini') }}
                                 </button>
                     </div>
                 </div>
