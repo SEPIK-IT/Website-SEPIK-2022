@@ -9,6 +9,7 @@
 }
 
 body {
+    background: url(../img/bg.png) repeat center center;
     margin: 0 !important;
     padding: 0 !;
     /* margin: 0;
@@ -68,20 +69,21 @@ a {
 .background-image {
     /* background-size: cover; */
     /* resize: both; */
-    overflow: scroll;
+    /* overflow-y: scroll; */
     /* width: 1366px !important;
     height: auto !important; */
+    /* max-height: 800% !important;
     margin-top: -90px;
-    width: 100%;
-    height: 420%;
-    /* background-repeat: repeat-y; */
+    min-height: 490vh; */
+    /* height: 420%; */
+    /* background-repeat: repeat; */
     /* overflow-y: hidden;
     overflow-x: hidden; */
-    z-index: -1;
-    /* background-attachment: scroll; */
+    /* z-index: -1;
+    background-attachment: scroll;
     position: absolute;
     background-position: center;
-    background-size: cover;
+    object-fit: contain; */
     /* position: fixed; */
 }
 
