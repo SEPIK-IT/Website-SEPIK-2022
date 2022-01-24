@@ -11,7 +11,7 @@
 body {
     margin: 0 !important;
     padding: 0 !;
-    background: url(../img/bg.png) repeat center center !important;
+    background-image: url(../img/bg.png);
     font-family: rutaban !important;
 }
 
