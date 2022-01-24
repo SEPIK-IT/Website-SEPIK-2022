@@ -153,7 +153,7 @@
                             <div class="form-group">
                                 <div class="col">
                                     <button type="submit" class="btn btn-submit my-5">
-                                        {{ __('Daftar') }}
+                                        {{ __('Daftar dan Kumpulkan Karya') }}
                                     </button>
                                 </div>
                             </div>
