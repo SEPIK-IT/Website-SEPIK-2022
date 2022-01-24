@@ -20,6 +20,13 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/sayembara', function () {
+    return view('sayembara');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('/contestRegist', [ContestRegistController::class, 'index'])->name('contestRegistration');
 
