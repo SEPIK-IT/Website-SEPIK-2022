@@ -517,11 +517,11 @@ body {
 .sidebar .closebtn:hover {
   color: black;
 }
-#skrollr-body {
+/* #skrollr-body {
     float: left;
     width: 100%;
     height: 100%;
-}
+} */
 #code{
 	display: 	hidden;
 }
