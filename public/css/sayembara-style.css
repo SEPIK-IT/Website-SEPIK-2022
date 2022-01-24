@@ -9,7 +9,7 @@
 }
 
 body {
-    background: url(../img/bg.png) repeat center center !important;
+    background: url("../img/bg.png") repeat center center !important;
     margin: 0 !important;
     padding: 0 !;
     font-family: rutaban !important;
