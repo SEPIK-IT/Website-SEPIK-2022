@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContestRegistController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DownloadController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,5 +36,11 @@ Route::get('/dashboard', function () {
 Route::get('/registrasi-lomba/{competition}', [ContestRegistController::class, 'index'])
     ->middleware('auth')
     ->name('contestRegistration');
+
+Route::get('/download_sop_human',DownloadController::class.'@downloadhuman')->name('dlhuman');
+Route::get('/download_sop_video',DownloadController::class.'@downloadvideo')->name('dlvideo');
+Route::get('/download_sop_mashup',DownloadController::class.'@downloadmashup')->name('dlmashup');
+Route::get('/download_sop_desain',DownloadController::class.'@downloaddesain')->name('dldesain');
+
 
 Auth::routes(['verify'=> true]);
