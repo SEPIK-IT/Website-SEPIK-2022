@@ -517,7 +517,11 @@ body {
 .sidebar .closebtn:hover {
   color: black;
 }
-
+#skrollr-body {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
 #code{
 	display: 	hidden;
 }
@@ -538,7 +542,7 @@ body {
 <script type="text/javascript">
 	var s = skrollr.init();
 </script>
-        <body>
+        <body id="skrollr-body">
         	
         	<div id="haha" class="container-fluid" data-0="transform:translateX(0%);" data-1000="transform:translateX(-450%);" style="">
         				<div style="" class="">
