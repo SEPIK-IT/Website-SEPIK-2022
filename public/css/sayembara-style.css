@@ -159,6 +159,11 @@ table {}
     transition: 0.3s;
 }
 
+.sidebar .sub-judul:hover {
+    color: black;
+    font-size: 27px;
+}
+
 .sidebar .judul:hover {
     color: black;
 }
@@ -189,5 +194,12 @@ table {}
     }
     .sidebar .judul {
         font-size: 18px;
+    }
+    .sidebar .judul:hover {
+        color: black;
+    }
+    .sidebar .sub-judul:hover {
+        color: black;
+        font-size: 27px;
     }
 }

@@ -526,12 +526,19 @@ body {
 	display: 	hidden;
 }
 
-
+.sidebar .sub-judul:hover {
+  color: black;
+  font-size: 27px;
+}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar .judul {font-size: 18px;}
+  .sidebar .sub-judul:hover {
+  color: black;
+  font-size: 27px;
+}
 }
         </style>
         <script type="text/javascript">
