@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <title>SEPIK 2022 - Sayembara</title>
 </head>
-<body class="m-0 p-0" style="background-image: url(''../img/bg.png')">
+<body class="m-0 p-0" style="background-image: url('../img/bg.png')">
     @extends('layouts.sidebar')
     <button id="tooglebar" onclick="openNav()" style="background-color: transparent; z-index: 0; position: absolute; margin-left: 10%;"><i class="fas fa-bars fa-2x"></i></button>
     {{-- <img class="background-image" src="{{ asset('img/bg.png') }}"> --}}
