@@ -35,8 +35,7 @@
                                         <input id="name" type="text"
                                                class="form-control @error("names.1") is-invalid @enderror"
                                                placeholder="Masukkan nama anggota"
-                                               name="name" wire:model="names.1"
-                                               required>
+                                               name="name" wire:model="names.1">
                                     </div>
                                     @error("names.1")
                                     <span class="invalid-feedback" role="alert">
@@ -57,8 +56,7 @@
                                     @enderror
                                 @endif
 
-                                @if($competition->multiple_registration) <small>Minimal mendaftarkan dua anggota tim.
-                                    Anggota ketiga opsional</small> @endif
+                                @if($competition->multiple_registration) <small>Maksimal 3 anggota, 2 lainnya opsional</small> @endif
                             </div>
 
                             <div class="form-group my-3">
