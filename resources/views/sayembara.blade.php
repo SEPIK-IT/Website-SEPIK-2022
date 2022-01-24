@@ -14,7 +14,7 @@
 <body class="m-0 p-0">
     @extends('layouts.sidebar')
     <button id="tooglebar" onclick="openNav()" style="background-color: transparent; z-index: 0; position: absolute; margin-left: 10%;"><i class="fas fa-bars fa-2x"></i></button>
-    <img class="background-image" src="{{ asset('img/bg.png') }}">
+    {{-- <img class="background-image" src="{{ asset('img/bg.png') }}"> --}}
     <div class="container">
         <div class="title mtlarge">
             <div class="title-header mx-xxl-5 px-xxl-5">
