@@ -65,7 +65,7 @@
                 <div class="count-down-box donasi-box text-center">
                     <h2>Konfirmasi Donasi Terkumpul</h2>
                     <!-- dari data base -->
-                    <h2>Rp. 1.000.000</h2>
+                    <h2>@currency($total) </h2>
                 </div>
 
             </div>
@@ -79,21 +79,23 @@
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <!-- 1 col 1 pesan di for each -->
-                    <div class="col">
-                        <div class="card shadow-sm">
+                    @foreach($pesans as $pesan)
+                        <div class="col">
+                            <div class="card shadow-sm">
 
-                            <div class="card-body">
-                                <!-- isi pesan -->
-                                <p class="card-text">
-                                    moga bermanfaat
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <!-- nama pendonasi -->
-                                    <small class="text-muted">Anthony</small>
+                                <div class="card-body">
+                                    <!-- isi pesan -->
+                                    <p class="card-text">
+                                        {{ $pesan->pesan }}
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <!-- nama pendonasi -->
+                                        <small class="text-muted"> {{ $pesan->nama }} </small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                     
                 </div>
             </div>
@@ -102,7 +104,6 @@
 
 </body>
 
-</html>
 
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

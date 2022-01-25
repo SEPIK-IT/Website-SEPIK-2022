@@ -10,6 +10,13 @@ class DonasiController extends Controller
 {
     public function index($page = 'index')
     {
+        if($page = "inex"){
+            return view('donasi/index', [
+                'total' => Donasi::where('konfirmasi', 1)->sum('nominal'),
+                'pesans' => Pesan::all()
+            ]);
+        }
+
         return view('donasi/' . $page);
     }
 
@@ -32,5 +39,7 @@ class DonasiController extends Controller
         if($validatedData['pesan'] != ''){
             Pesan::create($validatedData);
         }
+
+        return redirect('/donasi/suwun');
     }
 }
