@@ -550,7 +550,7 @@ body {
 	var s = skrollr.init();
 </script>
         <body>
-        	
+			<img id="bg" src="{{ asset('img/bgwebsite.png') }}" style=" z-index: -1;">
         	<div id="haha" class="container-fluid" data-0="transform:translateX(0%);" data-1000="transform:translateX(-450%);" id="skrollr-body" style="">
         				<div style="" class="">
         		
@@ -589,7 +589,7 @@ body {
 
    <!--         		<button id="tooglebar" onclick="openNav()" style="background-color: transparent;"><i class="fas fa-bars fa-2x"></i></button> -->
 
-<img id="bg" src="{{ asset('img/bgwebsite.png') }}" style=" z-index: -1;">
+
         
 </div>
         	</div>
