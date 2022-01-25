@@ -1,17 +1,22 @@
+
+
 $(document).ready(function () {
     $(".imgBukti").hide();
 
     countDown();
     modalImage();
+    copyButton();
 
     //untuk kategori
     $('#kategori').on('change', function(){
         if($('#kategori').val() == 'umum'){
             $('.sumber').fadeOut();
             $('#sumber').val('umum');
+            $('#nrp').val("-")
         }else{
             $('.sumber').fadeIn();
             $('#sumber').val('ukp');
+            $('#nrp').val("")
         }
     });
 });
@@ -27,9 +32,7 @@ function readURL(input) {
 
         reader.readAsDataURL(input.files[0]);
 
-        setTimeout(function () {
-            $(".imgBukti").show();
-        }, 1000);
+        $(".imgBukti").show();
 
     }
 }
@@ -39,14 +42,12 @@ function modalImage(){
     var modal = document.getElementById("myModal");
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("myImg");
     var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function () {
+
+    $(".myImg").click(function () {
         modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-    }
+        modalImg.src = $(this).attr('src');
+    });
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -108,4 +109,8 @@ function countDown() {
             $("#ket-donasi").text("Donasi ditutup");
         }
     }, 1000);
+}
+
+function copyButton() {
+    var clipboard = new ClipboardJS('#btn-copy');
 }

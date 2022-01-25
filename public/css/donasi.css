@@ -69,7 +69,7 @@ input[type=file]::file-selector-button:hover {
     /* Hidden by default */
     position: fixed;
     /* Stay in place */
-    z-index: 1;
+    z-index: 4;
     /* Sit on top */
     padding-top: 100px;
     /* Location of the box */
@@ -93,18 +93,6 @@ input[type=file]::file-selector-button:hover {
     display: block;
     width: 80%;
     max-width: 700px;
-}
-
-/* Caption of Modal Image (Image Text) - Same Width as the Image */
-#caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
 }
 
 /* Add Animation - Zoom in the Modal */

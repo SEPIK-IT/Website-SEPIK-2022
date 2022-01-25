@@ -6,20 +6,31 @@
 <link rel="stylesheet" href="/css/donasi.css">
 
 <body>
-	<div class="container bg">
-        
-        <!-- heading / judul -->
-		<div class="mt-4 p-5 rounded bold text-center">
-            <!-- <div class="row justify-content-center">
-                <div class="col-xl-3 ">
-                    <img src="/img/sepik2022.png" alt="logo sepik" class="img-fluid" id="logo-sepik">
-                </div>
-            </div> -->
+    <div class="container bg">
 
-            <h1 class="my-3">DONASI</h1> 
-		    <img src="/img/semanggi.png" alt="semanggi" width='50px'>
-		</div>
-        
+        <!-- jumbotron -->
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light my-3">DONASI</h1>
+                    <img src="/img/semanggi.png" alt="semanggi" width='50px'>
+
+                    <p class="lead text-muted mt-5">Penggalangan dana SEPIK 2022 ditujukan kepada budayawan dan
+                        komunitas kebudayaan Surabaya yang terlibat kerja
+                        sama dengan Surabaya Epik (SEPIK) 2022. Wujud donasi disalurkan dalam bentuk barang yang sesuai
+                        dengan kebutuhan
+                        budayawan dan komunitas kebudayaan Surabaya yang terlibat kerja sama dengan pihak Surabaya Epik
+                        (SEPIK) 2022.</p>
+                    <p>
+                        <!-- donate  -->
+                        <a href="/donasi/donasi" class="btn btn-sepik my-2">DONASI SEKARANG</a>
+                        <a href="#album" class="btn btn-secondary my-2">Baca Pesan</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- count down -->
         <div class="row justify-content-center px-4">
             <div class="col-sm-12 col-md-8 col-xl-6 ">
 
@@ -52,22 +63,45 @@
                 </div>
 
                 <div class="count-down-box donasi-box text-center">
-                    <h2>Konfirmasi Donasi Terkumpul</h2>    
+                    <h2>Konfirmasi Donasi Terkumpul</h2>
                     <!-- dari data base -->
-                    <h2>Rp. 1.000.000</h2>      
+                    <h2>Rp. 1.000.000</h2>
                 </div>
 
-                <h4 class="mt-5">Penggalangan dana SEPIK 2022 ditujukan kepada budayawan dan komunitas kebudayaan Surabaya yang terlibat kerja 
-                sama dengan Surabaya Epik (SEPIK) 2022. Wujud donasi disalurkan dalam bentuk barang yang sesuai dengan kebutuhan 
-                budayawan dan komunitas kebudayaan Surabaya yang terlibat kerja sama dengan pihak Surabaya Epik (SEPIK) 2022. </h4> 
+            </div>
+        </div>
 
-                <!-- donate  -->
-                <a href="/donasi/donasi" class="btn btn-sepik mt-3">DONASI SEKARANG</a>
+        <!-- pesan pesan -->
+        <hr class="my-5" style="height:5px">
+        <h2 class="text-center my-4">PESAN-PESAN PENDONASI</h2>
+        <div class="album py-5" id="album">
+            <div class="container">
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <!-- 1 col 1 pesan di for each -->
+                    <div class="col">
+                        <div class="card shadow-sm">
+
+                            <div class="card-body">
+                                <!-- isi pesan -->
+                                <p class="card-text">
+                                    moga bermanfaat
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <!-- nama pendonasi -->
+                                    <small class="text-muted">Anthony</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
         </div>
     </div>
 
 </body>
+
 </html>
 
 <!-- jquery -->
@@ -76,10 +110,3 @@
 <script src="/js/donasi.js"></script>
 
 @endsection
-
-<!-- 
-    mikir umum sana mhs
-    upload gambar kemana
-    cara upload gambar
-    namaa page
- -->
