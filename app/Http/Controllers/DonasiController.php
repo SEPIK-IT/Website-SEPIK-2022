@@ -10,7 +10,7 @@ class DonasiController extends Controller
 {
     public function index($page = 'index')
     {
-        if($page = "inex"){
+        if($page == "index"){
             return view('donasi/index', [
                 'total' => Donasi::where('konfirmasi', 1)->sum('nominal'),
                 'pesans' => Pesan::all()
