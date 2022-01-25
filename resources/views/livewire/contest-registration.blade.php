@@ -56,7 +56,8 @@
                                     @enderror
                                 @endif
 
-                                @if($competition->multiple_registration) <small>Maksimal 3 anggota, 2 lainnya opsional</small> @endif
+                                @if($competition->multiple_registration) <small>Maksimal 3 anggota, 2 lainnya
+                                    opsional</small> @endif
                             </div>
 
                             <div class="form-group my-3">
@@ -66,7 +67,8 @@
                                 <div class="col">
                                     <input id="nominal" readonly type="text"
                                            class="form-control @error('nominal') is-invalid @enderror"
-                                           name="nominal" wire:model="nominal" required autocomplete="nominal" autofocus>
+                                           name="nominal" wire:model="nominal" required autocomplete="nominal"
+                                           autofocus>
 
                                     @error('nominal')
                                     <span class="invalid-feedback" role="alert">
@@ -112,11 +114,46 @@
                                         @enderror
                                     </div>
                                 </div>
+                            @else
+                                <div class="form-group my-3">
+                                    <label for="region"
+                                           class="col-md-4 col-form-label text-md-right">{{ __('Asal Instansi') }}</label>
+
+                                    <div class="col">
+                                        <input id="region" type="text"
+                                               class="form-control @error('region') is-invalid @enderror"
+                                               name="region" wire:model="region" autocomplete="region">
+
+                                        @error('region')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
                             @endif
 
                             <div class="form-group my-3">
+                                <label for="twibbon"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Link ke postingan twibbon') }}</label>
+
+                                <div class="col">
+                                    <input id="twibbon" type="text"
+                                           class="form-control @error('twibbon') is-invalid @enderror"
+                                           name="twibbon" wire:model="twibbon">
+
+                                    @error('twibbon')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <small>Silakan upload twibbon ke Instagram anda, lalu tempelkan link.</small>
+                            </div>
+
+                            <div class="form-group my-3">
                                 <label for="google_drive_link"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Upload karya berupa link Google Drive') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Link Google Drive (Hasil Karya + Caption PDF)') }}</label>
 
                                 <div class="col">
                                     <input id="google_drive_link" type="text"
@@ -138,7 +175,7 @@
                                 <div class="col">
                                     <input id="buktiTransfer" type="file"
                                            class="form-control @error('proof') is-invalid @enderror"
-                                           name="proof" wire:model="proof" value="{{ old('proof') }}" required>
+                                           name="proof" wire:model="proof" required>
 
                                     @error('proof')
                                     <span class="invalid-feedback" role="alert">
@@ -162,6 +199,8 @@
                     </div>
                 @else
                     <h2>Terima kasih sudah mendaftar! Anda bisa melihat status pendaftaran anda di dashboard.</h2>
+                    <h3>Jangan lupa gabung ke grup line kategori lomba yang anda ikuti: <a
+                            href="{{$competition->line_group_link}}">{{$competition->line_group_link}}</a></h3>
                 @endif
             </div>
 

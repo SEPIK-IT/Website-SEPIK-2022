@@ -14,17 +14,21 @@ class ContestRegistration extends Component
 
     public Competition $competition;
 
-    public array $names;
-    public int $nominal;
-    public string $university;
-    public string $category = "mahasiswa";
-    public string $google_drive_link;
-    public string $proof;
+    public $names;
+    public $nominal;
+    public $university;
+    public $region;
+    public $twibbon;
+    public $category;
+    public $google_drive_link;
+    public $proof;
 
     public bool $thankyou = false;
 
     public function mount()
     {
+        $this->category = "mahasiswa";
+
         $this->names = [
             auth()->user()->name,
         ];
@@ -40,12 +44,11 @@ class ContestRegistration extends Component
     public function submit()
     {
         $this->validate([
-            // 'names.1' => Rule::requiredIf(function () {
-            //     return $this->competition->multiple_registration;
-            // }),
-            'university' => Rule::requiredIf(function () {
-                return $this->category === "mahasiswa";
-            }),
+            'names.1' => Rule::requiredIf(fn() => $this->competition->multiple_registration),
+            'names.2' => Rule::requiredIf(fn() => $this->competition->multiple_registration),
+            'university' => Rule::requiredIf(fn() => $this->category === "mahasiswa"),
+            'region' => Rule::requiredIf(fn() => $this->category === 'umum'),
+            'twibbon' => 'required',
             'names.0' => 'required',
             'google_drive_link' => 'required',
             'nominal' => ['required', 'numeric'],
@@ -64,6 +67,8 @@ class ContestRegistration extends Component
             'category' => $this->category == "mahasiswa" ? "MAHASISWA" : "UMUM",
             'google_drive_link' => $this->google_drive_link,
             'university' => $this->university ?? "",
+            'region' => $this->region ?? "",
+            'twibbon_link' => $this->twibbon,
             'transfer_proof' => $proof,
         ]);
 

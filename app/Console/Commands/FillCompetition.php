@@ -44,24 +44,29 @@ class FillCompetition extends Command
                 'nominal' => 30001,
                 'last_digit' => 1,
                 'multiple_registration' => true,
+                'line_group_link' => 'http://line.me/ti/g/jSLzv5fN9U',
             ],
             [
                 'name' => 'DESIGN',
                 'nominal' => 25003,
                 'last_digit' => 3,
                 'multiple_registration' => false,
+                'line_group_link' => 'http://line.me/ti/g/t1e_18nVnc',
+
             ],
             [
                 'name' => 'VIDEO',
                 'nominal' => 30005,
                 'last_digit' => 5,
                 'multiple_registration' => true,
+                'line_group_link' => 'http://line.me/ti/g/BoPYndzVtD',
             ],
             [
                 'name' => 'PHOTO',
                 'nominal' => 25006,
                 'last_digit' => 6,
                 'multiple_registration' => false,
+                'line_group_link' => 'http://line.me/ti/g/nSM2VJPwA_'
             ],
         ];
 
