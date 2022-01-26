@@ -44,8 +44,8 @@ class ContestRegistration extends Component
     public function submit()
     {
         $this->validate([
-            'names.1' => Rule::requiredIf(fn() => $this->competition->multiple_registration),
-            'names.2' => Rule::requiredIf(fn() => $this->competition->multiple_registration),
+            // 'names.1' => Rule::requiredIf(fn() => $this->competition->multiple_registration),
+            // 'names.2' => Rule::requiredIf(fn() => $this->competition->multiple_registration),
             'university' => Rule::requiredIf(fn() => $this->category === "mahasiswa"),
             'region' => Rule::requiredIf(fn() => $this->category === 'umum'),
             'twibbon' => 'required',
