@@ -41,6 +41,6 @@ Route::get('/download_sop_human',DownloadController::class.'@downloadhuman')->na
 Route::get('/download_sop_video',DownloadController::class.'@downloadvideo')->name('dlvideo');
 Route::get('/download_sop_mashup',DownloadController::class.'@downloadmashup')->name('dlmashup');
 Route::get('/download_sop_desain',DownloadController::class.'@downloaddesain')->name('dldesain');
-
+Route::get('/download_laporan_orisinalitas',DownloadController::class.'@downloadlaporan')->name('dllaporan');
 
 Auth::routes(['verify'=> true]);

@@ -28,4 +28,9 @@ class DownloadController extends Controller
         $filepath = public_path().'/pdf/sopdesain.pdf';
         return Response::download($filepath); 
     }
+    public function downloadlaporan()
+    {
+        $filepath = public_path().'/docx/lembarorisinalitas.docx';
+        return Response::download($filepath); 
+    }
 }
