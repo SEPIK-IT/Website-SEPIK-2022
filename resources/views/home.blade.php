@@ -10,6 +10,7 @@
 </head>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 <style type="text/css">
 
 @font-face {
@@ -49,6 +50,25 @@ body {
 		transform: translateX(-50%);
 
 	}
+
+@media only screen and (max-width: 700px) {
+  #maskot {
+    width: 300px !important;
+  }
+  #epik{
+	  display: none !important;
+  }
+  #apik{
+	  display: none !important;
+  }
+  #updown{
+	  width:150px !important;
+  }
+
+
+}
+
+
 
 
 	#logo{
@@ -456,8 +476,48 @@ body {
 	src: url('font/rutaban.ttf');
 }
 
+#updown{
+	width:200px;
+	position:fixed;
+	right:5%;
+	bottom:10px;
+}
+
+#epik{
+	position:fixed;
+	right:21%;
+	bottom:10px;
+	animation: epikanim 2s ease-out infinite;
+
+}
+#apik{
+	position:fixed;
+	right:18%;
+	bottom:15px;
+	animation: apikanim 2s ease-out infinite;
+
+}
 
 
+@keyframes epikanim{
+    0%,100%{
+        bottom:10px;
+    }
+    50%{
+        bottom:15px;
+    }
+
+}
+
+@keyframes apikanim{
+    0%,100%{
+        bottom:15px;
+    }
+    50%{
+        bottom:20px;
+    }
+
+}
 
 
 
@@ -487,6 +547,7 @@ body {
   color: #443926;
   display: block;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .sidebar .sub-judul {
@@ -497,6 +558,7 @@ body {
   color: #443926;
   display: block;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 
@@ -531,7 +593,6 @@ body {
   font-size: 27px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar .judul {font-size: 18px;}
@@ -555,7 +616,7 @@ body {
         				<div style="" class="">
         		
         		
-        		<img id="sepik" style="width:800px" src="{{ asset('img/sepik.png') }}">
+        		<img id="sepik" style="width:800px; cursor:pointer;" src="{{ asset('img/sepik.png') }}" data-bs-toggle="modal" data-bs-target="#aboutmodal">
         		<img id="signTimeline" style="width:250px" src="{{ asset('img/signTimeline.png') }}">
 
 
@@ -664,7 +725,8 @@ body {
         				<div class="modal-body" >
         					<button style="float: right;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         					<h1 style="text-align: center;">Jalesveva</h1>
-        					<p style="text-align:center;">Monumen Jalesveva Jayamahe atau Monjaya adalah sebuah monumen yang terletak di Kota Surabaya, Jawa Timur. Monumen ini menggambarkan sosok Perwira TNI Angkatan Laut berbusana Pakaian Dinas Upacara (PDU) lengkap dengan pedang kehormatan yang sedang menerawang ke arah laut, serasa siap menantang gelombang dan badai di lautan, begitu pula yang ingin di perlihatkan bahwa angkatan laut Indonesia siap berjaya. Patung tersebut berdiri di atas bangunan dan tingginya mencapai 30,6 meter. Monumen Jalesveva Jayamahe menggambarkan generasi penerus bangsa yang yakin dan optimis untuk mencapai cita-cita bangsa Indonesia</p>
+        					<p style="text-align:center;">Monumen Jalesveva Jayamahe atau Monjaya adalah sebuah monumen yang terletak di Kota Surabaya, Jawa Timur. Monumen ini menggambarkan sosok Perwira TNI Angkatan Laut berbusana Pakaian Dinas Upacara (PDU) lengkap dengan pedang kehormatan yang sedang menerawang ke arah laut, serasa siap menantang gelombang dan badai di lautan, begitu pula yang ingin diperlihatkan bahwa angkatan laut indonesia siap berjaya. Patung tersebut berdiri di atas bangunan dan tingginya mencapai 30,6 meter. Monumen Jalesveva Jayamahe menggambarkan generasi penerus bangsa yang yakin dan optimis untuk mencapai cita-cita Bangsa Indonesia. 
+</p>
         				</div>
 
         			</div>
@@ -678,7 +740,8 @@ body {
         				<div class="modal-body" >
         					<button style="float: right;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         					<h1 style="text-align: center;">Tugu</h1>
-        					<p style="text-align:center;">Monumen Jalesveva Jayamahe atau Monjaya adalah sebuah monumen yang terletak di Kota Surabaya, Jawa Timur. Monumen ini menggambarkan sosok Perwira TNI Angkatan Laut berbusana Pakaian Dinas Upacara (PDU) lengkap dengan pedang kehormatan yang sedang menerawang ke arah laut, serasa siap menantang gelombang dan badai di lautan, begitu pula yang ingin di perlihatkan bahwa angkatan laut Indonesia siap berjaya. Patung tersebut berdiri di atas bangunan dan tingginya mencapai 30,6 meter. Monumen Jalesveva Jayamahe menggambarkan generasi penerus bangsa yang yakin dan optimis untuk mencapai cita-cita bangsa Indonesia</p>
+        					<p style="text-align:center;">Tugu Pahlawan merupakan saksi dari pertempuran 10 November 1945. Tugu Pahlawan didirikan pada tahun 1951, dan diresmikan pada tanggal 10 November 1952 di Surabaya. Tugu Pahlawan dibangun dengan ketinggian 41,115 meter. Pada tahun 1988, kawasan tempat Tugu Pahlawan ini berada mulai dibenahi dengan menambahkan museum, patung, pintu masuk, dan patung perjuangan. Saat ini, Tugu Pahlawan telah berusia 69 tahun dan tetap menjadi saksi perjuangan arek-arek Surabaya.
+</p>
         				</div>
 
         			</div>
@@ -692,7 +755,7 @@ body {
         				<div class="modal-body" >
         					<button style="float: right;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         					<h1 style="text-align: center;">Monkasel</h1>
-        					<p style="text-align:center;">Monumen Jalesveva Jayamahe atau Monjaya adalah sebuah monumen yang terletak di Kota Surabaya, Jawa Timur. Monumen ini menggambarkan sosok Perwira TNI Angkatan Laut berbusana Pakaian Dinas Upacara (PDU) lengkap dengan pedang kehormatan yang sedang menerawang ke arah laut, serasa siap menantang gelombang dan badai di lautan, begitu pula yang ingin di perlihatkan bahwa angkatan laut Indonesia siap berjaya. Patung tersebut berdiri di atas bangunan dan tingginya mencapai 30,6 meter. Monumen Jalesveva Jayamahe menggambarkan generasi penerus bangsa yang yakin dan optimis untuk mencapai cita-cita bangsa Indonesia</p>
+        					<p style="text-align:center;">Monumen kapal selam atau sering disebut sebagai Monkasel merupakan monumen yang didirikan pada tanggal 1 Juli 1995 dan baru dibuka pada tahun 15 Juli 1998. Monumen ini terbuat dari kapal selam KRI Pasopati 410 yang merupakan salah satu armada Angkatan Laut Republik Indonesia buatan Uni Soviet tahun 1952 nan pernah dilibatkan dalam Pertempuran Laut Aru untuk membebaskan Irian Barat dari pendudukan Belanda.</p>
         				</div>
 
         			</div>
@@ -706,7 +769,7 @@ body {
         				<div class="modal-body" >
         					<button style="float: right;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         					<h1 style="text-align: center;">Surabaya</h1>
-        					<p style="text-align:center;">Monumen Jalesveva Jayamahe atau Monjaya adalah sebuah monumen yang terletak di Kota Surabaya, Jawa Timur. Monumen ini menggambarkan sosok Perwira TNI Angkatan Laut berbusana Pakaian Dinas Upacara (PDU) lengkap dengan pedang kehormatan yang sedang menerawang ke arah laut, serasa siap menantang gelombang dan badai di lautan, begitu pula yang ingin di perlihatkan bahwa angkatan laut Indonesia siap berjaya. Patung tersebut berdiri di atas bangunan dan tingginya mencapai 30,6 meter. Monumen Jalesveva Jayamahe menggambarkan generasi penerus bangsa yang yakin dan optimis untuk mencapai cita-cita bangsa Indonesia</p>
+        					<p style="text-align:center;">Patung Sura dan Baya merupakan monumen ikonik yang melambangkan Kota Pahlawan kita, Surabaya. Patung ini terdiri atas dua hewan yang menginspirasi nama kota Surabaya yakni ikan sura (hiu) dan baya (buaya) yang dikelilingi oleh bentuk menyerupai rumput laut, terbentang di 3 lokasi antara lain di Taman Skate dan Board di Jalan Ketabang Kali, Bantaran Sungai Kalimas, dan Jalan Pantai Kenjeran. Patung berlambang sura dan baya berasal dari legenda Sura dan Baya yang tak asing didengar bagi penduduk Surabaya. Selain legenda tersebut, simbol patung Sura dan Baya juga melambangkan keberanian para pemuda Surabaya dalam mempertahankan wilayah Surabaya dengan menentang bahaya.</p>
         				</div>
 
         			</div>
@@ -720,13 +783,39 @@ body {
         				<div class="modal-body" >
         					<button style="float: right;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         					<h1 style="text-align: center;">Bamburuncing</h1>
-        					<p style="text-align:center;">Monumen Jalesveva Jayamahe atau Monjaya adalah sebuah monumen yang terletak di Kota Surabaya, Jawa Timur. Monumen ini menggambarkan sosok Perwira TNI Angkatan Laut berbusana Pakaian Dinas Upacara (PDU) lengkap dengan pedang kehormatan yang sedang menerawang ke arah laut, serasa siap menantang gelombang dan badai di lautan, begitu pula yang ingin di perlihatkan bahwa angkatan laut Indonesia siap berjaya. Patung tersebut berdiri di atas bangunan dan tingginya mencapai 30,6 meter. Monumen Jalesveva Jayamahe menggambarkan generasi penerus bangsa yang yakin dan optimis untuk mencapai cita-cita bangsa Indonesia</p>
+        					<p style="text-align:center;">Monumen Bambu Runcing merupakan bentuk apresiasi atas perjuangan arek-arek Surabaya pada pertempuran 10 November 1945. Monumen ini diresmikan oleh Gubernur Kepala Daerah Tingkat 1 Jawa Timur, H. Prijosoedarmo pada 25 Mei 1981. Bentuk bambu runcing dalam monumen tersebut menggambarkan senjata yang dipakai para pejuang saat melawan para penjajah.</p>
         				</div>
 
         			</div>
         		</div>
         	</div>
 
+        	<div class="modal fade" id="aboutmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        		<div class="modal-dialog modal-dialog-centered">
+        			<div class="modal-content" style="background-color: #f0ece4;">
+
+        				<div class="modal-body" >
+        					<button style="float: right;" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        					<h1 style="text-align: center;">Surabaya Epik 2022</h1>
+        					<p style="text-align:center;">Surabaya Epik merupakan kegiatan kolaborasi 4 universitas swasta di Surabaya yang terdiri dari Universitas Kristen Petra, Universitas Surabaya, Universitas Ciputra, dan Universitas Widya Mandala Surabaya. Didasarkan dengan motto “Arek Epik dengan Semangat Apik yang wani Sepik Up”, Surabaya Epik dihadirkan kembali di tahun 2022 dengan kegiatan dan isu sosial baru yaitu Kebudayaan. Kegiatan ini diyakini menjadi momentum yang tepat untuk menghadirkan kembali kecintaan akan kebudayaan Surabaya di era saat ini. <br>
+
+Dengan mengangkat tema besar Gelora Arek Sepik kanggo Aksi Apik, kegiatan ini diharapkan dapat membakar semangat dan antusiasme arek - arek Surabaya untuk semakin tanggap dan peka dalam memberikan uluran tangan, khususnya masyarakat yang bergerak di bidang kebudayaan. Sejalan dengan tema tersebut, Surabaya Epik 2022 hadir dengan jargon “Mangun Karsa Kalih Rasa” yang bertujuan untuk membangun niat dan keinginan arek - arek Surabaya untuk mau melakukan tindakan yang mulia dan berdampak bagi masyarakat.
+
+</p>
+        				</div>
+
+        			</div>
+        		</div>
+        	</div>
+
+
+			<div id="updown" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Scroll up / down ^.^</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<img id="apik" style="width:40px" src="{{ asset('img/apik.png') }}">
+<img id="epik" style="width:40px" src="{{ asset('img/epik.png') }}">
 
         	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         	
@@ -777,8 +866,8 @@ $(document).on('click', "#banner", function(event) {
 
 
 function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("mySidebar").style.width = "300px";
+  document.getElementById("main").style.marginLeft = "300px";
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
