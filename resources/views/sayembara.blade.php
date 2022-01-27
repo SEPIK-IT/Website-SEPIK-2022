@@ -184,7 +184,7 @@
                         <tr>
                             <td class="pt-2">
                                 <div class="d-flex justify-content-evenly">
-                                    <div class="pendaftaranbutton" style="cursor: pointer;" onclick="location.href='{{route('contestRegistration', ['competition' => 2])}}'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
+                                    <div class="pendaftaranbutton" style="cursor: pointer;height: 50px; width: 100%; background: #51442d; border-radius: 80px; z-index: 0;" onclick="location.href='{{route('contestRegistration', ['competition' => 2])}}'"><p class="d-flex align-items-center justify-content-center" style="line-height: 50px; color: white;">PENDAFTARAN</p></div>
                                     <div class="lpobutton" style="cursor: pointer; background: #686d5f; border-radius: 80px; height: 50px; width: 135%;" onclick="location.href='{{route('dllaporan')}}'"><p class="d-flex align-items-center justify-content-center text-center" style="line-height: 50px; color: white;">LEMBAR ORISINALITAS</p></div>
                                 </div>
                             </td>
