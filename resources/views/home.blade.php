@@ -501,20 +501,20 @@ body {
 
 @keyframes epikanim{
     0%,100%{
-        bottom:10px;
+        bottom:30px;
     }
     50%{
-        bottom:15px;
+        bottom:35px;
     }
 
 }
 
 @keyframes apikanim{
     0%,100%{
-        bottom:15px;
+        bottom:35px;
     }
     50%{
-        bottom:20px;
+        bottom:40px;
     }
 
 }
@@ -809,13 +809,13 @@ Dengan mengangkat tema besar Gelora Arek Sepik kanggo Aksi Apik, kegiatan ini di
         	</div>
 
 
-			<div id="updown" class="alert alert-warning alert-dismissible fade show" role="alert">
+			<div id="updown" class="alert alert-dismissible fade show" role="alert">
   <strong>Scroll up / down ^.^</strong>
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <button id="closealert" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
-<img id="apik" style="width:40px" src="{{ asset('img/apik.png') }}">
-<img id="epik" style="width:40px" src="{{ asset('img/epik.png') }}">
+<img id="apik" style="width:30px" src="{{ asset('img/apik.png') }}">
+<img id="epik" style="width:30px" src="{{ asset('img/epik.png') }}">
 
         	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         	
@@ -846,6 +846,12 @@ Dengan mengangkat tema besar Gelora Arek Sepik kanggo Aksi Apik, kegiatan ini di
         		
   
 });
+
+$('#closealert').click(function() {
+	$("#apik").css("display", "none");
+	$("#epik").css("display", "none");
+});
+
 
 
 
