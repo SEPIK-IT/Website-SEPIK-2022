@@ -1,25 +1,107 @@
-
-
 $(document).ready(function () {
-    $(".imgBukti").hide();
+    if ($("#table_donasi").length > 0) {
+        initDataTable();
+    }
+
+    if ($("#btn-copy").length > 0) {
+        copyButton();
+    }
 
     countDown();
     modalImage();
-    copyButton();
+    initTooltip();
 
     //untuk kategori
-    $('#kategori').on('change', function(){
-        if($('#kategori').val() == 'umum'){
+    $('#kategori').on('change', function () {
+        if ($('#kategori').val() == 'umum') {
             $('.sumber').fadeOut();
             $('#sumber').val('umum');
             $('#nrp').val("-")
-        }else{
+        } else {
             $('.sumber').fadeIn();
             $('#sumber').val('ukp');
             $('#nrp').val("")
         }
     });
 });
+
+function initDataTable() {
+
+    //init data table
+    var select;
+    $('#table_donasi').DataTable({
+        "order": [],
+        initComplete: function () {
+            // Apply the dropdown search for column kategory and konfirmasi only
+            this.api().columns(2).every(function () {
+                var column = this;
+                select = $('<select class="form-select"><option value=""></option></select>')
+                    .appendTo( $(column.header()) )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+                
+            });
+
+            //append option to column kategory
+            select = $("select", "#kategori");
+            select.append( '<option val="Universitas Kristen Petra" > Universitas Kristen Petra </option>' );
+            select.append( '<option val="Universitas Ciputra" > Universitas Ciputra </option>' );
+            select.append( '<option val="Universitas Katolik Widya Mandala" > Universitas Katolik Widya Mandala </option>' );
+            select.append( '<option val="Universitas Surabaya" > Universitas Surabaya </option>' );
+            select.append( '<option val="Umum" > Umum </option>' );
+
+            this.api().columns(6).every(function () {
+                var column = this;
+                select = $('<select class="form-select"><option value=""></option></select>')
+                    .appendTo( $(column.header()) )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val  )
+                            .draw();
+                    } );
+                
+            });
+
+            //append option to column konfirmasi
+            select = $("select", "#konfirmasi");
+            select.append( '<option value="2" >  Belum dikonfirmasi</option>' );
+            select.append( '<option value="1" >  Verified</option>' );
+            select.append( '<option value="0" >  Data salah</option>' );
+            
+            //append input search to column nama and nrp (bukti but disabled)
+            $("#nama").append('<input class="form-control" type="text" />');
+            $("#nrp").append('<input class="form-control" type="text" />');
+            $("#nominal").append('<input class="form-control" type="text" />');
+            $("#submit-at").append('<input class="form-control" type="text" />');
+            $("#bukti").append('<input class="form-control" type="text" disabled />');
+            
+            //apply search for column nama and nrp
+            this.api().columns().every(function () {
+                var that = this;
+    
+                // search for input text
+                $('input', this.header()).on('keyup change clear', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+        }
+    });
+}
 
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -37,7 +119,7 @@ function readURL(input) {
     }
 }
 
-function modalImage(){
+function modalImage() {
     // Get the modal
     var modal = document.getElementById("myModal");
 
@@ -113,4 +195,11 @@ function countDown() {
 
 function copyButton() {
     var clipboard = new ClipboardJS('#btn-copy');
+}
+
+function initTooltip() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 }

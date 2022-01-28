@@ -21,8 +21,8 @@ body {
 }
 
 .btn-sepik {
-    background-color: rgba(68, 57, 38, 255);
-    color: white;
+    background-color: rgba(68, 57, 38, 255) !important;
+    color: white !important;
 }
 
 .btn-sepik:hover {

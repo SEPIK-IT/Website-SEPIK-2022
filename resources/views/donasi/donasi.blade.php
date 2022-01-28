@@ -161,7 +161,7 @@
 
                         <!-- img container -->
                         <div class="col-sm-12 mb-3">
-                            <img class="img-fluid imgBukti myImg" id="myImg" src="http://placehold.it/180">
+                            <img class="img-fluid imgBukti myImg" id="myImg" src="">
                         </div>
 
                         <input class="form-control @error('bukti') is-invalid @enderror" type="file" id="bukti" onchange="readURL(this)" name='bukti' required>

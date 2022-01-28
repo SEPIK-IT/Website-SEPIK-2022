@@ -85,12 +85,12 @@
 
                                 <div class="card-body">
                                     <!-- isi pesan -->
-                                    <p class="card-text">
+                                    <h4 class="card-text">
                                         {{ $pesan->pesan }}
-                                    </p>
+                                    </h4>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <!-- nama pendonasi -->
-                                        <small class="text-muted"> {{ $pesan->nama }} </small>
+                                        <h5 class="text-muted"> {{ $pesan->nama }} </h5>
                                     </div>
                                 </div>
                             </div>

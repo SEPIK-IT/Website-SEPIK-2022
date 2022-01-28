@@ -12,6 +12,6 @@ class Donasi extends Model
     protected $fillable = ['nama', 'nominal', 'sumber', 'bukti', 'nrp'];
 
     protected $attributes = [
-        'konfirmasi' => 0
+        'konfirmasi' => 2
     ];
 }
