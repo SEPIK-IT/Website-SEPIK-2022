@@ -18,7 +18,7 @@
                             {{-- <input type="hidden" name="_method" value="PATCH"> --}}
 
                             <div class="form-group mt-3">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Surel (Surat Elektronik)') }}</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
 
                                 <div class="col">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"

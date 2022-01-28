@@ -34,7 +34,7 @@
 
                             <div class="form-group mt-2">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Surel (Surat Elektronik)') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
 
                                 <div class="col">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
