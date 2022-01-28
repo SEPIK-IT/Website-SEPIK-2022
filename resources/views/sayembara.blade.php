@@ -61,7 +61,7 @@
                         <tr>
                             <td>
                                 {{-- <div class="capsulebutton" style="cursor: pointer;" onclick="location.href='#'"><span class="position-relative text-end">test</span><div class="innerbutton text-center">test</div></div> --}}
-                                <div style="cursor: pointer;" onclick="location.href='{{route('dlhuman')}}'" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center text-white text-center">Rp 25.000,-/individu</div> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download text-white ms-2" viewBox="0 0 16 16">
+                                <div style="cursor: pointer; height: 50px; width: 100%; background: #51442d; border-radius: 80px; z-index: 0;" onclick="location.href='{{route('dlhuman')}}'" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center text-white text-center">Rp 25.000,-/individu</div> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download text-white ms-2" viewBox="0 0 16 16">
                                     <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                                     <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
                                   </svg><div class="mx-2 text-white">SOP SAYEMBARA</div></div>
@@ -105,7 +105,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div style="cursor: pointer;" onclick="location.href='{{route('dlvideo')}}'" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center text-white">Rp 30.000,-/tim</div> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download text-white ms-2" viewBox="0 0 16 16">
+                                <div style="cursor: pointer; height: 50px; width: 100%; background: #51442d; border-radius: 80px; z-index: 0;" onclick="location.href='{{route('dlvideo')}}'" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center text-white">Rp 30.000,-/tim</div> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download text-white ms-2" viewBox="0 0 16 16">
                                     <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                                     <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
                                   </svg><div class="mx-2 text-white">SOP SAYEMBARA</div></div>
@@ -149,7 +149,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div style="cursor: pointer;" onclick="location.href='{{route('dlmashup')}}'" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center text-white">Rp 30.000,-/tim</div> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download text-white ms-2" viewBox="0 0 16 16">
+                                <div style="cursor: pointer; height: 50px; width: 100%; background: #51442d; border-radius: 80px; z-index: 0;" onclick="location.href='{{route('dlmashup')}}'" class="capsulebutton d-flex align-items-center justify-content-start"><div class="innerbutton d-flex align-items-center justify-content-center text-white">Rp 30.000,-/tim</div> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download text-white ms-2" viewBox="0 0 16 16">
                                     <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                                     <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
                                   </svg><div class="mx-2 text-white">SOP SAYEMBARA</div></div>
