@@ -640,13 +640,14 @@ body {
 
            		<button id="moreinfo1" style="background-color: #9c8459;color: white;"><a href="https://www.google.com">More Info</a></button>
 
-           		<button id="moreinfo2" style="background-color: #9c8459;color: white;"><a href="https://www.google.com">More Info</a></button>
+				<button id="moreinfo2" data-bs-toggle="modal" data-bs-target="#modalcs" style="background-color: #9c8459;color: white;">More Info</button>
 
-           		<button id="moreinfo3" style="background-color: #9c8459;color: white;"><a href="https://www.google.com">More Info</a></button>
+				<button id="moreinfo3" data-bs-toggle="modal" data-bs-target="#modalcs" style="background-color: #9c8459;color: white;">More Info</button>
 
-           		<button id="moreinfo4" style="background-color: #9c8459;color: white;"><a href="https://www.google.com">More Info</a></button>
+				<button id="moreinfo4" data-bs-toggle="modal" data-bs-target="#modalcs" style="background-color: #9c8459;color: white;">More Info</button>
 
-           		<button id="moreinfo5" style="background-color: #9c8459;color: white;"><a href="https://www.google.com">More Info</a></button>
+				<button id="moreinfo5" data-bs-toggle="modal" data-bs-target="#modalcs" style="background-color: #9c8459;color: white;">More Info</button>
+
 
    <!--         		<button id="tooglebar" onclick="openNav()" style="background-color: transparent;"><i class="fas fa-bars fa-2x"></i></button> -->
 
@@ -807,6 +808,30 @@ Dengan mengangkat tema besar Gelora Arek Sepik kanggo Aksi Apik, kegiatan ini di
         			</div>
         		</div>
         	</div>
+
+			<div class="modal fade" id="modalcs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius:30px" >
+    
+      <div class="modal-body"  >
+
+
+
+<!-- start -->
+    <div style="justify-items: center; justify-content:center; text-align: center;">
+        <i style="color:#e30202" class="far fa-times-circle fa-7x"></i>
+        
+        <h3 style="text-align:center;">COMING SOON!</h3>
+        <button style="justify-items: center; justify-content:center; text-align:center; margin: auto; display: flex; color: white; background-color: black; border: none; padding: 3px 9px; width:50px" type="button" class="close3" data-bs-dismiss="modal" aria-label="Close">OK</button>
+        </div>
+
+<!-- end -->
+     
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 
 			<div id="updown" class="alert alert-warning alert-dismissible fade show" role="alert">
