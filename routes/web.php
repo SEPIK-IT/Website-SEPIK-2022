@@ -29,6 +29,8 @@ Route::get('/sayembara', function () {
     return view('sayembara');
 });
 
+Route::get('/pameranVideo', 'App\Http\Controllers\linkController@index');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
