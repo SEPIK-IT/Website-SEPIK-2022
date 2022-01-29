@@ -24,7 +24,7 @@
         <!-- Data table Pendonasi -->
 
         <div class="row justify-content-center px-4">
-            <div class="col-sm-12 col-md-10 col-xl-10 ">
+            <div class="col-sm-12 col-md-11 col-xl-11 table-responsive">
                 <table id="table_donasi" class="table table-bordered table-striped table-hover table-light">
                     <thead>
                         <tr>
@@ -63,15 +63,17 @@
                                     <button type="button" class="btn btn-sepik myImg" src="{{ asset('storage/' . $donasi->bukti) }}">Show Bukti</button>
                                 </td>
 
-                                <td>
+                                <td class="edit" id="{{ $donasi->id_donasi }}">
+                                    <button type="button" class="btn btn-lg" data-bs-toggle="popover">
                                     @if ($donasi->konfirmasi === 2)
-                                        <i class="bi bi-exclamation-circle-fill text-warning" data-bs-toggle="tooltip" data-bs-placement="right" title="Belum dikonfirmasi"></i>
+                                        <i class="bi bi-exclamation-circle-fill text-warning"></i>
                                     @elseif ($donasi->konfirmasi === 1)
-                                        <i class="bi bi-check-circle-fill text-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Verified"></i>
+                                        <i class="bi bi-check-circle-fill text-success"></i>
                                     @elseif ($donasi->konfirmasi === 0)
-                                        <i class="bi bi-x-circle-fill text-danger" data-bs-toggle="tooltip" data-bs-placement="right" title="Data salah"></i>
+                                        <i class="bi bi-x-circle-fill text-danger"></i>
                                     @endif
-                                    <div style="display: none">{{ $donasi->konfirmasi }}</div>
+                                    </button>
+                                    <div class="data" style="display: none">{{ $donasi->konfirmasi }}</div>
                                 </td>
                             </tr>
                         @endforeach
@@ -92,6 +94,18 @@
 
     </div>
 
+    <!-- toast for notif -->
+    <div class="toast" style="position: fixed; bottom: 10px; right: 10px; z-index: 3">
+        <div class="toast-header">
+            <strong class="me-auto text-info">NOTIFICATION</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+            <p>Sukses</p>
+        </div>
+    </div>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </body>
 
 <!-- jquery -->

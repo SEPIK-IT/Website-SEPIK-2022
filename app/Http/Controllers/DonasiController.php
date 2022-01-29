@@ -59,4 +59,17 @@ class DonasiController extends Controller
 
         return redirect('/donasi/suwun');
     }
+
+    public function update(Request $request)
+    {
+        $id = $request['id'];
+        $data = $request['data'];
+        $changeTo = $request['changeTo'];
+
+        $hasil = Donasi::where('id_donasi', $id)
+                ->update(['konfirmasi' => $changeTo]);
+
+        // return [$id, $data, $changeTo];
+        return $hasil;
+    }
 }
