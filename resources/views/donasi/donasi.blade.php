@@ -12,7 +12,7 @@
     <div class="container">
         <!-- heading / judul -->
         <div class="mt-4 p-5 rounded bold text-center">
-            <h1 class="my-4">DONASI SEPIK 2022</h1>
+            <h1 class="my-4">PENGGALANGAN DANA SEPIK 2022</h1>
 			<img src="/img/semanggi.png" alt="semanggi" width='50px'>
         </div>
 

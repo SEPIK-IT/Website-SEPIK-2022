@@ -259,10 +259,10 @@ function countDown() {
         // Set the date we're counting down to
         if (now < startDonation) {
             var countDownDate = startDonation;
-            var ket = "Donasi akan dimulai";
+            var ket = "Penggalangan dana akan dimulai";
         } else {
             var countDownDate = endDonation;
-            var ket = "Donasi akan berakhir";
+            var ket = "Penggalangan dana akan berakhir";
         }
 
         // Find the distance between now and the count down date
@@ -288,7 +288,7 @@ function countDown() {
             $("#jam").text("0");
             $("#menit").text("0");
             $("#detik").text("0");
-            $("#ket-donasi").text("Donasi ditutup");
+            $("#ket-donasi").text("Penggalangan dana ditutup");
         }
     }, 1000);
 }

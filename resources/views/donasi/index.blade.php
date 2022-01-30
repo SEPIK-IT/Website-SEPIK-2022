@@ -12,7 +12,7 @@
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light my-3">DONASI</h1>
+                    <h1 class="fw-light my-3">PENGGALANGAN DANA</h1>
                     <img src="/img/semanggi.png" alt="semanggi" width='50px'>
 
                     <p class="lead text-muted mt-5">Penggalangan dana SEPIK 2022 ditujukan kepada budayawan dan
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="count-down-box donasi-box text-center">
-                    <h2>Konfirmasi Donasi Terkumpul</h2>
+                    <h2>Konfirmasi Dana Terkumpul</h2>
                     <!-- dari data base -->
                     <h2>@currency($total) </h2>
                 </div>
@@ -73,7 +73,7 @@
 
         <!-- pesan pesan -->
         <hr class="my-5" style="height:5px">
-        <h2 class="text-center my-4">PESAN-PESAN PENDONASI</h2>
+        <h2 class="text-center my-4">PESAN-PESAN</h2>
         <div class="album py-5" id="album">
             <div class="container">
 
