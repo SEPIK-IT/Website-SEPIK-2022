@@ -213,7 +213,3 @@
 <script src="/js/donasi.js"></script>
 
 @endsection
-
-<!-- 
-    namaa page
- -->
