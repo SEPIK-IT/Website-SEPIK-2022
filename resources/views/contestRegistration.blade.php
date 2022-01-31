@@ -21,7 +21,7 @@
         style="background-color: transparent; z-index: 0; position: absolute; margin-left: 90%; margin-top: 2.5%;"><i
         class="fas fa-bars fa-2x"></i></button>
 @extends('layouts.sidebar')
-<livewire:contest-registration-multiple :competition="$competition" />
+<livewire:contest-registration :competition="$competition" />
 @livewireScripts
 </body>
 </html>
