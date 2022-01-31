@@ -46,7 +46,7 @@ class CreateTestUser extends Command
             'name' => $faker->name,
             'email' => 'test@test.com',
             'phone' => $faker->phoneNumber,
-            'line_id' => $faker->text,
+            'line_id' => $faker->text('10'),
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
         ]);

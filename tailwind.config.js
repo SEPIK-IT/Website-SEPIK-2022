@@ -7,10 +7,14 @@ module.exports = {
         './resources/views/**/*.blade.php',
     ],
 
+    prefix: 'tw-',
+    important: ".tailwind",
+
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                serif: ['rutaban', ...defaultTheme.fontFamily.serif]
             },
         },
     },

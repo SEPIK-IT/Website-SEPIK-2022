@@ -1,266 +1,434 @@
 <div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-2 p-0">
-                <img class="img-blok" src="{{ asset('img/auth/batik_cokelat.png') }}" alt="batik_cokelat.png">
+    <h1>{{$competition->title}}</h1>
+    <form wire:submit.prevent="verifyAndNextStep">
+        @switch($steps)
+            @case(1)
+            <div class="card my-2">
+                <div class="card-body">
+                    {!! $competition->intro_text !!}
+                </div>
             </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3>Tentukan jumlah anggota</h3>
+                    <label for="memberCount"
+                           class="col-md-4 col-form-label text-md-right">Jumlah anggota</label>
+                    <div class="col">
+                        <select id="memberCount" wire:model.lazy="memberCount" name="memberCount"
+                                class="form-control @error('memberCount') is-invalid @enderror" required>
+                            <option value="1">1 Anggota</option>
+                            <option value="2">2 Anggota</option>
+                            <option value="3">3 Anggota</option>
+                        </select>
 
-            <div class="col p-4">
-                <h1>Contest Registration</h1>
-                @if(!$thankyou)
-                    <div class="text-body">
-                        <form wire:submit.prevent="submit" method="POST">
+                        @error('memberCount')
+                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+            @break
 
-                            {{-- Data form --}}
-                            @csrf
-                            {{-- <input type="hidden" name="_method" value="PATCH"> --}}
+            @case(2)
+            @if(!$competition->multiple_registration)
+                <div class="card my-2">
+                    <div class="card-body">
+                        {!! $competition->intro_text !!}
+                    </div>
+                </div>
+            @endif
+            <div class="d-grid gap-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>{{$memberCount > 1 ? 'Data anggota tim' : 'Data peserta lomba'}}</h3>
+                        @if($memberCount > 1)
+                            <p>1 tim {{$memberCount}} anggota</p>
+                        @else
+                            <p>Silakan lengkapi data dibawah</p>
+                        @endif
+                    </div>
+                </div>
 
-                            <div class="form-group mt-5">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
-                                <div class="d-flex my-2">
-                                    <input id="name" readonly type="text"
-                                           class="form-control @error("names.0") is-invalid @enderror"
-                                           placeholder="Masukkan nama anggota"
-                                           name="name" wire:model="names.0"
-                                           required>
+                @foreach(range(1, $memberCount) as $mc)
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>{{$memberCount > 1 ? "Informasi anggota {$mc}" : "Informasi peserta"}}</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-grid gap-4">
+                                <div class="form-group">
+                                    <label for="names.{{$mc - 1}}"
+                                           class="col-md-4 col-form-label text-md-right">Nama lengkap
+                                        {{$memberCount > 1 ? " anggota {$mc}" : " peserta"}}
+                                    </label>
+                                    <small>Untuk keperluan e-certificate</small>
+
+                                    <div class="col">
+                                        <input id="names.{{$mc - 1}}" type="text"
+                                               class="form-control @error('names' . ($mc - 1)) is-invalid @enderror"
+                                               name="names.{{$mc - 1}}" wire:model.lazy="names.{{$mc - 1}}">
+
+                                        @error('names' . ($mc - 1))
+                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                        @enderror
+                                    </div>
+
                                 </div>
-                                @error("names.0")
+
+                                <div class="form-group">
+                                    <label for="identifications.{{$mc - 1}}"
+                                           class="col-md-4 col-form-label text-md-right">NRP / NIK
+                                        {{$memberCount > 1 ? " anggota {$mc}" : " peserta"}}
+                                    </label>
+                                    <small class="d-block">NIK (Untuk masyarakat umum)</small>
+
+                                    <div class="col">
+                                        <input id="identifications.{{$mc - 1}}" type="text"
+                                               class="form-control @error('identifications' . ($mc - 1)) is-invalid @enderror"
+                                               name="identifications.{{$mc - 1}}"
+                                               required
+                                               wire:model.lazy="identifications.{{$mc - 1}}">
+
+                                        @error('identifications' . ($mc - 1))
+                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="origins.{{$mc - 1}}"
+                                           class="col-md-4 col-form-label text-md-right">Asal universitas /
+                                        Instansi {{$memberCount > 1 ? " anggota {$mc}" : " peserta"}}
+                                    </label>
+                                    <small class="d-block">Instansi (Untuk masyarakat umum)</small>
+
+                                    <div class="col">
+                                        <input id="origins.{{$mc - 1}}" type="text"
+                                               class="form-control @error('origins' . ($mc - 1)) is-invalid @enderror"
+                                               name="origins.{{$mc - 1}}"
+                                               required
+                                               wire:model.lazy="origins.{{$mc - 1}}">
+
+                                        @error('origins' . ($mc - 1))
+                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="regions.{{$mc - 1}}"
+                                           class="col-md-4 col-form-label text-md-right">Asal daerah
+                                        {{$memberCount > 1 ? " anggota {$mc}" : " peserta"}}
+                                    </label>
+
+                                    <div class="col">
+                                        <input id="regions.{{$mc - 1}}" type="text"
+                                               class="form-control @error('regions' . ($mc - 1)) is-invalid @enderror"
+                                               name="regions.{{$mc - 1}}"
+                                               required
+                                               wire:model.lazy="regions.{{$mc - 1}}">
+
+                                        @error('regions' . ($mc - 1))
+                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="upload_ids.{{$mc - 1}}"
+                                           class="col-md-4 col-form-label text-md-right">Upload KTP/KTM/SIM
+                                        {{$memberCount > 1 ? " anggota {$mc}" : " peserta"}}
+                                    </label>
+
+                                    <div class="col">
+                                        <input id="upload_ids.{{$mc - 1}}" type="file"
+                                               class="form-control @error('upload_ids' . ($mc - 1)) is-invalid @enderror"
+                                               name="upload_ids.{{$mc - 1}}"
+                                               required
+                                               wire:model.lazy="upload_ids.{{$mc - 1}}">
+
+                                        @error('upload_ids' . ($mc - 1))
+                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="upload_photos.{{$mc - 1}}"
+                                           class="col-md-4 col-form-label text-md-right">Upload Foto 3x4
+                                        {{$memberCount > 1 ? " anggota {$mc}" : " peserta"}}
+                                    </label>
+
+                                    <div class="col">
+                                        <input id="upload_photos.{{$mc - 1}}" type="file"
+                                               class="form-control @error('upload_photos' . ($mc - 1)) is-invalid @enderror"
+                                               name="upload_photos.{{$mc - 1}}"
+                                               required
+                                               wire:model.lazy="upload_photos.{{$mc - 1}}">
+
+                                        @error('upload_photos' . ($mc - 1))
+                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="twibbon_links.{{$mc - 1}}"
+                                           class="col-md-4 col-form-label text-md-right">Link Post Twibbon
+                                        di Instagram {{$memberCount > 1 ? " anggota {$mc}" : " peserta"}}
+                                    </label>
+                                    <small class="d-block">Pastikan Instagram tidak di private sampai
+                                        kegiatan berakhir</small>
+
+                                    <div class="col">
+                                        <input id="upload_photos.{{$mc - 1}}" type="text"
+                                               class="form-control @error('twibbon_links' . ($mc - 1)) is-invalid @enderror"
+                                               name="twibbon_links.{{$mc - 1}}"
+                                               required
+                                               wire:model.lazy="twibbon_links.{{$mc - 1}}">
+
+                                        @error('twibbon_links' . ($mc - 1))
+                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            @break
+
+            @case(3)
+            <div class="card">
+                <div class="card-body">
+                    <h3>Pengumpulan Berkas-Berkas Kelompok</h3>
+
+                    <div class="d-grid gap-3">
+                        <div class="form-group">
+                            <label for="google_drive_link"
+                                   class="col-md-4 col-form-label text-md-right">Link Google Drive
+                                Karya</label>
+                            <small class="d-block">Permission pada google drive harus sudah dibuka ketika
+                                pengumpulan karya. Format nama file: NamaTim_JudulKarya</small>
+
+                            <div class="col">
+                                <input id="google_drive_link" type="text"
+                                       class="form-control @error('google_drive_link') is-invalid @enderror"
+                                       name="google_drive_link"
+                                       required
+                                       wire:model.lazy="google_drive_link">
+
+                                @error('google_drive_link')
                                 <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
                                 @enderror
-
-                                @if($competition->multiple_registration)
-                                    <div class="d-flex my-2">
-                                        <input id="name" type="text"
-                                               class="form-control @error("names.1") is-invalid @enderror"
-                                               placeholder="Masukkan nama anggota"
-                                               name="name" wire:model="names.1">
-                                    </div>
-                                    @error("names.1")
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-
-                                    <div class="d-flex my-2">
-                                        <input id="name" type="text"
-                                               class="form-control @error("names.2") is-invalid @enderror"
-                                               placeholder="Masukkan nama anggota"
-                                               name="name" wire:model="names.2">
-                                    </div>
-                                    @error("names.2")
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                @endif
-
-                                @if($competition->multiple_registration) <small>Maksimal 3 anggota, 2 lainnya
-                                    opsional</small> @endif
                             </div>
+                        </div>
 
-                            <div class="form-group my-3">
-                                <label for="nominal"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Nominal Transfer') }}</label>
+                        <div class="form-group">
+                            <label for="caption"
+                                   class="col-md-4 col-form-label text-md-right">Pengumpulan Caption</label>
+                            <small class="d-block">Caption dikumpulkan dalam file berbentuk PDF. Format nama
+                                file berupa: NamaTim_Caption Youtube_JudulKarya</small>
 
-                                <div class="col">
-                                    <input id="nominal" readonly type="text"
-                                           class="form-control @error('nominal') is-invalid @enderror"
-                                           name="nominal" wire:model="nominal" required autocomplete="nominal"
-                                           autofocus>
+                            <div class="col">
+                                <input id="caption" type="file"
+                                       class="form-control @error('caption') is-invalid @enderror"
+                                       name="caption"
+                                       required
+                                       wire:model.lazy="caption">
 
-                                    @error('nominal')
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
+                                @error('caption')
+                                <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                @enderror
                             </div>
+                        </div>
 
-                            <div class="form-group my-3">
-                                <label for="category"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Kategori') }} </label>
+                        <div class="form-group">
+                            <label for="originality_statement"
+                                   class="col-md-4 col-form-label text-md-right">Pengumpulan Lembar
+                                Orisinalitas</label>
+                            <small class="d-block">Lembar Orisinalitas dikumpulkan dalam file berbentuk PDF.
+                                Format nama file berupa: NamaTIm_lembar-orisinalitas. Download file di link:
+                                https://tinyurl.com/SPOrisinalitasSEPIK</small>
 
-                                <div class="col">
-                                    <select id="category" wire:model="category" name="category"
-                                            class="form-control @error('category') is-invalid @enderror" required>
-                                        <option value="mahasiswa">Mahasiswa</option>
-                                        <option value="umum">Umum</option>
-                                    </select>
+                            <div class="col">
+                                <input id="originality_statement" type="file"
+                                       class="form-control @error('originality_statement') is-invalid @enderror"
+                                       name="originality_statement"
+                                       required
+                                       wire:model.lazy="originality_statement">
 
-                                    @error('category')
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
+                                @error('originality_statement')
+                                <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                @enderror
                             </div>
+                        </div>
 
-                            @if($category === 'mahasiswa')
-                                <div class="form-group my-3">
-                                    <label for="university"
-                                           class="col-md-4 col-form-label text-md-right">{{ __('Asal Universitas') }}</label>
+                    </div>
 
-                                    <div class="col">
-                                        <input id="university" type="text"
-                                               class="form-control @error('university') is-invalid @enderror"
-                                               name="asalUniv" wire:model="university" autocomplete="university">
+                </div>
+            </div>
+            @break
 
-                                        @error('university')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            @else
-                                <div class="form-group my-3">
-                                    <label for="region"
-                                           class="col-md-4 col-form-label text-md-right">{{ __('Asal Instansi') }}</label>
+            @case(4)
+            <div class="card">
+                <div class="card-body">
+                    <h3>Contact person</h3>
+                    <p>Cukup 1 orang sebagai perwakilan dari setiap kelompok. Kami sudah mengisikan nomor
+                        telepon dan ID line anda, tetapi anda bisa menggunakan nomor telepon atau ID line
+                        yang berbeda</p>
+                    <div class="d-grid gap-3">
 
-                                    <div class="col">
-                                        <input id="region" type="text"
-                                               class="form-control @error('region') is-invalid @enderror"
-                                               name="region" wire:model="region" autocomplete="region">
+                        <div class="form-group">
+                            <label for="whatsapp_no"
+                                   class="col-md-4 col-form-label text-md-right">Nomor WhatsApp</label>
 
-                                        @error('region')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            @endif
+                            <div class="col">
+                                <input id="whatsapp_no" type="text"
+                                       class="form-control @error('whatsapp_no') is-invalid @enderror"
+                                       name="whatsapp_no"
+                                       required
+                                       wire:model.lazy="whatsapp_no">
 
-                            <div class="form-group my-3">
-                                <label for="twibbon"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Link ke postingan twibbon') }}</label>
-
-                                <div class="col">
-                                    <input id="twibbon" type="text"
-                                           class="form-control @error('twibbon') is-invalid @enderror"
-                                           name="twibbon" wire:model="twibbon">
-
-                                    @error('twibbon')
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <small>Silakan upload twibbon ke Instagram anda, lalu tempelkan link.</small>
+                                @error('whatsapp_no')
+                                <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                @enderror
                             </div>
+                        </div>
 
-                            <div class="form-group my-3">
-                                <label for="google_drive_link"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Link Google Drive (Hasil Karya + Caption PDF)') }}</label>
+                        <div class="form-group">
+                            <label for="line_id"
+                                   class="col-md-4 col-form-label text-md-right">ID Line</label>
 
-                                <div class="col">
-                                    <input id="google_drive_link" type="text"
-                                           class="form-control @error('google_drive_link') is-invalid @enderror"
-                                           name="google_drive_link" wire:model="google_drive_link">
+                            <div class="col">
+                                <input id="line_id" type="text"
+                                       class="form-control @error('line_id') is-invalid @enderror"
+                                       name="line_id"
+                                       required
+                                       wire:model.lazy="line_id">
 
-                                    @error('google_drive_link')
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
+                                @error('line_id')
+                                <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                @enderror
                             </div>
+                        </div>
 
-                            <div class="form-group my-3">
-                                <label for="proof"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Bukti Transfer') }}</label>
+                    </div>
+                </div>
+            </div>
+            @break
 
-                                <div class="col">
-                                    <input id="buktiTransfer" type="file"
-                                           class="form-control @error('proof') is-invalid @enderror"
-                                           name="proof" wire:model="proof" required>
+            @case(5)
+            <div class="card">
+                <div class="card-body">
+                    <h3>Pembayaran Biaya Pendaftaran</h3>
+                    <p>Dimohon untuk mentransfer biaya kegiatan sebesar Rp. {{$competition->nominal}} /
+                        orang ke No. rek BCA: 0101920231 a/n Michael Angelo </p>
 
-                                    @error('proof')
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                    <div class="alert alert-danger my-2" role="alert">
+                        <b>Penting: </b> Peserta tidak diperkenankan untuk mengundurkan diri dari Sayembara.
+                        Apabila peserta tiba-tiba mengundurkan diri, maka biaya pendaftaran tidak dapat
+                        dikembalikan.
+                    </div>
+
+                    <button type="button" class="btn btn-submit" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                        Menggunakan BCA Mobile? Tampilkan QR Bca mobile!
+                    </button>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">QR BCA Mobile</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                 </div>
-
-                                <small>Silakan lakukan transfer sesuai nominal dan upload bukti pembayaran</small>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col">
-                                    <button type="submit" class="btn btn-submit my-5">
-                                        {{ __('Daftar dan Kumpulkan Karya') }}
+                                <div class="modal-body">
+                                    <img width="750" src="{{asset('img/transfer-dana-lomba.jpg')}}"
+                                         alt="QR Transfer dana lomba">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Tutup
                                     </button>
                                 </div>
                             </div>
-
-                        </form>
+                        </div>
                     </div>
-                @else
-                    <h2>Terima kasih sudah mendaftar! Anda bisa melihat status pendaftaran anda di dashboard.</h2>
-                    <h3>Jangan lupa gabung ke grup line kategori lomba yang anda ikuti: <a
-                            href="{{$competition->line_group_link}}">{{$competition->line_group_link}}</a></h3>
-                @endif
+
+                    <div class="d-grid gap-3">
+                        <div class="form-group">
+                            <label for="payment_proof"
+                                   class="col-md-4 col-form-label text-md-right">Foto bukti
+                                pembayaran</label>
+
+                            <div class="col">
+                                <input id="payment_proof" type="file"
+                                       class="form-control @error('payment_proof') is-invalid @enderror"
+                                       name="payment_proof"
+                                       required
+                                       wire:model.lazy="payment_proof">
+
+                                @error('payment_proof')
+                                <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            @break
 
-            <div class="col-3 align-self-end text-center pb-5 mb-5">
-                <img class="img-mascot" src="{{ asset('img/auth/epik.png') }}" alt="epik.png">
+            @case(6)
+            <div class="card">
+                <div class="card-body">
+                    <h3>MATUR NUWUN, REK !</h3>
+                    <div>{!! $competition->outro_text !!}</div>
+                </div>
             </div>
-        </div>
-    </div>
+            <div class="alert alert-info my-2" role="alert">
+                Data pendaftaran anda sedang di verifikasi, anda dapat menutup halaman ini sekarang.
+            </div>
+            @break
 
+        @endswitch
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var screenWidth = window.screen.width;
-
-            if (screenWidth <= 400) {
-                $('#haha2').show();
-                $('#haha').hide();
-
-
-            } else {
-                $('#haha').show();
-                $('#haha2').hide();
-
-            }
-
-
-        });
-
-
-        var s = skrollr.init();
-        // $("body").fadeOut(1000, function(){redirectPage('home.html')});
-        // 		$( "#banner" ).click(function() {
-        //   $("body").fadeOut(1000);
-        //   location.replace("https://www.w3schools.com");
-        // });
-
-        // $('.container-fluid').attr('data-1000','transform:translateX(-900%)');
-        // alert($('.container-fluid').attr('data-1000'));
-        $(document).on('click', "#banner", function (event) {
-            event.preventDefault();
-            linkLocation = 'www.youtube.com';
-            $("body").fadeOut(1000, function () {
-                location.replace("login.html")
-            });
-        });
-
-
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
-
-        /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-
-    </script>
+        @if($canContinue)
+            <button type="submit" class="btn btn-submit mt-3">
+                Lanjutkan
+            </button>
+        @endif
+    </form>
 </div>
