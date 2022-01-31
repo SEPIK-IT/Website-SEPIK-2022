@@ -25,19 +25,29 @@ class CompetitionResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
+                    ->label('Nama Lomba')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('title')
+                    ->label('Judul di web')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\RichEditor::make('intro_text')
+                    ->label('Intro')
+                    ->helperText('Ditampilkan saat awal registrasi')
                     ->required(),
                 Forms\Components\RichEditor::make('outro_text')
+                    ->label('Outro')
+                    ->helperText('Ditampilkan saat selesai registrasi')
                     ->required(),
                 Forms\Components\TextInput::make('nominal')
+                    ->label('Nominal yang harus dibayar')
+                    ->helperText('HARUS Berisi kode digit terakhir')
                     ->required(),
                 Forms\Components\TextInput::make('last_digit')
+                    ->label('Kode digit terakhir')
                     ->required(),
                 Forms\Components\Toggle::make('multiple_registration')
+                    ->label('Bisa daftar bertim?')
                     ->required(),
             ])->columns(1);
     }
@@ -46,15 +56,10 @@ class CompetitionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('nominal'),
-                Tables\Columns\TextColumn::make('last_digit'),
-                Tables\Columns\BooleanColumn::make('multiple_registration'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                Tables\Columns\TextColumn::make('name')->label('Nama lomba'),
+                Tables\Columns\TextColumn::make('title')->label('Judul di website'),
+                Tables\Columns\TextColumn::make('nominal')->label('Nominal transfer'),
+                Tables\Columns\BooleanColumn::make('multiple_registration')->label('Bisa daftar bertim'),
             ])
             ->filters([
                 //

@@ -115,17 +115,21 @@ class CompetitionRegistrationResource extends Resource
                     ->sortable(),
                 Tables\Columns\TagsColumn::make('names')
                     ->label('Nama peserta'),
-                Tables\Columns\TagsColumn::make('identifications'),
-                Tables\Columns\TagsColumn::make('origins'),
-                Tables\Columns\TagsColumn::make('regions'),
-                Tables\Columns\TextColumn::make('whatsapp_no'),
-                Tables\Columns\TextColumn::make('line_id'),
+                Tables\Columns\TagsColumn::make('origins')
+                    ->label('Instansi'),
+                Tables\Columns\TagsColumn::make('regions')
+                    ->label('Daerah'),
+                Tables\Columns\TextColumn::make('whatsapp_no')
+                    ->label('No.WA'),
+                Tables\Columns\TextColumn::make('line_id')
+                    ->label('ID Line'),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Tanggal daftar')
                     ->dateTime(),
             ])
             ->filters([
-               Tables\Filters\SelectFilter::make('Berdasarkan kompetisi')
-                   ->relationship('competition', 'name')
+                Tables\Filters\SelectFilter::make('Berdasarkan kompetisi')
+                    ->relationship('competition', 'name')
             ]);
     }
 
