@@ -49,6 +49,14 @@ class ContestRegistration extends Component
             $this->steps = 2;
         }
 
+        if (CompetitionRegistration::where('user_id', auth()->user()->id)
+            ->where('competition_id', $this->competition->id)
+            ->exists()
+        ) {
+            $this->steps = 6;
+            $this->canContinue = false;
+        }
+
         $this->whatsapp_no = auth()->user()->phone;
         $this->line_id = auth()->user()->line_id;
     }
@@ -154,6 +162,8 @@ class ContestRegistration extends Component
 
         CompetitionRegistration::create([
             'is_verified' => false,
+            'competition_id' => $this->competition->id,
+            'user_id' => auth()->user()->id,
             'names' => $this->names,
             'identifications' => $this->identifications,
             'origins' => $this->origins,

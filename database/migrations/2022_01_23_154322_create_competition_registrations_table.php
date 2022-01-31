@@ -19,6 +19,10 @@ class CreateCompetitionRegistrationsTable extends Migration
 
             $table->boolean('is_verified')->default(false);
 
+            $table->foreignId('competition_id')->references('id')->on('competitions')->cascadeOnDelete();
+            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
+
+
             // Informasi diri
             $table->json('names');
             $table->json('identifications');
