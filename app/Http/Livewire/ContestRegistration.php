@@ -153,6 +153,7 @@ class ContestRegistration extends Component
 
 
         CompetitionRegistration::create([
+            'is_verified' => false,
             'names' => $this->names,
             'identifications' => $this->identifications,
             'origins' => $this->origins,
