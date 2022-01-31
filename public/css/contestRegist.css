@@ -1,0 +1,119 @@
+#divAsalUniv {
+    display: block;
+}
+
+@font-face {
+    font-family: rutaban;
+    src: url("../font/rutaban/RUTAN___.TTF");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: rutaban;
+    font-weight: bold;
+}
+
+.bg {
+    background-color: #f7f3f0;
+}
+
+.img-blok {
+    height: 105vh;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.img-mascot {
+    height: auto;
+    width: 75%;
+    max-width: 75%;
+    object-fit: cover;
+}
+
+.link-page {
+    color: #cc7f2b !important;
+    text-decoration: none;
+}
+
+.btn-submit {
+    width: 100%;
+    color: #ffffff !important;
+    background-color: #443926 !important;
+}
+
+.btn-submit-2 {
+    width: 100%;
+    color: #ffffff !important;
+    background-color: #443926be !important;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    /* color: #443926;*/
+    background-color: #ad966d;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.sidebar .judul {
+    padding: 0px 0px 0px 32px;
+    text-decoration: none;
+    font-family: euphorigenic !important;
+    font-size: 25px;
+    color: #443926;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar .sub-judul {
+    padding: 0px 0px 0px 42px;
+    text-decoration: none;
+    font-family: rutaban;
+    font-size: 25px;
+    color: #443926;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar .judul:hover {
+    color: black;
+}
+
+.sidebar .closebtn {
+    color: #443926;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidebar .closebtn:hover {
+    color: black;
+}
+
+#code {
+    display: hidden;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar .judul {
+        font-size: 18px;
+    }
+}

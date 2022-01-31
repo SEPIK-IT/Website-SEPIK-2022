@@ -9,7 +9,7 @@
             </div>
 
             <div class="col align-self-center p-4">
-                <div class="h1">{{ __('Register') }}</div>
+                <div class="h1">{{ __('Daftar') }}</div>
 
                 <div class="">
                     <div class="text-body">
@@ -18,7 +18,7 @@
                             {{-- <input type="hidden" name="_method" value="PATCH"> --}}
 
                             <div class="form-group mt-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
 
                                 <div class="col">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -34,7 +34,7 @@
 
                             <div class="form-group mt-2">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Email Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
 
                                 <div class="col">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -50,7 +50,7 @@
 
                             <div class="form-group mt-2">
                                 <label for="phone"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nomor Telpon') }}</label>
 
                                 <div class="col">
                                     <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
@@ -66,7 +66,7 @@
 
                             <div class="form-group mt-2">
                                 <label for="line_id"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('LINE ID') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('ID LINE') }}</label>
 
                                 <div class="col">
                                     <input id="line_id" type="text"
@@ -83,7 +83,7 @@
 
                             <div class="form-group mt-2">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Kata Sandi') }}</label>
 
                                 <div class="col">
                                     <input id="password" type="password"
@@ -100,7 +100,7 @@
 
                             <div class="form-group mt-2">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Konfirmasi Kata Sandi') }}</label>
 
                                 <div class="col">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -110,14 +110,14 @@
 
                             <div class="form-group mt-3">
                                 <div class="col text-end mt-2">
-                                <p>already have an account? <a href="{{ route('login') }}" class="link-page"><b>Login Here</b></a></p>
+                                <p>Sudah memiliki akun? <a href="{{ route('login') }}" class="link-page"><b>Masuk Rek!</b></a></p>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col">
                                     <button type="submit" class="btn btn-submit my-4">
-                                        {{ __('Register') }}
+                                        {{ __('Daftar') }}
                                     </button>
                                 </div>
                             </div>
