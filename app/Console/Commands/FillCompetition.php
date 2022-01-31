@@ -38,41 +38,55 @@ class FillCompetition extends Command
      */
     public function handle()
     {
+
+
         $competitions = [
             [
                 'name' => 'MASHUP',
                 'nominal' => 30001,
                 'last_digit' => 1,
                 'multiple_registration' => true,
-                'line_group_link' => 'http://line.me/ti/g/jSLzv5fN9U',
+                'title' => 'PENDAFTARAN SAYEMBARA SEPIK 2022 - MashUp Lagu',
+                'intro_text' => '',
+                'outro_text' => '',
+                'line_group_link' => 'http://line.me/ti/g/jSLzv5fN9U'
             ],
             [
                 'name' => 'DESIGN',
                 'nominal' => 25003,
                 'last_digit' => 3,
                 'multiple_registration' => false,
-                'line_group_link' => 'http://line.me/ti/g/t1e_18nVnc',
-
+                'title' => 'PENDAFTARAN SAYEMBARA SEPIK 2022 - Design Ilustrasi',
+                'intro_text' => '',
+                'outro_text' => '',
+                'line_group_link' => 'http://line.me/ti/g/t1e_18nVnc'
             ],
             [
                 'name' => 'VIDEO',
                 'nominal' => 30005,
                 'last_digit' => 5,
                 'multiple_registration' => true,
-                'line_group_link' => 'http://line.me/ti/g/BoPYndzVtD',
+                'title' => 'PENDAFTARAN SAYEMBARA SEPIK 2022 - Short Cinematic Video',
+                'intro_text' => '',
+                'outro_text' => '',
+                'line_group_link' => 'http://line.me/ti/g/BoPYndzVtD'
+
             ],
             [
                 'name' => 'PHOTO',
                 'nominal' => 25006,
                 'last_digit' => 6,
                 'multiple_registration' => false,
-                'line_group_link' => 'http://line.me/ti/g/nSM2VJPwA_'
+                'title' => 'PENDAFTARAN SAYEMBARA SEPIK 2022 - Human Interest & Street Photography',
+                'intro_text' => '',
+                'outro_text' => '',
+                'line_group_link' => 'http://line.me/ti/g/nSM2VJPwA_',
             ],
         ];
 
         $this->info('Creating competitions');
 
-        foreach($competitions as $competition){
+        foreach ($competitions as $competition) {
             Competition::create($competition);
             $this->info("Created competition data for {$competition['name']}");
         }

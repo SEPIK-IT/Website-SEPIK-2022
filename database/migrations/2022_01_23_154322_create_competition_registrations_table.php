@@ -13,16 +13,38 @@ class CreateCompetitionRegistrationsTable extends Migration
      */
     public function up()
     {
+        // form nya banyak ya adik adik ahahahahahha -rama
         Schema::create('competition_registrations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
-            $table->foreignId('competition_id')->references('id')->on('competitions')->cascadeOnDelete();
+
+            $table->boolean('is_verified')->default(false);
+
+            // Informasi diri
             $table->json('names');
-            $table->integer('nominal');
-            $table->enum('category', ['MAHASISWA', 'UMUM']);
+            $table->json('identifications');
+            $table->json('origins');
+            $table->json('regions');
+
+
+            // Upload file pendukung
+            $table->json('upload_ids');
+            $table->json('upload_photos');
+
+            // Twibbon
+            $table->json('twibbon_links');
+
+            // Berkas kelompok
             $table->string('google_drive_link', 500);
-            $table->string('university')->nullable();
-            $table->string('transfer_proof');
+            $table->string('caption', 500);
+            $table->string('originality_statement', 500);
+
+            // Contact person
+            $table->string('whatsapp_no', 100);
+            $table->string('line_id', 100);
+
+            // Pembayaran
+            $table->string('payment_proof', 100);
+
             $table->timestamps();
         });
     }
