@@ -14,7 +14,7 @@ class CreateTestUser extends Command
      *
      * @var string
      */
-    protected $signature = 'make:test-user';
+    protected $signature = 'make:test-user {--a|admin}';
 
     /**
      * The console command description.
@@ -43,6 +43,7 @@ class CreateTestUser extends Command
         $this->info('Creating one test user...');
         $faker = Factory::create('id');
         User::create([
+            'is_admin' => $this->option('admin') ?? false,
             'name' => $faker->name,
             'email' => 'test@test.com',
             'phone' => $faker->phoneNumber,

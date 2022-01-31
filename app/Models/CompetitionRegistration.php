@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CompetitionRegistration extends Model
 {
@@ -11,6 +12,7 @@ class CompetitionRegistration extends Model
 
     // ahahahahahahaha -rama
     protected $casts = [
+        'is_verified' => 'boolean',
         'names' => 'array',
         'identifications' => 'array',
         'origins' => 'array',
@@ -21,4 +23,9 @@ class CompetitionRegistration extends Model
     ];
 
     protected $guarded = [];
+
+    public function competition() : BelongsTo
+    {
+        return $this->belongsTo(Competition::class);
+    }
 }

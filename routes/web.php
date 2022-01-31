@@ -50,5 +50,4 @@ Auth::routes(['verify'=> true]);
 
 Route::get('/donasi/{page?}', [DonasiController::class, 'index'])->name('Donasi');
 Route::post('/donasi/donasi', [DonasiController::class, 'store'])->name('Donasi');
-Route::post('/donasi/admin', [DonasiController::class, 'update'])->name('Donasi');
 // Route::get('/donasi/donasi', [DonasiController::class, 'index'])->name('Donasi');
