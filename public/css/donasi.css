@@ -1,11 +1,11 @@
-@font-face {
-    font-family: euphorigenic;
-    src: url('font/euphorigenic.ttf');
+    @font-face {
+    font-family: rutaban;
+    src: url("../font/rutaban/RUTAN___.TTF");
 }
 
 @font-face {
-    font-family: rutaban;
-    src: url('font/rutaban.ttf');
+    font-family: euphorigenic;
+    src: url("../font/euphorigenic/euphorigenic.ttf");
 }
 
 body {
@@ -14,6 +14,77 @@ body {
     font-family: rutaban;
     background: url('/img/bgpolos.png');
     background-size: cover;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    /* color: #443926;*/
+    background-color: #ad966d;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.sidebar .judul {
+    padding: 0px 0px 0px 32px;
+    text-decoration: none;
+    font-family: euphorigenic;
+    font-size: 25px;
+    color: #443926;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.sidebar .sub-judul {
+    padding: 0px 0px 0px 42px;
+    text-decoration: none;
+    font-family: rutaban;
+    font-size: 25px;
+    color: #443926;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.sidebar .judul:hover {
+    color: black;
+}
+
+.sidebar .closebtn {
+    color: #443926;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidebar .closebtn:hover {
+    color: black;
+}
+
+
+/* #skrollr-body {
+      float: left;
+      width: 100%;
+      height: 100%;
+  } */
+
+#code {
+    display: hidden;
+}
+
+.sidebar .sub-judul:hover {
+    color: black;
+    font-size: 27px;
 }
 
 .bold {
@@ -52,7 +123,9 @@ input[type=file]::file-selector-button:hover {
     cursor: pointer;
 }
 
+
 /* Style the Image Used to Trigger the Modal */
+
 #myImg {
     border-radius: 5px;
     cursor: pointer;
@@ -63,7 +136,9 @@ input[type=file]::file-selector-button:hover {
     opacity: 0.7;
 }
 
+
 /* The Modal (background) */
+
 .modal {
     display: none;
     /* Hidden by default */
@@ -87,7 +162,9 @@ input[type=file]::file-selector-button:hover {
     /* Black w/ opacity */
 }
 
+
 /* Modal Content (Image) */
+
 .modal-content {
     margin: auto;
     display: block;
@@ -95,7 +172,9 @@ input[type=file]::file-selector-button:hover {
     max-width: 700px;
 }
 
+
 /* Add Animation - Zoom in the Modal */
+
 .modal-content,
 #caption {
     animation-name: zoom;
@@ -106,13 +185,14 @@ input[type=file]::file-selector-button:hover {
     from {
         transform: scale(0)
     }
-
     to {
         transform: scale(1)
     }
 }
 
+
 /* The Close Button */
+
 .close {
     position: absolute;
     top: 15px;
@@ -130,7 +210,9 @@ input[type=file]::file-selector-button:hover {
     cursor: pointer;
 }
 
+
 /* 100% Image Width on Smaller Screens */
+
 @media only screen and (max-width: 700px) {
     .modal-content {
         width: 100%;
@@ -155,6 +237,18 @@ input[type=file]::file-selector-button:hover {
     color: rgba(247, 243, 240, 255);
 }
 
-.donasi-box{
+.donasi-box {
     width: 100% !important;
 }
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar .judul {
+        font-size: 18px;
+    }
+    .sidebar .sub-judul:hover {
+        color: black;
+        font-size: 27px;
+    }
