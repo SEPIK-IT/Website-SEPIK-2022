@@ -6,7 +6,7 @@
   <style>
       body {
           background-color: blanchedalmond;
-          background-image: url('sepik-mlaku-mlaku.gif');
+          background-image: url('bgwebsite.png');
           background-size: cover;
       }
       .style {
@@ -18,6 +18,9 @@
 
 @section('isi')
 <div class="container">
+    <div class="mt-5">
+        <h2 class="text-center">List Pendaftar</h2>
+    </div>
     <div class="row style mt-5">
         <div class="col-12 p-3 table-responsive">
             <table class="table table-hover" id = "example">
