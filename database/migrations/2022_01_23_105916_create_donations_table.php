@@ -13,14 +13,14 @@ class CreateDonationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('donasis', function (Blueprint $table) {
-            $table->id('id_donasi');
-            $table->string('nama');
+        Schema::create('donations', function (Blueprint $table) {
+            $table->id('donation_id');
+            $table->string('name');
             $table->bigInteger('nominal');
-            $table->string('sumber');
-            $table->string('bukti');
-            $table->string('nrp')->nullable();
-            $table->integer('konfirmasi')->nullable();
+            $table->string('source');
+            $table->string('proof');
+            $table->string('identification')->nullable();
+            $table->integer('confirmation')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateDonationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donasis');
+        Schema::dropIfExists('donations');
     }
 }

@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Donasi;
-use App\Models\Pesan;
+use App\Models\Donation;
+use App\Models\Message;
 
-class DonasiController extends Controller
+class DonationController extends Controller
 {
     public function index($page = 'index')
     {
         if($page == "index"){
             return view('donasi/index', [
-                'total' => Donasi::where('konfirmasi', 1)->sum('nominal'),
-                'pesans' => Pesan::all()
+                'total' => Donation::where('confirmation', 1)->sum('nominal'),
+                'pesans' => Message::all()
             ]);
         }
 
@@ -27,8 +27,8 @@ class DonasiController extends Controller
 
         if($page == "admin"){
             return view('donasi/admin', [
-                'donasis' => Donasi::select("*")
-                            ->orderBy('konfirmasi', 'desc')
+                'donasis' => Donation::select("*")
+                            ->orderBy('confirmation', 'desc')
                             ->orderBy('created_at', 'desc')
                             ->get()
             ]);
@@ -40,21 +40,21 @@ class DonasiController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama' => 'required',
+            'name' => 'required',
             'nominal' => 'required',
-            'sumber'=> 'required',
-            'nrp' => 'required',
-            'bukti' => 'required|image',
-            'pesan' => ''
+            'source'=> 'required',
+            'identification' => 'required',
+            'proof' => 'required|image',
+            'message' => ''
         ]);
 
-        $validatedData['bukti'] = $request->file('bukti')->store('bukti-transfer');
+        $validatedData['proof'] = $request->file('proof')->store('bukti-transfer');
 
-        Donasi::create($validatedData);
+        Donation::create($validatedData);
 
         //kalo pesannya gak kosong baru diinsert
-        if($validatedData['pesan'] != ''){
-            Pesan::create($validatedData);
+        if($validatedData['message'] != ''){
+            Message::create($validatedData);
         }
 
         return redirect('/donasi/suwun');
@@ -66,8 +66,8 @@ class DonasiController extends Controller
         $data = $request['data'];
         $changeTo = $request['changeTo'];
 
-        $hasil = Donasi::where('id_donasi', $id)
-                ->update(['konfirmasi' => $changeTo]);
+        $hasil = Donation::where('donation_id', $id)
+                ->update(['confirmation' => $changeTo]);
 
         // return [$id, $data, $changeTo];
         return $hasil;

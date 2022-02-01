@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ContestRegistController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DonasiController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DownloadController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +48,6 @@ Route::get('/download_laporan_orisinalitas',DownloadController::class.'@download
 
 Auth::routes(['verify'=> true]);
 
-Route::get('/donasi/{page?}', [DonasiController::class, 'index'])->name('Donasi');
-Route::post('/donasi/donasi', [DonasiController::class, 'store'])->name('Donasi');
-// Route::get('/donasi/donasi', [DonasiController::class, 'index'])->name('Donasi');
+Route::get('/donasi/{page?}', [DonationController::class, 'index'])->name('Donasi');
+Route::post('/donasi/donasi', [DonationController::class, 'store'])->name('Donasi');
+// Route::post('/donasi/admin', [DonationController::class, 'update'])->name('Donasi');
