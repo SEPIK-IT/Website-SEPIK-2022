@@ -88,18 +88,18 @@
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <!-- 1 col 1 pesan di for each -->
-                    @foreach($pesans as $pesan)
+                    @foreach($messages as $m)
                         <div class="col">
                             <div class="card shadow-sm">
 
                                 <div class="card-body">
                                     <!-- isi pesan -->
                                     <h4 class="card-text">
-                                        {{ $pesan->pesan }}
+                                        {{ $m->message }}
                                     </h4>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <!-- nama pendonasi -->
-                                        <h5 class="text-muted"> {{ $pesan->nama }} </h5>
+                                        <h5 class="text-muted"> {{ $m->name }} </h5>
                                     </div>
                                 </div>
                             </div>

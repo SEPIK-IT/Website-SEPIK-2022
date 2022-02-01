@@ -31,11 +31,11 @@
 
                     <!-- nama -->
                     <div class="mb-5">
-                        <label for="nama" class="form-label">
+                        <label for="name" class="form-label">
                             <h4>NAMA</h4>
                         </label>
-                        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama" name="nama" value="{{ old('nama') }}" required>
-                        @error('nama')
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" name="name" value="{{ old('name') }}" required>
+                        @error('name')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -60,10 +60,10 @@
 
 					<!-- kategori -->
                     <div class="mb-5">
-                        <label for="kategori" class="form-label">
+                        <label for="category" class="form-label">
                             <h4>KATEGORI</h4>
                         </label>
-                        <select class="form-select" id="kategori" name='kategori' value="{{ old('kategori') }}">
+                        <select class="form-select" id="category" name='category' value="{{ old('category') }}">
                             <option value="mahasiswa"> Mahasiswa</option>
                             <option value="umum"> Umum</option>
                         </select>
@@ -71,24 +71,24 @@
 
                     <!-- univ -->
                     <div class="mb-5 sumber">
-                        <label for="sumber" class="form-label">
+                        <label for="source" class="form-label">
                             <h4>ASAL UNIVERSITAS</h4>
                         </label>
-                        <select class="form-select" id="sumber" name="sumber" value="{{ old('sumber') }}">
-                            <option value="ukp" {{ old('sumber') == 'ukp' ? 'selected' : '' }}> Universitas Kristen Petra</option>
-                            <option value="uc" {{ old('sumber') == 'uc' ? 'selected' : '' }}> Universitas Ciputra</option>
-                            <option value="wm" {{ old('sumber') == 'wm' ? 'selected' : '' }}> Universitas Katolik Widya Mandala</option>
-                            <option value="ubaya" {{ old('sumber') == 'ubaya' ? 'selected' : '' }}> Universitas Surabaya</option>
-                            <option value="umum" style="display: none" {{ old('sumber') == 'umum' ? 'selected' : '' }}> Umum</option>
+                        <select class="form-select" id="source" name="source" value="{{ old('source') }}">
+                            <option value="ukp" {{ old('source') == 'ukp' ? 'selected' : '' }}> Universitas Kristen Petra</option>
+                            <option value="uc" {{ old('source') == 'uc' ? 'selected' : '' }}> Universitas Ciputra</option>
+                            <option value="wm" {{ old('source') == 'wm' ? 'selected' : '' }}> Universitas Katolik Widya Mandala</option>
+                            <option value="ubaya" {{ old('source') == 'ubaya' ? 'selected' : '' }}> Universitas Surabaya</option>
+                            <option value="umum" style="display: none" {{ old('source') == 'umum' ? 'selected' : '' }}> Umum</option>
                         </select>
                     </div>
 
 					<div class="mb-5 sumber">
-                        <label for="nrp" class="form-label">
+                        <label for="identification" class="form-label">
                             <h4>NRP</h4>
                         </label>
-                        <input type="text" class="form-control @error('nrp') is-invalid @enderror" id="nrp" placeholder="NRP" name="nrp" value="{{ old('nrp') }}" required>
-                        @error('nrp')
+                        <input type="text" class="form-control @error('identification') is-invalid @enderror" id="identification" placeholder="identification" name="identification" value="{{ old('identification') }}" required>
+                        @error('identification')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -161,7 +161,7 @@
                     <!-- bukti -->
                     <div class="mb-5">
 
-                        <label for="bukti" class="form-label ">
+                        <label for="proof" class="form-label ">
                             <h4>UPLOAD BUKTI TRANSFER</h4>
                         </label>
 
@@ -170,8 +170,8 @@
                             <img class="img-fluid imgBukti myImg" id="myImg" src="">
                         </div>
 
-                        <input class="form-control @error('bukti') is-invalid @enderror" type="file" id="bukti" onchange="readURL(this)" name='bukti' required>
-                        @error('bukti')
+                        <input class="form-control @error('proof') is-invalid @enderror" type="file" id="proof" onchange="readURL(this)" name='proof' required>
+                        @error('proof')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -180,11 +180,11 @@
 
                     <!-- pesan -->
                     <div class="mb-5">
-                        <label for="pesan" class="form-label">
+                        <label for="message" class="form-label">
                             <h4>KESAN PESAN (optional)</h4>
                         </label>
-                        <textarea class="form-control" id="pesan" rows="3"
-                            placeholder="Tulis pesanmu" name="pesan" value="{{ old('pesan') }}"></textarea>
+                        <textarea class="form-control" id="message" rows="3"
+                            placeholder="Tulis pesanmu" name="message" value="{{ old('message') }}"></textarea>
                     </div>
 
                     <!-- submit -->

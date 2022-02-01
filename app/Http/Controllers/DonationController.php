@@ -13,7 +13,7 @@ class DonationController extends Controller
         if($page == "index"){
             return view('donasi/index', [
                 'total' => Donation::where('confirmation', 1)->sum('nominal'),
-                'pesans' => Message::all()
+                'messages' => Message::all()
             ]);
         }
 
@@ -27,7 +27,7 @@ class DonationController extends Controller
 
         if($page == "admin"){
             return view('donasi/admin', [
-                'donasis' => Donation::select("*")
+                'donations' => Donation::select("*")
                             ->orderBy('confirmation', 'desc')
                             ->orderBy('created_at', 'desc')
                             ->get()

@@ -39,42 +39,42 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($donasis as $donasi)
+                        @foreach($donations as $d)
                             <tr>
-                                <td>{{ $donasi->nama }}</td>
-                                <td>{{ $donasi->nrp }}</td>
+                                <td>{{ $d->name }}</td>
+                                <td>{{ $d->identification }}</td>
 
-                                @if ($donasi->sumber === "ukp")
+                                @if ($d->source === "ukp")
                                     <td>Universitas Kristen Petra</td>
-                                @elseif ($donasi->sumber === "uc")
+                                @elseif ($d->source === "uc")
                                     <td>Universitas Ciputra</td>
-                                @elseif ($donasi->sumber === "wm")
+                                @elseif ($d->source === "wm")
                                     <td>Universitas Katolik Widya Mandala</td>
-                                @elseif ($donasi->sumber === "ubaya")
+                                @elseif ($d->source === "ubaya")
                                     <td>Universitas Surabaya</td>
-                                @elseif ($donasi->sumber === "umum")
+                                @elseif ($d->source === "umum")
                                     <td>Umum</td>
                                 @endif
 
-                                <td> @currency($donasi->nominal) </td>
-                                <td>{{ $donasi->created_at }}</td>
+                                <td> @currency($d->nominal) </td>
+                                <td>{{ $d->created_at }}</td>
 
                                 <td>
-                                    <!-- <img class="img-fluid imgBukti myImg" width="100px" id="myImg" src="{{ asset('storage/' . $donasi->bukti) }}"> -->
-                                    <button type="button" class="btn btn-sepik myImg" src="{{ asset('storage/' . $donasi->bukti) }}">Show Bukti</button>
+                                    <!-- <img class="img-fluid imgBukti myImg" width="100px" id="myImg" src="{{ asset('storage/' . $d->proof) }}"> -->
+                                    <button type="button" class="btn btn-sepik myImg" src="{{ asset('storage/' . $d->proof) }}">Show Bukti</button>
                                 </td>
 
-                                <td class="edit" id="{{ $donasi->id_donasi }}">
+                                <td class="edit" id="{{ $d->donation_id }}">
                                     <button type="button" class="btn btn-lg" data-bs-toggle="popover">
-                                    @if ($donasi->konfirmasi === 2)
+                                    @if ($d->confirmation === 2)
                                         <i class="bi bi-exclamation-circle-fill text-warning"></i>
-                                    @elseif ($donasi->konfirmasi === 1)
+                                    @elseif ($d->confirmation === 1)
                                         <i class="bi bi-check-circle-fill text-success"></i>
-                                    @elseif ($donasi->konfirmasi === 0)
+                                    @elseif ($d->confirmation === 0)
                                         <i class="bi bi-x-circle-fill text-danger"></i>
                                     @endif
                                     </button>
-                                    <div class="data" style="display: none">{{ $donasi->konfirmasi }}</div>
+                                    <div class="data" style="display: none">{{ $d->confirmation }}</div>
                                 </td>
                             </tr>
                         @endforeach
