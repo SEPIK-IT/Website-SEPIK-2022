@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePesansTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePesansTable extends Migration
      */
     public function up()
     {
-        Schema::create('pesans', function (Blueprint $table) {
-            $table->id('id_pesan');
-            $table->string('nama');
-            $table->string('pesan');
+        Schema::create('messages', function (Blueprint $table) {
+            $table->id('message_id');
+            $table->string('name');
+            $table->string('message');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreatePesansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pesans');
+        Schema::dropIfExists('messages');
     }
 }

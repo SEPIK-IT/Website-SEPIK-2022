@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Donasi extends Model
+class Donation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama', 'nominal', 'sumber', 'bukti', 'nrp'];
+    protected $fillable = ['name', 'nominal', 'source', 'proof', 'identification'];
 
     protected $attributes = [
-        'konfirmasi' => 2
+        'confirmation' => 2
     ];
 }
