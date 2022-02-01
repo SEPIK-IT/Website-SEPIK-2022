@@ -13,7 +13,7 @@ class CreateDonationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('donation', function (Blueprint $table) {
+        Schema::create('donations', function (Blueprint $table) {
             $table->id('donation_id');
             $table->string('name');
             $table->bigInteger('nominal');
@@ -32,6 +32,6 @@ class CreateDonationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donation');
+        Schema::dropIfExists('donations');
     }
 }
