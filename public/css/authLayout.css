@@ -1,0 +1,46 @@
+@font-face {
+    font-family: rutaban;
+    src: url("../font/rutaban/RUTAN___.TTF");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: rutaban;
+    font-weight: bold;
+}
+
+.bg {
+    background-color: #f7f3f0;
+}
+
+.img-blok {
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.img-mascot {
+    height: auto;
+    width: 75%;
+    max-width: 75%;
+    object-fit: cover;
+}
+
+.link-page {
+    color: #cc7f2b !important;
+    text-decoration: none;
+}
+
+.btn-submit {
+    width: 100%;
+    color: #ffffff !important;
+    background-color: #443926 !important;
+}
+
+.btn-submit-2 {
+    width: 100%;
+    color: #ffffff !important;
+    background-color: #443926be !important;
+}

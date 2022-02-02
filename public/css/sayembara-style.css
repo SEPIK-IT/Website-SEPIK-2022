@@ -1,0 +1,212 @@
+@font-face {
+    font-family: rutaban;
+    src: url("../font/rutaban/RUTAN___.TTF");
+}
+
+@font-face {
+    font-family: euphorigenic;
+    src: url("../font/euphorigenic/euphorigenic.ttf");
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !;
+    font-family: rutaban !important;
+}
+
+
+/* .bg {
+    background: url("/img/sayembarabg.png") no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+} */
+
+.text-white {
+    color: white;
+}
+
+.container {
+    z-index: 1;
+}
+
+.sayembaradivider {
+    border: 5px solid #686d5f;
+    width: 82.5%;
+}
+
+.textjustify {
+    text-align: justify;
+}
+
+.me-7 {
+    margin-right: 7em;
+}
+
+.ms-7 {
+    margin-left: 7em;
+}
+
+.imageresize {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.background-image {
+    /* background-size: cover; */
+    /* resize: both; */
+    overflow: scroll;
+    /* width: 1366px !important;
+    height: auto !important; */
+    margin-top: -90px;
+    width: 100%;
+    height: 420%;
+    /* background-repeat: repeat-y; */
+    /* overflow-y: hidden;
+    overflow-x: hidden; */
+    z-index: -1;
+    /* background-attachment: scroll; */
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    /* position: fixed; */
+}
+
+.innerbutton {
+    height: 50px;
+    width: 65%;
+    background: #a68d60;
+    border-radius: 80px;
+    z-index: 1;
+}
+
+.pendaftaranbutton {
+    background: #686d5f;
+    border-radius: 80px;
+    height: 50px;
+    width: 65.5%;
+}
+
+.lpo_button {
+    background: #686d5f;
+    border-radius: 80px;
+    height: 50px;
+    width: 135%;
+}
+
+.capsulebutton {
+    height: 50px;
+    width: 100%;
+    background: #51442d;
+    border-radius: 80px;
+    z-index: 0;
+}
+
+table {}
+
+.ml40 {
+    margin-left: 50vh;
+}
+
+.mr40 {
+    margin-right: 50vh;
+}
+
+.ml20 {
+    margin-left: 45vh;
+}
+
+.mr20 {
+    margin-right: 45vh;
+}
+
+.mtlarge {
+    margin-top: 10vh;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    /* color: #443926;*/
+    background-color: #ad966d;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.sidebar .judul {
+    padding: 0px 0px 0px 32px;
+    text-decoration: none;
+    font-family: euphorigenic !important;
+    font-size: 25px;
+    color: #443926;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar .sub-judul {
+    padding: 0px 0px 0px 42px;
+    text-decoration: none;
+    font-family: rutaban;
+    font-size: 25px;
+    color: #443926;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar .sub-judul:hover {
+    color: black;
+    font-size: 27px;
+}
+
+.sidebar .judul:hover {
+    color: black;
+}
+
+.sidebar .closebtn {
+    color: #443926;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidebar .closebtn:hover {
+    color: black;
+}
+
+#code {
+    display: hidden;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar .judul {
+        font-size: 18px;
+    }
+    .sidebar .judul:hover {
+        color: black;
+    }
+    .sidebar .sub-judul:hover {
+        color: black;
+        font-size: 27px;
+    }
+}
