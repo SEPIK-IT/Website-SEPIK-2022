@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Donation;
 use App\Models\Message;
 
 class DonationController extends Controller
 {
+    public function admin(){
+        return view('donasi/admin', [
+            'donations' => Donation::select("*")
+                        ->orderBy('confirmation', 'desc')
+                        ->orderBy('created_at', 'desc')
+                        ->get()
+        ]);
+    }
     public function index($page = 'index')
-    {
+    {  
         if($page == "index"){
             return view('donasi/index', [
                 'total' => Donation::where('confirmation', 1)->sum('nominal'),
@@ -25,14 +34,14 @@ class DonationController extends Controller
             }
         }
 
-        if($page == "admin"){
-            return view('donasi/admin', [
-                'donations' => Donation::select("*")
-                            ->orderBy('confirmation', 'desc')
-                            ->orderBy('created_at', 'desc')
-                            ->get()
-            ]);
-        }
+        // if($page == "admin"){
+        //     return view('donasi/admin', [
+        //         'donations' => Donation::select("*")
+        //                     ->orderBy('confirmation', 'desc')
+        //                     ->orderBy('created_at', 'desc')
+        //                     ->get()
+        //     ]);
+        // }
 
         return view('donasi/' . $page);
     }

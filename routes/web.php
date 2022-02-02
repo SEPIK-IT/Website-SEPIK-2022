@@ -48,6 +48,9 @@ Route::get('/download_sop_desain',DownloadController::class.'@downloaddesain')->
 Route::get('/download_laporan_orisinalitas',DownloadController::class.'@downloadlaporan')->name('dllaporan');
 
 Auth::routes(['verify'=> true]);
+Route::group(['middleware' => 'isAdmin'], function () {
+    Route::get('donasi/admin',[DonationController::class, 'admin']);
+});
 
 Route::get('/donasi/{page?}', [DonationController::class, 'index'])->name('Donasi');
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth')->name('Donasi');
