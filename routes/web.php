@@ -48,6 +48,6 @@ Route::get('/download_laporan_orisinalitas',DownloadController::class.'@download
 
 Auth::routes(['verify'=> true]);
 
-Route::get('/donasi/{page?}', [DonationController::class, 'index'])->name('Donasi');
-Route::post('/donasi/donasi', [DonationController::class, 'store'])->name('Donasi');
+Route::get('/donasi/{page?}', [DonationController::class, 'index'])->middleware('auth')->name('Donasi');
+Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth')->name('Donasi');
 // Route::post('/donasi/admin', [DonationController::class, 'update'])->name('Donasi');
