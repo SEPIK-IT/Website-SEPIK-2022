@@ -11,7 +11,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <title>Document</title>
+    <title>Surabaya Epik 2022</title>
   </head>
   <body>
     <img class="awan awan-2" src="{{ asset('img/awan.png') }}" alt="" />
