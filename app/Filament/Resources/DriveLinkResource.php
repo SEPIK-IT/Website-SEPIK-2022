@@ -22,7 +22,24 @@ class DriveLinkResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\Fieldset::make('Submisi lomba')->schema([
+                    Forms\Components\TextInput::make('google_drive_link')
+                        ->label('Link google drive')
+                        ->required()
+                        ->maxLength(500)
+                        ->columnSpan(2),
+                    Forms\Components\FileUpload::make('caption')
+                        ->label('Caption')
+                        ->disk('private')
+                        ->directory('captions')
+                        ->visibility('private'),
+
+                    Forms\Components\FileUpload::make('originality_statement')
+                        ->label('Lembar orisinalitas')
+                        ->disk('private')
+                        ->directory('statements')
+                        ->visibility('private'),
+                ]),
             ]);
     }
 
