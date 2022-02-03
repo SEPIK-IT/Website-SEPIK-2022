@@ -34,8 +34,8 @@ Route::get('/sayembara', function () {
 Route::get('/sayembara/{id}', [SayembaraController::class, 'show'])->middleware('auth');
 Route::get('/pameranVideo', 'App\Http\Controllers\linkController@index');
 
-Route::get('/zoopikRegistration', [ZoopikRegistrationController::class, 'index']);
-Route::post('/zoopikRegistration', [ZoopikRegistrationController::class, 'store']);
+Route::get('/zoopikRegistration', [ZoopikRegistrationController::class, 'index'])->middleware('auth');
+Route::post('/zoopikRegistration', [ZoopikRegistrationController::class, 'store'])->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
