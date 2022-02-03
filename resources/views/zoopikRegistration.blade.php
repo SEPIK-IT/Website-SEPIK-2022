@@ -1,108 +1,181 @@
-@extends('layouts.authLayout')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="/css/contestRegist.css">
+    <title>Daftar Zoopik - Surabaya Epik 2022</title>
+</head>
 
-@section('content')
-<div class="container-fluid">
-    <div class="row justify-content-center">
-
-        <div class="col-2 p-0" style="height: 100vh">
-            <img class="img-blok" src="{{ asset('img/auth/batik_cokelat.png') }}" alt="batik_cokelat.png">
-        </div>
-
-        <div class="col align-self-center p-4">
-            <div class="h1">Daftar Zoopik</div>
-
-            <div class="">
-                <div class="text-body">
-                    <form method="POST" action="/zoopikRegistration" enctype="multipart/form-data">
-                        @csrf
-
-                        <div class="form-group mt-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Nama Lengkap</label>
-
-                            <div class="col">
-                                <input id="name" type="text" class="form-control"
-                                    name="name" value="{{ $username }}" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-3">
-                            <label for="nrp" class="col-md-4 col-form-label text-md-right">NRP (Nomor Induk Pokok)</label>
-
-                            <div class="col">
-                                <input id="nrp" type="text" class="form-control @error('nrp') is-invalid @enderror"
-                                    name="nrp" value="{{ old('nrp') }}" required>
-
-                                @error('nrp')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-3">
-                            <label for="asalUniv" class="col-md-4 col-form-label text-md-right">Asal Universitas</label>
-
-                            <div class="col">
-                                <input id="asalUniv" type="text" class="form-control @error('asalUniv') is-invalid @enderror"
-                                    name="asalUniv" value="{{ old('asalUniv') }}" required>
-
-                                @error('asalUniv')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-3">
-                            <label for="ktm" class="col-md-4 col-form-label text-md-right">Kartu Tanda Mahasiswa</label>
-
-                            <div class="col">
-                                <input id="ktm" type="file" class="form-control @error('ktm') is-invalid @enderror"
-                                    name="ktm" required>
-
-                                @error('ktm')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-3">
-                            <label for="foto" class="col-md-4 col-form-label text-md-right">Foto 3 x 4</label>
-
-                            <div class="col">
-                                <input id="foto" type="file" class="form-control @error('foto') is-invalid @enderror"
-                                    name="foto" required>
-
-                                @error('foto')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col">
-                                <button type="submit" class="btn btn-submit my-4">
-                                    Daftar
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
+<body class="bg">
+    <button id="tooglebar" onclick="openNav()"
+            style="background-color: transparent; z-index: 0; position: absolute; margin-left: 90%; margin-top: 2.5%;"><i
+            class="fas fa-bars fa-2x"></i></button>
+    @extends('layouts.sidebar')
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+    
+            <div class="col-2 p-0" style="height: 100vh">
+                <img class="img-blok" src="{{ asset('img/auth/batik_cokelat.png') }}" alt="batik_cokelat.png">
             </div>
+    
+            <div class="col align-self-center p-4">
+                <div class="h1">Daftar Zoopik</div>
+    
+                <div class="">
+                    <div class="text-body">
+                        <form method="POST" action="/zoopikRegistration" enctype="multipart/form-data">
+                            @csrf
+    
+                            <div class="form-group mt-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Nama Lengkap</label>
+    
+                                <div class="col">
+                                    <input id="name" type="text" class="form-control"
+                                        name="name" value="{{ $username }}" readonly>
+                                </div>
+                            </div>
+    
+                            <div class="form-group mt-3">
+                                <label for="nrp" class="col-md-4 col-form-label text-md-right">NRP (Nomor Induk Pokok)</label>
+    
+                                <div class="col">
+                                    <input id="nrp" type="text" class="form-control @error('nrp') is-invalid @enderror"
+                                        name="nrp" value="{{ old('nrp') }}" required>
+    
+                                    @error('nrp')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="form-group mt-3">
+                                <label for="asalUniv" class="col-md-4 col-form-label text-md-right">Asal Universitas</label>
+    
+                                <div class="col">
+                                    <input id="asalUniv" type="text" class="form-control @error('asalUniv') is-invalid @enderror"
+                                        name="asalUniv" value="{{ old('asalUniv') }}" required>
+    
+                                    @error('asalUniv')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="form-group mt-3">
+                                <label for="ktm" class="col-md-4 col-form-label text-md-right">Kartu Tanda Mahasiswa</label>
+    
+                                <div class="col">
+                                    <input id="ktm" type="file" class="form-control @error('ktm') is-invalid @enderror"
+                                        name="ktm" required>
+    
+                                    @error('ktm')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="form-group mt-3">
+                                <label for="foto" class="col-md-4 col-form-label text-md-right">Foto 3 x 4</label>
+    
+                                <div class="col">
+                                    <input id="foto" type="file" class="form-control @error('foto') is-invalid @enderror"
+                                        name="foto" required>
+    
+                                    @error('foto')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-submit my-4">
+                                        Daftar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+    
+                </div>
+            </div>
+    
+            <div class="col-3 align-self-end text-center pb-5 mb-5">
+                <img class="img-mascot" src="{{ asset('img/auth/epik.png') }}" alt="epik.png">
+            </div>
+    
         </div>
-
-        <div class="col-3 align-self-end text-center pb-5 mb-5">
-            <img class="img-mascot" src="{{ asset('img/auth/epik.png') }}" alt="epik.png">
-        </div>
-
     </div>
-</div>
-
-@endsection
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var screenWidth = window.screen.width;
+    
+            if (screenWidth <= 400) {
+                $('#haha2').show();
+                $('#haha').hide();
+    
+    
+            } else {
+                $('#haha').show();
+                $('#haha2').hide();
+    
+            }
+    
+    
+        });
+    
+    
+        var s = skrollr.init();
+        // $("body").fadeOut(1000, function(){redirectPage('home.html')});
+        // 		$( "#banner" ).click(function() {
+        //   $("body").fadeOut(1000);
+        //   location.replace("https://www.w3schools.com");
+        // });
+    
+        // $('.container-fluid').attr('data-1000','transform:translateX(-900%)');
+        // alert($('.container-fluid').attr('data-1000'));
+        $(document).on('click', "#banner", function (event) {
+            event.preventDefault();
+            linkLocation = 'www.youtube.com';
+            $("body").fadeOut(1000, function () {
+                location.replace("login.html")
+            });
+        });
+    
+    
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+    
+        /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    
+    </script>
+    @livewireScripts
+    </body>
+</html>
