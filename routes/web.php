@@ -56,11 +56,13 @@ Route::get('/download_sop_mashup',DownloadController::class.'@downloadmashup')->
 Route::get('/download_sop_desain',DownloadController::class.'@downloaddesain')->name('dldesain');
 Route::get('/download_laporan_orisinalitas',DownloadController::class.'@downloadlaporan')->name('dllaporan');
 
-Auth::routes(['verify'=> true]);
+
 Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('donasi/admin',[DonationController::class, 'admin']);
 });
 Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::get('/donasi/{page?}', [DonationController::class, 'index'])->name('donasi');
-Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth')->name('Donasi');
-// Route::post('/donasi/admin', [DonationController::class, 'update'])->name('Donasi');
+
+Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth');
+
+Auth::routes(['verify'=> true]);

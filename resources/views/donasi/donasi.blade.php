@@ -34,7 +34,11 @@
                         <label for="name" class="form-label">
                             <h4>NAMA</h4>
                         </label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" name="name" value="{{ old('name') }}" required>
+                        @if (Auth::check())
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" name="name" value="{{ Auth::user()->name }}" readonly required>
+                        @else
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" name="name" value="{{ old('name') }}}" required>
+                        @endif
                         @error('name')
                             <div class="invalid-feedback">
                                 {{ $message }}
