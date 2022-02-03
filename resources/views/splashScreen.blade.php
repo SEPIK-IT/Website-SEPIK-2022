@@ -22,7 +22,7 @@
         function redirectPage(){
             window.location.href='/home';
         }
-        setTimeout(redirectPage, 4000);
+        setTimeout(redirectPage, 2500);
     </script>
 </head>
 
@@ -31,6 +31,7 @@
         <div class="d-flex justify-content-center" style="height: 100vh;">
                 <div class="align-self-center text-center">
                     <p class="fs-4">Selamat! Akun anda telah terdaftar!</p>
+                    <p class="fs-4">Tunggu beberapa saat untuk kembali ke halaman utama dan lakukan log in!</p>
                 </div>
                 <div class="dot">
                     <figure></figure>
