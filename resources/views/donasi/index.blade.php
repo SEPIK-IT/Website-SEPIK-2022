@@ -19,7 +19,7 @@
 
         <!-- jumbotron -->
         <section class="py-5 text-center container">
-            <div class="row py-lg-5">
+            <div class="row pt-lg-5 pb-lg-2">
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1 class="fw-light my-3">PENGGALANGAN DANA</h1>
                     <img src="/img/semanggi.png" alt="semanggi" width='50px'>
@@ -35,6 +35,11 @@
                         <a href="/donasi/donasi" class="btn btn-sepik my-2">DONASI SEKARANG</a>
                         <a href="#album" class="btn btn-secondary my-2">Baca Pesan</a>
                     </p>
+                    @if(Auth::user()->is_admin == 1)
+                    <p>
+                        <a href="/donasi/admin" class="btn btn-sepik my-2">Admin Panel</a>
+                    </p>
+                    @endif
                 </div>
             </div>
         </section>

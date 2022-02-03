@@ -60,6 +60,6 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('donasi/admin',[DonationController::class, 'admin']);
 });
 
-Route::get('/donasi/{page?}', [DonationController::class, 'index'])->name('Donasi');
+Route::get('/donasi/{page?}', [DonationController::class, 'index'])->name('donasi');
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth')->name('Donasi');
 // Route::post('/donasi/admin', [DonationController::class, 'update'])->name('Donasi');
