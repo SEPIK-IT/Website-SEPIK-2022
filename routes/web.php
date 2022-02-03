@@ -37,6 +37,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/splashscreen', function(){
+    return view('splashScreen');
+})->middleware('auth');
+
 Route::get('/registrasi-lomba/{competition}', [ContestRegistController::class, 'index'])
     ->middleware('auth')
     ->name('contestRegistration');
