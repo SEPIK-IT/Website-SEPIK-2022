@@ -37,7 +37,7 @@
                         @if (Auth::check())
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" name="name" value="{{ Auth::user()->name }}" readonly required>
                         @else
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" name="name" value="{{ old('name') }}}" required>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name" name="name" value="{{ old('name') }}" required>
                         @endif
                         @error('name')
                             <div class="invalid-feedback">
