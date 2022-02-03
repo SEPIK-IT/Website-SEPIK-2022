@@ -6,7 +6,7 @@
     <a class="judul" href="/">Home</a>
     <h6 id="about" class="judul" href="#">About</h6>
   <h6 id = "timeline" class="judul" href="#papan">Timeline</h6>
-  <a class="judul" href="#">Login</a>
+  <a class="judul" href="/login">Login</a>
   <h6 id="event" class="judul" href="#signEvent">Events</h6>
     <a class="sub-judul" href="/sayembara">Sayembara</a>
     <a class="sub-judul" href="#">Social Media Movement</a>
@@ -29,19 +29,19 @@
           	$('#about').click(function() {
       		$('#haha').css("transform", "translateX(-0%)");
       		closeNav();
-      	
+
 });
 
 
       	$('#event').click(function() {
       		$('#haha').css("transform", "translateX(-145.88%)");
       		closeNav();
-      	
+
 });
 
       	$('#timeline').click(function() {
       		$('#haha').css("transform", "translateX(-60.88%)");
       		closeNav();
-      	
+
 });
 </script>

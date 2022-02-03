@@ -87,7 +87,7 @@
                         <label for="identification" class="form-label">
                             <h4>NRP</h4>
                         </label>
-                        <input type="text" class="form-control @error('identification') is-invalid @enderror" id="identification" placeholder="identification" name="identification" value="{{ old('identification') }}" required>
+                        <input type="text" class="form-control @error('identification') is-invalid @enderror" id="identification" placeholder="NRP" name="identification" value="{{ old('identification') }}" required>
                         @error('identification')
                             <div class="invalid-feedback">
                                 {{ $message }}
