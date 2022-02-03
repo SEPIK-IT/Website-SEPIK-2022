@@ -4,6 +4,7 @@ use App\Http\Controllers\ContestRegistController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\ZoopikRegistrationController;
 use App\Http\Controllers\SayembaraController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,9 @@ Route::get('/sayembara', function () {
 });
 Route::get('/sayembara/{id}', [SayembaraController::class, 'show'])->middleware('auth');
 Route::get('/pameranVideo', 'App\Http\Controllers\linkController@index');
+
+Route::get('/zoopikRegistration', [ZoopikRegistrationController::class, 'index']);
+Route::post('/zoopikRegistration', [ZoopikRegistrationController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
