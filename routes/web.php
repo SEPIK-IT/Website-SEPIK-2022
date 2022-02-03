@@ -6,6 +6,7 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ZoopikRegistrationController;
 use App\Http\Controllers\SayembaraController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -59,7 +60,7 @@ Auth::routes(['verify'=> true]);
 Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('donasi/admin',[DonationController::class, 'admin']);
 });
-
+Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::get('/donasi/{page?}', [DonationController::class, 'index'])->name('donasi');
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth')->name('Donasi');
 // Route::post('/donasi/admin', [DonationController::class, 'update'])->name('Donasi');

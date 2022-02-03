@@ -83,6 +83,11 @@
                     </div>
                 </div>
 
+                <div class="col">
+                    <a href="/" class="btn btn-submit my-4">
+                        {{ __('Kembali ke halaman utama') }}
+                    </a>
+                </div>
             </div>
 
             <div class="col-3 align-self-end text-center pb-5 mb-5">
