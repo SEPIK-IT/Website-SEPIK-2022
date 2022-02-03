@@ -17,7 +17,7 @@ class isAdmin
     public function handle(Request $request, Closure $next)
     {   
         // $user = DB::table('users')->
-        if(auth()->user()->is_admin == true){
+        if(Auth::user()->is_admin != 1){
             return redirect()->route('Donasi');
         }
         return $next($request);
