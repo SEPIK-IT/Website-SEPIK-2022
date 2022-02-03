@@ -35,10 +35,12 @@
                         <a href="/donasi/donasi" class="btn btn-sepik my-2">DONASI SEKARANG</a>
                         <a href="#album" class="btn btn-secondary my-2">Baca Pesan</a>
                     </p>
+                    @if(Auth::check())
                     @if(Auth::user()->is_admin == 1)
                     <p>
                         <a href="/donasi/admin" class="btn btn-sepik my-2">Admin Panel</a>
                     </p>
+                    @endif
                     @endif
                 </div>
             </div>
