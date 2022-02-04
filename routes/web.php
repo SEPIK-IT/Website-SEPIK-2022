@@ -46,13 +46,12 @@ Route::get('/download_sop_desain', DownloadController::class . '@downloaddesain'
 Route::get('/download_laporan_orisinalitas', DownloadController::class . '@downloadlaporan')->name('dllaporan');
 
 
-Route::group(['middleware' => 'isAdmin'], function () {
-    Route::get('donasi/admin', [DonationController::class, 'admin']);
-});
 
 Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
-Route::get('/donasi/{page?}', [DonationController::class, 'index'])->name('donasi');
+Route::get('/donasi', [DonationController::class, 'index'])->name('donasi');
 
+Route::get('/donasi/donasi', [DonationController::class, 'donate'])->name('donate.create');
+Route::view('/donasi/suwun', 'donasi.suwun');
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth');
 
 Auth::routes(['verify' => true]);
