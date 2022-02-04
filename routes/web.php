@@ -46,6 +46,10 @@ Route::get('/splashscreen', function(){
     return view('splashScreen');
 })->middleware('auth');
 
+Route::get('/zoopiksplashscreen', function(){
+    return view('zoopikSplashScreen');
+})->middleware('auth');
+
 Route::get('/registrasi-lomba/{competition}', [ContestRegistController::class, 'index'])
     ->middleware('auth')
     ->name('contestRegistration');
