@@ -26,8 +26,8 @@ class ZoopikRegistrationController extends Controller
         $ktm = $request->file('ktm')->getClientOriginalName();
         $foto = $request->file('foto')->getClientOriginalName();
         
-        $request->file('ktm')->storeAs('public/img/zoopikRegistration/ktm', $ktm);
-        $request->file('foto')->storeAs('public/img/zoopikRegistration/foto3x4', $foto);
+        $request->file('ktm')->storeAs('public/img/zoopikRegistration/ktm', uniqid() . '.' . $ktm);
+        $request->file('foto')->storeAs('public/img/zoopikRegistration/foto3x4', uniqid() . '.' . $foto);
 
         $zoopikRegistration = ZoopikRegistration::create([
             'nama_lengkap'=>Auth::user()->name,
@@ -38,6 +38,6 @@ class ZoopikRegistrationController extends Controller
             'user_id'=>Auth::user()->id
         ]);
 
-        return redirect('/zoopikRegistration');
+        return redirect('/zoopiksplashscreen');
     }
 }
