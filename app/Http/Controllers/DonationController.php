@@ -21,7 +21,7 @@ class DonationController extends Controller
     public function donate()
     {
 
-        if (date('Y-m-d H:i:s') >= date('2022-02-07 00:00:00') && date('Y-m-d H:i:s') < date('2022-03-05 00:00:00') or true) {
+        if (date('Y-m-d H:i:s') >= date('2022-02-07 00:00:00') && date('Y-m-d H:i:s') < date('2022-03-05 00:00:00')) {
             return view('donasi/donasi');
         } else {
             return redirect('/donasi');
