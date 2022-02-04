@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Donation;
-use App\Models\Message;
 
 class DonationController extends Controller
 {
@@ -17,33 +16,22 @@ class DonationController extends Controller
                         ->get()
         ]);
     }
-    public function index($page = 'index')
-    {  
-        if($page == "index"){
-            return view('donasi/index', [
-                'total' => Donation::where('confirmation', 1)->sum('nominal'),
-                'messages' => Message::all()
-            ]);
+    public function index()
+    {
+        return view('donasi/index', [
+            'total' => Donation::where('confirmation', 1)->sum('nominal'),
+            'messages' => Donation::where('confirmation', 1)->whereNotNull('message')->get()
+        ]);
+    }
+
+    public function donate()
+    {
+
+        if(date('Y-m-d H:i:s') >= date('2022-02-07 00:00:00') && date('Y-m-d H:i:s') < date('2022-03-05 00:00:00') or true){
+            return view('donasi/donasi');
+        }else{
+            return redirect('/donasi');
         }
-
-        if($page == "donasi"){
-            if(date('Y-m-d H:i:s') >= date('2022-02-07 00:00:00') && date('Y-m-d H:i:s') < date('2022-03-05 00:00:00') or true){
-                return view('donasi/donasi');
-            }else{
-                return redirect('/donasi');
-            }
-        }
-
-        // if($page == "admin"){
-        //     return view('donasi/admin', [
-        //         'donations' => Donation::select("*")
-        //                     ->orderBy('confirmation', 'desc')
-        //                     ->orderBy('created_at', 'desc')
-        //                     ->get()
-        //     ]);
-        // }
-
-        return view('donasi/' . $page);
     }
 
     public function store(Request $request)
@@ -61,10 +49,7 @@ class DonationController extends Controller
 
         Donation::create($validatedData);
 
-        //kalo pesannya gak kosong baru diinsert
-        if($validatedData['message'] != ''){
-            Message::create($validatedData);
-        }
+
 
         return redirect('/donasi/suwun');
     }
