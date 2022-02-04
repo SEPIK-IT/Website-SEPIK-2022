@@ -46,22 +46,6 @@
                         @enderror
                     </div>
 
-                    <!-- nominal -->
-                    <div class="mb-5">
-                        <label for="nominal" class="form-label">
-                            <h4>NOMINAL</h4>
-                        </label>
-                        <div class="input-group">
-                            <span class="input-group-text rp text-white">Rp. </span>
-                            <input type="number" class="form-control @error('nominal') is-invalid @enderror" id="nominal" placeholder="Nominal" name="nominal" value="{{ old('nominal') }}" required>
-                            @error('nominal')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                    </div>
-
 					<!-- kategori -->
                     <div class="mb-5">
                         <label for="category" class="form-label">
@@ -117,48 +101,33 @@
 
                             <h5>A.N Michael Angelo </h5>
                             <br>
-                            <h5>Sertakan berita acara: </h5>
-                            <h5>Nama (umum)</h5>
-                            <h5>Nama nrp (mahasiswa)</h5>
+                            <h5>Minimal transfer Rp. 10.000</h5>
                             <br>
                             <h5>
-                                Kode unik transfer: <br>
-                                <table class="table table-hover table-secondary mt-2">
-                                    <tr>
-                                        <td>MASHUP</td>
-                                        <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <td>DESAIN</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>VIDEO</td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>PHOTO</td>
-                                        <td>6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Zoopik</td>
-                                        <td>7</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pengmas</td>
-                                        <td>8</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Fesbud dan closing ceremony</td>
-                                        <td>9</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pure donasi</td>
-                                        <td>2</td>
-                                    </tr>
-                                </table>                                 
-                                 
+                                Gunakan 2 sebagai kode unik transfer <br>
+                                Contoh: Rp. 50.002              
                             </h5>
+                            <br>
+                            <h5>Sertakan berita acara: </h5>
+                            <h5>Nama (umum)</h5>
+                            <h5>Nama NRP/NIM (mahasiswa)</h5>
+                            <br>
+                        </div>
+                    </div>
+
+                    <!-- nominal -->
+                    <div class="mb-5">
+                        <label for="nominal" class="form-label">
+                            <h4>NOMINAL</h4>
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-text rp text-white">Rp. </span>
+                            <input type="number" class="form-control @error('nominal') is-invalid @enderror" id="nominal" placeholder="Nominal" name="nominal" value="{{ old('nominal') }}" required>
+                            @error('nominal')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
 
@@ -185,7 +154,10 @@
                     <!-- pesan -->
                     <div class="mb-5">
                         <label for="message" class="form-label">
-                            <h4>KESAN PESAN (optional)</h4>
+                            <h4>KESAN PESAN / PENYEMANGAT UNTUK KEMAJUAN KEBUDAYAAN SURABAYA (optional)</h4>
+                            <br>
+                            <h5>Dihimbau untuk menggunakan kata-kata yang positif dan membangun. 
+                                Dilarang untuk menuliskan kata-kata yang menyinggung/negatif, berbau SARA, dan memuat pornografi.</h5>
                         </label>
                         <textarea class="form-control" id="message" rows="3"
                             placeholder="Tulis pesanmu" name="message" value="{{ old('message') }}"></textarea>
