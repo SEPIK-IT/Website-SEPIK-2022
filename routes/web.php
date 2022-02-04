@@ -62,6 +62,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::get('/donasi', [DonationController::class, 'index'])->name('donasi');
 
 Route::get('/donasi/donasi', [DonationController::class, 'donate'])->name('donate.create');
+Route::view('/donasi/suwun', 'donasi.suwun');
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth');
 
 Auth::routes(['verify'=> true]);
