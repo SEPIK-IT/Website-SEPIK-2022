@@ -205,6 +205,13 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
 <script>
+    if ($(this).val() == 'mahasiswa') {
+            $('.instansi-form').hide();
+            $('.universitas-form').show();
+    } else if ($(this).val() == 'umum') {
+            $('.universitas-form').hide();
+            $('.instansi-form').show();
+    }
     $('.kategori-select').change(function() {
         if ($(this).val() == 'mahasiswa') {
             $('.instansi-form').hide();
