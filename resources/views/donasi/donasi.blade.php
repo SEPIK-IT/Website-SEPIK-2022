@@ -55,7 +55,7 @@
                             <option value="mahasiswa"> Mahasiswa</option>
                             <option value="umum"> Umum</option>
                         </select>
-                        <input type="hidden" value="umum" id="hiddenInput"> Umum</input>
+                        <input type="hidden" value="umum" id="hiddenInput"></input>
                     </div>
 
                     <!-- univ -->
