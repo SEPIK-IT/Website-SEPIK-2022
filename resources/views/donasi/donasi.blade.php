@@ -51,14 +51,14 @@
                         <label for="category" class="form-label">
                             <h4>KATEGORI</h4>
                         </label>
-                        <select class="form-select" id="category" name='category' value="{{ old('category') }}">
+                        <select class="form-select kategori-select" id="category" name='category' value="{{ old('category') }}">
                             <option value="mahasiswa"> Mahasiswa</option>
                             <option value="umum"> Umum</option>
                         </select>
                     </div>
 
                     <!-- univ -->
-                    <div class="mb-5 sumber">
+                    <div class="mb-5 sumber universitas-form" style="display: none;">
                         <label for="source" class="form-label">
                             <h4>ASAL UNIVERSITAS</h4>
                         </label>
@@ -69,6 +69,18 @@
                             <option value="ubaya" {{ old('source') == 'ubaya' ? 'selected' : '' }}> Universitas Surabaya</option>
                             <option value="umum" style="display: none" {{ old('source') == 'umum' ? 'selected' : '' }}> Umum</option>
                         </select>
+                    </div>
+
+                    <div class="mb-5 sumber instansi-form" style="display: none;">
+                        <label for="origin" class="form-label">
+                            <h4>ASAL INSTANSI</h4>
+                        </label>
+                        <input type="text" class="form-control @error('origin') is-invalid @enderror" id="origin" placeholder="Asal Kota" name="origin" value="{{ old('origin') }}" required>
+                        @error('origin')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
 					<div class="mb-5 sumber">
@@ -188,7 +200,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
-
+<script>
+    $('.kategori-select').change(function() {
+        if ($(this).val() == 'mahasiswa') {
+            $('.instansi-form').hide();
+            $('.universitas-form').show();
+        } else if ($(this).val() == 'umum') {
+            $('.universitas-form').hide();
+            $('.instansi-form').show();
+        }
+    });
+ </script>
 <script src="/js/donasi.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
