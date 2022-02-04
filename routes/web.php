@@ -65,4 +65,8 @@ Route::get('/donasi/{page?}', [DonationController::class, 'index'])->name('donas
 
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth');
 
+Route::get('/vote', function () {
+    return view('vote-user');
+});
+
 Auth::routes(['verify'=> true]);

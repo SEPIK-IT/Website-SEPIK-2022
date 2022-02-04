@@ -1,0 +1,55 @@
+@font-face {
+    font-family: rutaban;
+    src: url("../font/rutaban/RUTAN___.TTF");
+}
+
+* {
+    font-family: rutaban;
+    overflow-x: hidden;
+}
+
+body {
+    background: #f7f3f0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.form-width {
+    width: 40%;
+}
+
+@media (max-width: 576px) {
+    .form-width {
+        width: 58.33333333%;
+    }
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.wrapper {
+    max-width: 700px;
+}
+
+#vote-button {
+    display: block;
+    width: 100%;
+    border-radius: 80px;
+    background-color: #262626;
+    border-color: #262626;
+    /* transition: 0.5s; */
+}
+
+#vote-button:hover {
+    /* padding-left: 22px;
+    padding-right: 22px; */
+    background-color: rgb(117, 109, 109);
+    border-color: rgb(117, 109, 109);
+    color: white;
+    /* transition: 0.5s; */
+}
