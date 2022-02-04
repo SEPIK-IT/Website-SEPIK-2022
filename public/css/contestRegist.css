@@ -28,9 +28,10 @@
 }
 
 .img-blok {
-    height: 105vh;
+    height: 100%;
     max-width: 100%;
     object-fit: cover;
+    overflow: scroll;
 }
 
 .img-mascot {
