@@ -40,13 +40,14 @@ class DonationController extends Controller
             'name' => 'required',
             'nominal' => 'required',
             'source'=> 'required',
+            'origin'=> '',
             'identification' => 'required',
             'proof' => 'required|image',
-            'message' => ''
+            'message' => '',
         ]);
 
         $validatedData['proof'] = $request->file('proof')->store('bukti-transfer');
-
+        $validatedData['confirmation'] = 2;
         Donation::create($validatedData);
 
 

@@ -51,10 +51,11 @@
                         <label for="category" class="form-label">
                             <h4>KATEGORI</h4>
                         </label>
-                        <select class="form-select kategori-select" id="category" name='category' value="{{ old('category') }}">
+                        <select class="form-select kategori-select" id="category" name='category' value="{{ old('category') }}" onchange="changeHiddenInput(this)">
                             <option value="mahasiswa"> Mahasiswa</option>
                             <option value="umum"> Umum</option>
                         </select>
+                        <input type="hidden" value="umum" id="hiddenInput"> Umum</input>
                     </div>
 
                     <!-- univ -->
@@ -67,7 +68,6 @@
                             <option value="uc" {{ old('source') == 'uc' ? 'selected' : '' }}> Universitas Ciputra</option>
                             <option value="wm" {{ old('source') == 'wm' ? 'selected' : '' }}> Universitas Katolik Widya Mandala</option>
                             <option value="ubaya" {{ old('source') == 'ubaya' ? 'selected' : '' }}> Universitas Surabaya</option>
-                            <option value="umum" style="display: none" {{ old('source') == 'umum' ? 'selected' : '' }}> Umum</option>
                         </select>
                     </div>
 
@@ -198,7 +198,11 @@
     </div>
     <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+<script>
+    function changeHiddenInput(objDropDown){
+        document.getElementById("hiddenInput").value = 'umum'; 
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
 <script>
     $('.kategori-select').change(function() {
