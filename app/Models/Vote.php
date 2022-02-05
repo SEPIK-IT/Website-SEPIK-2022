@@ -16,4 +16,8 @@ class Vote extends Model
     {
         return $this->belongsTo(FakeCompetitionRegistration::class);
     }
+    public function user() : BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

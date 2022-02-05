@@ -30,6 +30,7 @@ class VoteResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id_user_voter')->label('ID User Voter'),
+                Tables\Columns\TextColumn::make('user.name')->label('Nama Voter'),
                 Tables\Columns\TextColumn::make('id_join')->label('ID Partisipan'),
                 Tables\Columns\TextColumn::make('registration.names')
                     ->label('Nama Peserta'),
