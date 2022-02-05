@@ -114,25 +114,25 @@
                                 <p>KETENTUAN TRANSFER</p>
                                 <div style="background-color: rgba(68, 57, 38, 255);
                                 color: rgba(247, 243, 240, 255);" class="py-5">
-                                    <div class="ms-4 me-4">
-                                        <h5>Transfer ke nomor rekening BCA</h5>
-                                        <div class="input-group mb-3 ">
-                                            <input type="text" class="form-control" id="norek" value="0101920231" readonly>
-                                            <button class="btn btn-secondary" id="btn-copy" type="button"
-                                                    data-clipboard-target="#norek">
-                                                <i class="bi bi-clipboard"></i>
-                                            </button>
-                                            <button class="btn btn-dark myImg" src="{{ asset('img/qr.jpg') }}" type="button">
-                                                <i class="bi bi-qr-code"></i>
-                                            </button>
+                                    <div>
+                                        <div class="mx-4">
+                                            <h5>Transfer ke nomor rekening BCA</h5>
+                                            <div class="input-group mb-3 ">
+                                                <input type="text" class="form-control" id="norek" value="0101920231" readonly>
+                                                <button class="btn btn-secondary" id="btn-copy" type="button"
+                                                        data-clipboard-target="#norek">
+                                                    <i class="bi bi-clipboard"></i>
+                                                </button>
+                                                <button class="btn btn-dark myImg" src="{{ asset('img/qr.jpg') }}" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <i class="bi bi-qr-code"></i>
+                                                </button>
+                                            </div>
+                                            <div class="form-text fw-bold">*Minimal pembayaran adalah Rp 15.007</div>
+                                            <div class="form-text fw-bold">*Penulisan nominal tidak perlu titik atau koma</div>
                                         </div>
-                
-                                        <div class="form-text fw-bold">*Minimal pembayaran adalah Rp 15.007</div>
-                                        <div class="form-text fw-bold">*Penulisan nominal tidak perlu titik atau koma</div>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group mt-3">
                                 <label for="nominal" class="col-md-4 col-form-label text-md-right">Nominal Pembayaran</label>
     
@@ -193,6 +193,20 @@
                 <img class="img-mascot" src="{{ asset('img/auth/epik.png') }}" alt="epik.png">
             </div>
     
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">QR Code BCA</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="{{ asset('img/qr.jpg') }}" class="img-fluid">
+            </div>
+            </div>
+        </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
