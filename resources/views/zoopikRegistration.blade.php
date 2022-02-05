@@ -119,7 +119,7 @@
                                     <input id="nominal" type="number" class="form-control @error('nominal') is-invalid @enderror"
                                         name="nominal" required>
 
-                                    <div class="form-text fw-bold">*Minimal pembayaran adalah Rp 15.000</div>
+                                    <div class="form-text fw-bold">*Minimal pembayaran adalah Rp 15.007</div>
                                     <div class="form-text fw-bold">*Penulisan nominal tidak perlu titik atau koma</div>
 
                                     @error('nominal')
