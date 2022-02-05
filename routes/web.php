@@ -33,7 +33,7 @@ Route::post('/zoopikRegistration', [ZoopikRegistrationController::class, 'store'
 
 Route::view('/splashscreen', 'splashScreen')->middleware('auth');
 
-Route::view('/zoopiksplashscreen', 'zoopikSplashScreen')->middleware('auth');
+// Route::view('/zoopiksplashscreen', 'zoopikSplashScreen')->middleware('auth');
 
 Route::get('/registrasi-lomba/{competition}', [ContestRegistController::class, 'index'])
     ->middleware('auth')
