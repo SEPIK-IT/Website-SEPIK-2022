@@ -7,6 +7,7 @@ use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ZoopikRegistrationController;
 use App\Http\Controllers\SayembaraController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\VoteUserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -69,4 +70,5 @@ Route::get('/vote', function () {
     return view('vote-user');
 });
 
+Route::post('/vote', [VoteUserController::class, 'vote']);
 Auth::routes(['verify'=> true]);

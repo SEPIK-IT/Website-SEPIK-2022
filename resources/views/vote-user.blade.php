@@ -15,22 +15,75 @@
 </head>
 
 <body>
+
     <div class="container-fluid p-0">
         <div class="row">
-            <div class="col-2">
-                <img src="img/auth/batik_cokelat.png" style="width: 100%; height: 100vh; object-fit: cover" alt="">
+            <div class="col-sm-2">
+                <img src="img/auth/batik_cokelat.png" class="d-none d-sm-block batik" style="" alt="">
             </div>
-            <div class="col-7 d-flex justify-content-center">
+            <div class="col d-flex justify-content-center">
                 @livewire('vote-user')
             </div>
-            <div class="col-3 d-flex mt-auto">
-                <img src="img/auth/epik.png" style="width: 100%" alt="">
+            <div class="col-sm-3 d-flex mt-auto">
+                <img class="d-none d-sm-block" src="img/auth/epik.png" style="width: 100%" alt="">
             </div>
             
         </div>
         
     </div>
-    @livewireScripts
+
+    {{-- success vote modal --}}
+
+<!--Model Popup starts-->
+<div class="container">
+    <div class="row">
+        <div class="modal fade" id="ignismyModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+					
+                    <div class="modal-body">
+                       
+						<div class="thank-you-pop">
+							<img src="" alt="">
+							<h1></h1>
+							<p></p>
+							
+ 						</div>
+                         
+                    </div>
+					
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Model Popup ends-->
+
+{{-- CONFIRMATION MODAL --}}
+
+  <!-- Modal -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div style="background-color: #F7F3F0" class="modal-content">
+        <div style="background-color: #9C8357" class="modal-header">
+          <h5 class="modal-title text-white" id="exampleModalLabel">Konfirmasi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          Apakah anda yakin ingin vote?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+          <button id="yes-vote" type="button" class="btn btn-success">Iya</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @livewireScripts
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -41,6 +94,57 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        window.livewire.on('voteSuccess', () => {
+            //fill img src
+            $('#ignismyModal img').attr('src', 'img/green-tick.png');
+            //fill h1 element
+            $('#ignismyModal h1').text('Terima Kasih!');
+            //fill p element
+            $('#ignismyModal p').text('Vote kamu sudah masuk!');
+            $('#ignismyModal').modal('show');
+        });
+        window.livewire.on('voteFailed', () => {
+            $('#ignismyModal img').attr('src', 'img/cross.png');
+            //fill h1 element
+            $('#ignismyModal h1').text('Oops!');
+            //fill p element
+            $('#ignismyModal p').text('Kamu sudah pernah vote di kompetisi ini!');
+            $('#ignismyModal').modal('show');
+        });
+
+        window.livewire.on('serverError', () => {
+            $('#ignismyModal img').attr('src', 'img/cross.png');
+            //fill h1 element
+            $('#ignismyModal h1').text('Oops!');
+            //fill p element
+            $('#ignismyModal p').text('Server Error!');
+            $('#ignismyModal').modal('show');
+        });
+        window.livewire.on('confirmVote', () => {
+            
+            $('#confirmModal').modal('show');
+        });
+        $('#yes-vote').click(function(){
+            $('#confirmModal').modal('hide');
+            //ajax post
+            $.ajax({
+                url: '/vote',
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    idJoin: $('#peserta-lomba').val(),
+                },
+                success: function(data) {
+                    window.livewire.emit('voteSuccess');
+                },
+                error: function(data) {
+                    window.livewire.emit('serverError');
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
