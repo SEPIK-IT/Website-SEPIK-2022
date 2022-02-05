@@ -25,7 +25,7 @@ class ZoopikRegistrationController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'nrp'=>'required|numeric',
+            'nrp'=>'required',
             'asalUniv'=>'required',
             'ktm'=>'required|image',
             'foto'=>'required|image',
