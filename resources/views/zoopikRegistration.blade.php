@@ -8,10 +8,15 @@
           integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/contestRegist.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="/css/contestRegist.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
     <title>Daftar Zoopik - Surabaya Epik 2022</title>
 </head>
 
@@ -112,15 +117,35 @@
                                 </div>
                             </div>
 
+                            <div class="my-5">
+                                <p>KETENTUAN TRANSFER</p>
+                                <div style="background-color: rgba(68, 57, 38, 255);
+                                color: rgba(247, 243, 240, 255);" class="py-5">
+                                    <div class="ms-4 me-4">
+                                        <h5>Transfer ke nomor rekening BCA</h5>
+                                        <div class="input-group mb-3 ">
+                                            <input type="text" class="form-control" id="norek" value="0101920231" readonly>
+                                            <button class="btn btn-secondary" id="btn-copy" type="button"
+                                                    data-clipboard-target="#norek">
+                                                <i class="bi bi-clipboard"></i>
+                                            </button>
+                                            <button class="btn btn-dark myImg" src="{{ asset('img/qr.jpg') }}" type="button">
+                                                <i class="bi bi-qr-code"></i>
+                                            </button>
+                                        </div>
+                
+                                        <div class="form-text fw-bold">*Minimal pembayaran adalah Rp 15.007</div>
+                                        <div class="form-text fw-bold">*Penulisan nominal tidak perlu titik atau koma</div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group mt-3">
                                 <label for="nominal" class="col-md-4 col-form-label text-md-right">Nominal Pembayaran</label>
     
                                 <div class="col">
                                     <input id="nominal" type="number" class="form-control @error('nominal') is-invalid @enderror"
                                         name="nominal" required>
-
-                                    <div class="form-text fw-bold">*Minimal pembayaran adalah Rp 15.007</div>
-                                    <div class="form-text fw-bold">*Penulisan nominal tidak perlu titik atau koma</div>
 
                                     @error('nominal')
                                         <span class="invalid-feedback" role="alert">
@@ -177,12 +202,16 @@
     
         </div>
     </div>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            
+            if ($("#btn-copy").length > 0) {
+                copyButton();
+            }
+            modalImage();
             var screenWidth = window.screen.width;
     
             if (screenWidth <= 400) {
@@ -216,7 +245,31 @@
                 location.replace("login.html")
             });
         });
-    
+        function modalImage() {
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var modalImg = document.getElementById("img01");
+
+            $(".myImg").click(function () {
+                modal.style.display = "block";
+                modalImg.src = $(this).attr('src');
+            });
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+        }
+
+        $(".myImg").click(function () {
+            modal.style.display = "block";
+            modalImg.src = $(this).attr('src');
+        });
     
         function openNav() {
             document.getElementById("mySidebar").style.width = "250px";
@@ -228,7 +281,11 @@
             document.getElementById("mySidebar").style.width = "0";
             document.getElementById("main").style.marginLeft = "0";
         }
-    
+        
+        function copyButton() {
+                var clipboard = new ClipboardJS('#btn-copy');
+            }
+        
     </script>
     @livewireScripts
     </body>
