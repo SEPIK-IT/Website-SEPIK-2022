@@ -54,6 +54,8 @@ Route::get('/donasi/donasi', [DonationController::class, 'donate'])->name('donat
 Route::view('/donasi/suwun', 'donasi.suwun');
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth');
 
-Route::view('social-media-movement/daftar', 'social-media-movement.register')->name('social-media-movement.register');
+Route::get('user-dashboard', [\App\Http\Controllers\UserDashboardController::class, 'index'])->middleware('auth')->name('user-dashboard');
+
+Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement');
 
 Auth::routes(['verify' => true]);
