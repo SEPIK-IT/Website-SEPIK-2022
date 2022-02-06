@@ -292,6 +292,16 @@
 
                 </div>
             </div>
+            <div class="alert alert-info mt-4" role="alert">
+                <h4 class="alert-heading">Submisi karya lain kali?</h4>
+                <p>Bila ingin mengumpulkan karya lain kali setelah melakukan registrasi, anda bisa menekan tombol
+                    dibawah</p>
+                <p><i>Info: </i> Anda bisa mengumpulkan karya pada <b>halaman Dashboard</b>.</p>
+                <hr>
+                <div class="d-grid gap-2">
+                    <button wire:click.prevent="skipWorksSubmission" type="button" class="btn btn-info">Kumpulkan karya lain kali</button>
+                </div>
+            </div>
             @break
 
             @case(4)
