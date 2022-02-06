@@ -10,14 +10,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Vote extends Model
 {
     use HasFactory;
-    protected $fillable = ['id_user_voter', 'id_join'];
+    protected $fillable = ['user_id', 'fake_competition_registration_id', 'competition_id'];
 
-    public function registration() : BelongsTo
+    public function fake_competition_registration() : BelongsTo
     {
         return $this->belongsTo(FakeCompetitionRegistration::class);
     }
     public function user() : BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+    public function competition() : BelongsTo {
+        return $this->belongsTo(Competition::class);
     }
 }

@@ -33,7 +33,7 @@
     </div>
     <div class="text-center">
         <button type="submit" id="vote-button" class="btn btn-primary shadow-none">Vote!</button>
-
+        <a style="background: #443926; color: white; width: 100%;" class="btn mt-3" href="/">Kembali ke halaman utama</a>
     </div>
     </form>
     

@@ -112,6 +112,15 @@
             $('#ignismyModal p').text('Kamu sudah pernah vote di kompetisi ini!');
             $('#ignismyModal').modal('show');
         });
+        window.livewire.on('voteClosed', () => {
+            $('#ignismyModal img').attr('src', 'img/cross.png');
+            //fill h1 element
+            $('#ignismyModal h1').text('Oops!');
+            //fill p element
+            $('#ignismyModal p').text('Voting ditutup!');
+            $('#ignismyModal').modal('show');
+        });
+        
 
         window.livewire.on('serverError', () => {
             $('#ignismyModal img').attr('src', 'img/cross.png');
@@ -134,6 +143,7 @@
                 data: {
                     _token: '{{ csrf_token() }}',
                     idJoin: $('#peserta-lomba').val(),
+                    idLomba: $('#nama-lomba').val(),
                 },
                 success: function(data) {
                     window.livewire.emit('voteSuccess');

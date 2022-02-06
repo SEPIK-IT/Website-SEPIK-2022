@@ -27,29 +27,30 @@ class VoteUser extends Component
             'idJoin.required' => 'Pilih peserta yang ingin di vote',
         ]);
         //custom message
+        $vote_status = Competition::where('id', $this->idLomba)->first()->vote_status;
 
-        $user_id = Auth::user()->id;
-
-        //cek apakah sudah pernah vote
-        $sudahVote = Vote::join('fake_competition_registrations', 'fake_competition_registrations.id', '=', 'votes.id_join')
-            ->where('votes.id_user_voter', $user_id)
-            ->where('fake_competition_registrations.competition_id', $this->idLomba)
-            ->first();
-        //insert to table vote
-        if (!$sudahVote){
-            //confirmation
-            $this->emit('confirmVote');
-            
+        if (!$vote_status) {
+            $this->emit('voteClosed');
         } else {
-            $this->emit('voteFailed');
+            $user_id = Auth::user()->id;
+            //cek apakah sudah pernah vote
+            $sudahVote = Vote::where('votes.user_id', $user_id)->where('competition_id', $this->idLomba)->first();
+            //insert to table vote
+            if (!$sudahVote){
+                //confirmation
+                $this->emit('confirmVote');
+            } else {
+                $this->emit('voteFailed');
+            }
         }
+
         
     }
 
     public function render()
     {
         return view('livewire.vote-user', [
-            'competitions' => Competition::all(),
+            'competitions' => Competition::where('vote_status', '=', '1')->get(),
             'participants' => FakeCompetitionRegistration::where('competition_id', $this->idLomba)->get(),
         ]);
     }
