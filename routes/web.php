@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 require __DIR__ . '/auth.php';
 
 Route::view('/', 'index');
-Route::view('/home', 'home');
+Route::view('/home', 'home')->name('homepage');
 Route::view('/sayembara', 'sayembara');
 Route::get('/pameranVideo', 'App\Http\Controllers\linkController@index');
 
@@ -53,5 +53,9 @@ Route::get('/donasi', [DonationController::class, 'index'])->name('donasi');
 Route::get('/donasi/donasi', [DonationController::class, 'donate'])->name('donate.create');
 Route::view('/donasi/suwun', 'donasi.suwun');
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth');
+
+Route::get('user-dashboard', [\App\Http\Controllers\UserDashboardController::class, 'index'])->middleware('auth')->name('user-dashboard');
+
+Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement');
 
 Auth::routes(['verify' => true]);

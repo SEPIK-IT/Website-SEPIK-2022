@@ -23,6 +23,8 @@ class CompetitionResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Toggle::make('is_opened')
+                    ->label('Buka sayembara ini?'),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->label('Nama Lomba')
@@ -56,6 +58,7 @@ class CompetitionResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\BooleanColumn::make('is_opened')->label('Pendaftaran dibuka'),
                 Tables\Columns\TextColumn::make('name')->label('Nama lomba'),
                 Tables\Columns\TextColumn::make('title')->label('Judul di website'),
                 Tables\Columns\TextColumn::make('nominal')->label('Nominal transfer'),
