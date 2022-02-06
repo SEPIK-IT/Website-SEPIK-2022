@@ -137,8 +137,11 @@ class ContestRegistration extends Component
                 ]);
 
 
-                $this->saveAllData();
+                if (!$this->competition->is_opened) {
+                    $this->redirect(route('homepage'));
+                }
 
+                $this->saveAllData();
                 $this->steps = 6;
                 $this->canContinue = false;
                 break;

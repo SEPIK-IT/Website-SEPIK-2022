@@ -1,5 +1,4 @@
 <div>
-    <h1>{{$competition->title}}</h1>
     <form wire:submit.prevent="verifyAndNextStep">
         @switch($steps)
             @case(1)
