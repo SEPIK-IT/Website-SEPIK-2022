@@ -50,11 +50,13 @@ class ContestRegistration extends Component
             $this->steps = 2;
         }
 
-        if (CompetitionRegistration::where('user_id', auth()->user()->id)
+        $competitionRegistrationStatus = CompetitionRegistration::where('user_id', auth()->user()->id)
             ->where('competition_id', $this->competition->id)
-            ->exists()
-        ) {
+            ->first();
+
+        if ($competitionRegistrationStatus) {
             $this->steps = 6;
+            $this->worksSkipped = $competitionRegistrationStatus->verification_status === 'WORKS_UNUPLOADED';
             $this->canContinue = false;
         }
 

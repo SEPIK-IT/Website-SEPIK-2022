@@ -21,7 +21,8 @@ class ChangeConceptOnCompetitionRegistrationsTable extends Migration
             $table->enum('verification_status', [
                 'VERIFIED',
                 'WORKS_UNUPLOADED',
-                'UNVERIFIED'
+                'UNVERIFIED',
+                'REJECTED'
             ])->default('UNVERIFIED');
 
             $table->dropColumn('is_verified');

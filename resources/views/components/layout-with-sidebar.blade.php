@@ -1,4 +1,4 @@
-@props(['title' => 'Surabaya Epik 2022'])
+@props(['title' => 'Surabaya Epik 2022', 'scripts' => ''])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,5 +91,6 @@
 
 </script>
 @livewireScripts
+{{$scripts}}
 </body>
 </html>

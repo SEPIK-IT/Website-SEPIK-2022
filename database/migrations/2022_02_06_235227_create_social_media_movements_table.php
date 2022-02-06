@@ -15,6 +15,26 @@ class CreateSocialMediaMovementsTable extends Migration
     {
         Schema::create('social_media_movements', function (Blueprint $table) {
             $table->id();
+
+            // Data peserta
+            $table->json('names');
+            $table->json('universities');
+            $table->json('identifications');
+            $table->json('line_ids');
+            $table->json('whatsapp_numbers');
+            $table->json('instagram_usernames');
+
+            // Pengumpulan data
+            $table->string('id_proof_link', 500);
+            $table->string('photo_link', 500);
+
+            $table->string('transfer_proof', 500);
+
+            // Link gdrive bukti unggahan
+            $table->string('story_proof_link');
+            $table->string('file_proof_link');
+            $table->string('twibbon_proof_link');
+
             $table->timestamps();
         });
     }

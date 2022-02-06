@@ -298,7 +298,9 @@
                 <p><i>Info: </i> Anda bisa mengumpulkan karya pada <b>halaman Dashboard</b>.</p>
                 <hr>
                 <div class="d-grid gap-2">
-                    <button wire:click.prevent="skipWorksSubmission" type="button" class="btn btn-info">Kumpulkan karya lain kali</button>
+                    <button wire:click.prevent="skipWorksSubmission" type="button" class="btn btn-info">Kumpulkan karya
+                        lain kali
+                    </button>
                 </div>
             </div>
             @break
@@ -427,8 +429,13 @@
                     <div>{!! $competition->outro_text !!}</div>
                 </div>
             </div>
+            @if($worksSkipped)
+                <div class="alert alert-warning my-2" role="alert">
+                    <b>Jangan lupa mengupload karya anda di dashboard!</b> <a href="{{route('user-dashboard')}}">Klik untuk pergi ke dashboard</a>
+                </div>
+            @endif
             <div class="alert alert-info my-2" role="alert">
-                Data pendaftaran anda sedang di verifikasi, anda dapat menutup halaman ini sekarang.
+                {{$worksSkipped ? 'Anda dapat menutup halaman ini sekarang.' : ' Data pendaftaran anda sedang di verifikasi, anda dapat menutup halaman ini sekarang.'}}
             </div>
             @break
 

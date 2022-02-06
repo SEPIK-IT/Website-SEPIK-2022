@@ -1,5 +1,6 @@
 <x-layout-with-sidebar :title="$competition->title">
-    <h1>{{$competition->title}}</h1>
+    <img src="{{asset('img/header-form-sepik.png')}}" aria-hidden="true" class="img-fluid rounded" />
+    <h1 class="my-2">{{$competition->title}}</h1>
     @if($competition->is_opened)
         <livewire:contest-registration :competition="$competition"/>
     @else
