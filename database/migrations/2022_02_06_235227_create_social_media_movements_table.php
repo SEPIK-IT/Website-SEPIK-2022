@@ -24,6 +24,7 @@ class CreateSocialMediaMovementsTable extends Migration
             $table->json('identifications');
             $table->json('line_ids');
             $table->json('whatsapp_numbers');
+            $table->json('twibbon_links');
             $table->json('instagram_usernames');
 
             // Pengumpulan data

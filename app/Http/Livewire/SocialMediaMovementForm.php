@@ -30,6 +30,7 @@ class SocialMediaMovementForm extends Component
     public $line_ids;
     public $whatsapp_numbers;
     public $instagram_usernames;
+    public $twibbon_links;
 
     public $id_proof_link;
     public $photo_link;
@@ -85,6 +86,12 @@ class SocialMediaMovementForm extends Component
                     'instagram_usernames.2' => [Rule::requiredIf(fn() => $this->teamMemberCount == 4 || $this->teamMemberCount == 5)],
                     'instagram_usernames.3' => [Rule::requiredIf(fn() => $this->teamMemberCount == 4 || $this->teamMemberCount == 5)],
                     'instagram_usernames.4' => [Rule::requiredIf(fn() => $this->teamMemberCount == 5)],
+
+                    'twibbon_links.0' => ['required'],
+                    'twibbon_links.1' => [Rule::requiredIf(fn() => $this->teamMemberCount == 4 || $this->teamMemberCount == 5)],
+                    'twibbon_links.2' => [Rule::requiredIf(fn() => $this->teamMemberCount == 4 || $this->teamMemberCount == 5)],
+                    'twibbon_links.3' => [Rule::requiredIf(fn() => $this->teamMemberCount == 4 || $this->teamMemberCount == 5)],
+                    'twibbon_links.4' => [Rule::requiredIf(fn() => $this->teamMemberCount == 5)],
                 ]);
 
                 $this->currentStep = 3;

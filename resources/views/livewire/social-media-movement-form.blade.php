@@ -169,7 +169,6 @@
                                         {{$teamMemberCount > 1 ? " anggota {$mc}" : " peserta"}}
                                     </label>
                                     <input id="identifications.{{$mc - 1}}" type="text"
-                                           placeholder="Ketik nama universitas anda disini"
                                            class="form-control @error('identifications' . ($mc - 1)) is-invalid @enderror"
                                            name="identifications.{{$mc - 1}}"
                                            wire:model.lazy="identifications.{{$mc - 1}}">
@@ -186,7 +185,6 @@
                                         {{$teamMemberCount > 1 ? " anggota {$mc}" : " peserta"}}
                                     </label>
                                     <input id="line_ids.{{$mc - 1}}" type="text"
-                                           placeholder="Ketik nama universitas anda disini"
                                            class="form-control @error('line_ids.' . ($mc - 1)) is-invalid @enderror"
                                            name="line_ids.{{$mc - 1}}"
                                            wire:model.lazy="line_ids.{{$mc - 1}}">
@@ -204,7 +202,6 @@
                                         {{$teamMemberCount > 1 ? " anggota {$mc}" : " peserta"}}
                                     </label>
                                     <input id="whatsapp_numbers.{{$mc - 1}}" type="text"
-                                           placeholder="Ketik nama universitas anda disini"
                                            class="form-control @error('line_ids.' . ($mc - 1)) is-invalid @enderror"
                                            name="whatsapp_numbers.{{$mc - 1}}"
                                            wire:model.lazy="whatsapp_numbers.{{$mc - 1}}">
@@ -223,12 +220,33 @@
                                     </label>
                                     <small class="d-block"><b>Harus menggunakan first account / akun utama</b></small>
                                     <input id="instagram_usernames.{{$mc - 1}}" type="text"
-                                           placeholder="Ketik nama universitas anda disini"
                                            class="form-control @error('line_ids.' . ($mc - 1)) is-invalid @enderror"
                                            name="instagram_usernames.{{$mc - 1}}"
                                            wire:model.lazy="instagram_usernames.{{$mc - 1}}">
 
                                     @error('instagram_usernames.' . ($mc - 1))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="twibbon_links.{{$mc - 1}}"
+                                           class="col-md-4 col-form-label text-md-right">Link Instagram Bukti Upload
+                                        Twibbon
+                                        {{$teamMemberCount > 1 ? " anggota {$mc}" : " peserta"}}
+                                    </label>
+                                    <small class="d-block">Peserta WAJIB melampirkan Link Instagram yang berisi unggahan
+                                        twibbon di Instagram pribadi (wajib akun pertama/first account) dan dilarang
+                                        memprivate akun. Postingan twibbon dapat di keep hingga 12 Maret 2022.</small>
+                                    <input id="twibbon_links.{{$mc - 1}}" type="text"
+                                           class="form-control @error('line_ids.' . ($mc - 1)) is-invalid @enderror"
+                                           name="twibbon_links.{{$mc - 1}}"
+                                           required
+                                           wire:model.lazy="twibbon_links.{{$mc - 1}}">
+
+                                    @error('twibbon_links.' . ($mc - 1))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

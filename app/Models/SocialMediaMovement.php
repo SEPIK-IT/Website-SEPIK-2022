@@ -16,6 +16,7 @@ class SocialMediaMovement extends Model
         'identifications' => 'array',
         'line_ids' => 'array',
         'whatsapp_numbers' => 'array',
+        'twibbon_links' => 'array',
         'instagram_usernames' => 'array',
     ];
 }
