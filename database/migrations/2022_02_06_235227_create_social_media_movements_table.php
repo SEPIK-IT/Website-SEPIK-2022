@@ -36,7 +36,6 @@ class CreateSocialMediaMovementsTable extends Migration
             // Link gdrive bukti unggahan
             $table->string('story_proof_link');
             $table->string('file_proof_link');
-            $table->string('twibbon_proof_link');
 
             $table->timestamps();
         });
