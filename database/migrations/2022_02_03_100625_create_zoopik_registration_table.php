@@ -20,6 +20,8 @@ class CreateZoopikRegistrationTable extends Migration
             $table->string('asalUniv');
             $table->string('path_img_ktm');
             $table->string('path_img_foto');
+            $table->bigInteger('nominal_pembayaran');
+            $table->string('path_img_bukti_transfer');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });

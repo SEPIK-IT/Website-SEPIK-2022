@@ -121,7 +121,7 @@
                 <div class="mb-5">
                     <h4>KETENTUAN TRANSFER</h4>
                     <div class="count-down-box donasi-box p-4">
-                        <h5>Transfer ke nomor rekering BCA</h5>
+                        <h5>Transfer ke nomor rekening BCA</h5>
 
                         <div class="input-group mb-3 ">
                             <input type="text" class="form-control" id="norek" value="0101920231" readonly>

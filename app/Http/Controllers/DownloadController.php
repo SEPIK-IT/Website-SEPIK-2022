@@ -33,4 +33,9 @@ class DownloadController extends Controller
         $filepath = public_path().'/docx/lembarorisinalitas.docx';
         return Response::download($filepath); 
     }
+    public function downloadsocial()
+    {
+        $filepath = public_path().'/pdf/sopsocial.pdf';
+        return Response::download($filepath); 
+    }
 }
