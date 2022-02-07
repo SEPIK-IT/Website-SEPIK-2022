@@ -127,7 +127,7 @@ class SocialMediaMovementForm extends Component
             'universities' => $this->assignUniversities(),
             'twibbon_links' => $this->twibbon_links,
             'names' => $this->names,
-            'transfer_proof' => $this->transfer_proof->store("social-media-movement/transfer-proof", 'private'),
+            'transfer_proof' => $this->transfer_proof,
             'whatsapp_numbers' => $this->whatsapp_numbers,
             'photo_link' => $this->photo_link,
             'instagram_usernames' => $this->instagram_usernames,
