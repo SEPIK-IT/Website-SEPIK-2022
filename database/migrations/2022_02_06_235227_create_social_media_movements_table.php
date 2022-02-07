@@ -16,6 +16,7 @@ class CreateSocialMediaMovementsTable extends Migration
         Schema::create('social_media_movements', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->enum('verification_status', ['VERIFIED', 'UNVERIFIED', 'REJECTED'])->default('UNVERIFIED');
 
             // Data peserta
             $table->json('names');
