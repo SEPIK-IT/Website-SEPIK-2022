@@ -34,6 +34,7 @@ class ContestRegistration extends Component
     public $google_drive_link;
     public $caption;
     public $originality_statement;
+    public $worksSkipped = false;
 
     // Contact person
     public $whatsapp_no;
@@ -49,11 +50,13 @@ class ContestRegistration extends Component
             $this->steps = 2;
         }
 
-        if (CompetitionRegistration::where('user_id', auth()->user()->id)
+        $competitionRegistrationStatus = CompetitionRegistration::where('user_id', auth()->user()->id)
             ->where('competition_id', $this->competition->id)
-            ->exists()
-        ) {
+            ->first();
+
+        if ($competitionRegistrationStatus) {
             $this->steps = 6;
+            $this->worksSkipped = $competitionRegistrationStatus->verification_status === 'WORKS_UNUPLOADED';
             $this->canContinue = false;
         }
 
@@ -136,12 +139,21 @@ class ContestRegistration extends Component
                 ]);
 
 
-                $this->saveAllData();
+                if (!$this->competition->is_opened) {
+                    $this->redirect(route('homepage'));
+                }
 
+                $this->saveAllData();
                 $this->steps = 6;
                 $this->canContinue = false;
                 break;
         }
+    }
+
+    public function skipWorksSubmission()
+    {
+        $this->worksSkipped = true;
+        $this->steps = 4;
     }
 
     public function saveAllData()
@@ -161,8 +173,9 @@ class ContestRegistration extends Component
 
 
         CompetitionRegistration::create([
-            'is_verified' => false,
+            'verification_status' => $this->worksSkipped ? 'WORKS_UNUPLOADED' : 'UNVERIFIED',
             'competition_id' => $this->competition->id,
+
             'user_id' => auth()->user()->id,
             'names' => $this->names,
             'identifications' => $this->identifications,
@@ -171,12 +184,22 @@ class ContestRegistration extends Component
             'upload_ids' => $idfiles,
             'upload_photos' => $photosfile,
             'twibbon_links' => $this->twibbon_links,
-            'google_drive_link' => $this->google_drive_link,
-            'caption' => $this->caption->storeAs("captions/{$folderFormat}", $this->caption->getClientOriginalName(), 'private'),
-            'originality_statement' => $this->originality_statement->storeAs("statements/{$folderFormat}", $this->originality_statement->getClientOriginalName(), 'private'),
+
+            'google_drive_link' => !$this->worksSkipped
+                ? $this->google_drive_link
+                : null,
+
+            'caption' => !$this->worksSkipped
+                ? $this->caption->storeAs("captions/{$folderFormat}", $this->caption->getClientOriginalName(), 'private')
+                : null,
+            'originality_statement' => !$this->worksSkipped
+                ? $this->originality_statement->storeAs("statements/{$folderFormat}", $this->originality_statement->getClientOriginalName(), 'private')
+                : null,
+
             'whatsapp_no' => $this->whatsapp_no,
             'line_id' => $this->line_id,
-            'payment_proof' => $this->payment_proof->storeAs("payment-proofs/{$folderFormat}", $this->caption->getClientOriginalName(), 'private'),
+
+            'payment_proof' => $this->payment_proof->storeAs("payment-proofs/{$folderFormat}", $this->payment_proof->getClientOriginalName(), 'private'),
         ]);
     }
 }

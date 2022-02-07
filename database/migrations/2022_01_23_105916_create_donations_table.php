@@ -14,13 +14,15 @@ class CreateDonationsTable extends Migration
     public function up()
     {
         Schema::create('donations', function (Blueprint $table) {
-            $table->id('donation_id');
+            $table->id();
             $table->string('name');
             $table->bigInteger('nominal');
-            $table->string('source');
+            $table->enum('source', ['ukp', 'uc', 'wm', 'ubaya', 'umum']);
+            $table->string('origin')->nullable();
             $table->string('proof');
             $table->string('identification')->nullable();
             $table->integer('confirmation')->nullable();
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }

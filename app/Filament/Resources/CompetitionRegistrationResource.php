@@ -24,9 +24,14 @@ class CompetitionRegistrationResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Toggle::make('is_verified')
-                    ->helperText('Nyalakan bila ingin memverifikasi lalu klik Save')
-                    ->label('Status verifikasi'),
+                Forms\Components\Select::make('verification_status')
+                    ->helperText('Ganti status verifikasi dari pendaftar ini')
+                    ->options([
+                        'VERIFIED' => 'Pendaftar sudah diverifikasi',
+                        'WORKS_UNUPLOADED' => 'Pendaftar lomba belum mengupload karya',
+                        'UNVERIFIED' => 'Pendaftar sudah mengupload karya tapi belum diverifikasi'
+                    ])
+                    ->label('Status submisi lomba'),
 
                 Forms\Components\Section::make('Informasi peserta')
                     ->schema([
@@ -110,6 +115,13 @@ class CompetitionRegistrationResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('verification_status')
+                    ->label('Status submisi')
+                    ->enum([
+                        'VERIFIED' => 'Sudah diverifikasi',
+                        'WORKS_UNUPLOADED' => 'Karya belum diupload',
+                        'UNVERIFIED' => 'Belum diverifikasi'
+                    ]),
                 Tables\Columns\TextColumn::make('competition.name')
                     ->label('Nama Kompetisi')
                     ->sortable(),
@@ -123,15 +135,20 @@ class CompetitionRegistrationResource extends Resource
                     ->label('No.WA'),
                 Tables\Columns\TextColumn::make('line_id')
                     ->label('ID Line'),
-                Tables\Columns\TextColumn::make('google_drive_link')
-                    ->label('Link Google Drive'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Tanggal daftar')
                     ->dateTime(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('Berdasarkan kompetisi')
-                    ->relationship('competition', 'name')
+                    ->relationship('competition', 'name'),
+                Tables\Filters\SelectFilter::make('verification_status')
+                    ->options([
+                        'UNVERIFIED' => 'Belum diverifikasi',
+                        'VERIFIED' => 'Sudah diverifikasi',
+                        'WORKS_UNUPLOADED' => 'Karya belum diupload',
+                    ])
+                    ->label('Berdasarkan status verifikasi')
             ]);
     }
 

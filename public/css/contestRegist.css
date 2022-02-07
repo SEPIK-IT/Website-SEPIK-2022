@@ -14,14 +14,24 @@
     font-family: rutaban;
 }
 
+.btn-sepik {
+    background-color: rgba(68, 57, 38, 255) !important;
+    color: white !important;
+}
+
+.btn-sepik:hover {
+    color: white;
+}
+
 .bg {
     background-color: #f7f3f0;
 }
 
 .img-blok {
-    height: 105vh;
+    height: 100%;
     max-width: 100%;
     object-fit: cover;
+    overflow: scroll;
 }
 
 .img-mascot {

@@ -9,7 +9,7 @@ class Donation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'nominal', 'source', 'proof', 'identification'];
+    protected $guarded = [];
 
     protected $attributes = [
         'confirmation' => 2

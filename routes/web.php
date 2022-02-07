@@ -4,11 +4,9 @@ use App\Http\Controllers\ContestRegistController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DownloadController;
-
 use App\Http\Controllers\ZoopikRegistrationController;
 use App\Http\Controllers\SayembaraController;
 use App\Http\Controllers\Auth\LoginController;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,22 +22,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 require __DIR__ . '/auth.php';
-require __DIR__.'/auth.php';
-
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/home', function () {
-    return view('home');
-});
-Route::get('/sayembara', function () {
-    return view('sayembara');
-});
-
-Route::get('/pameranVideo', 'App\Http\Controllers\linkController@index');
 
 Route::view('/', 'index');
-Route::view('/home', 'home');
+Route::view('/home', 'home')->name('homepage');
 Route::view('/sayembara', 'sayembara');
 Route::get('/pameranVideo', 'App\Http\Controllers\linkController@index');
 
@@ -48,7 +33,7 @@ Route::post('/zoopikRegistration', [ZoopikRegistrationController::class, 'store'
 
 Route::view('/splashscreen', 'splashScreen')->middleware('auth');
 
-Route::view('/zoopikSplashScreen', 'zoopikSplashScreen')->middleware('auth');
+Route::view('/zoopiksplashscreen', 'zoopikSplashScreen')->middleware('auth');
 
 Route::get('/registrasi-lomba/{competition}', [ContestRegistController::class, 'index'])
     ->middleware('auth')
@@ -59,7 +44,7 @@ Route::get('/download_sop_video', DownloadController::class . '@downloadvideo')-
 Route::get('/download_sop_mashup', DownloadController::class . '@downloadmashup')->name('dlmashup');
 Route::get('/download_sop_desain', DownloadController::class . '@downloaddesain')->name('dldesain');
 Route::get('/download_laporan_orisinalitas', DownloadController::class . '@downloadlaporan')->name('dllaporan');
-
+Route::get('/download_sop_social', DownloadController::class . '@downloadsocial')->name('dlsocial');
 
 
 Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
@@ -69,15 +54,8 @@ Route::get('/donasi/donasi', [DonationController::class, 'donate'])->name('donat
 Route::view('/donasi/suwun', 'donasi.suwun');
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth');
 
+Route::get('user-dashboard', [\App\Http\Controllers\UserDashboardController::class, 'index'])->middleware('auth')->name('user-dashboard');
+
+Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement')->middleware('auth', 'isAdmin');
+
 Auth::routes(['verify' => true]);
-Route::get('/download_sop_human',DownloadController::class.'@downloadhuman')->name('dlhuman');
-Route::get('/download_sop_video',DownloadController::class.'@downloadvideo')->name('dlvideo');
-Route::get('/download_sop_mashup',DownloadController::class.'@downloadmashup')->name('dlmashup');
-Route::get('/download_sop_desain',DownloadController::class.'@downloaddesain')->name('dldesain');
-Route::get('/download_laporan_orisinalitas',DownloadController::class.'@downloadlaporan')->name('dllaporan');
-
-Auth::routes(['verify'=> true]);
-
-Route::get('/donasi/{page?}', [DonationController::class, 'index'])->name('Donasi');
-Route::post('/donasi/donasi', [DonationController::class, 'store'])->name('Donasi');
-// Route::post('/donasi/admin', [DonationController::class, 'update'])->name('Donasi');
