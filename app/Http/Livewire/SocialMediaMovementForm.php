@@ -105,7 +105,7 @@ class SocialMediaMovementForm extends Component
                 break;
             case 4:
                 $this->validate([
-                    'transfer_proof' => ['required', 'image', 'max:5120']
+                    'transfer_proof' => ['required']
                 ]);
                 $this->currentStep = 5;
                 break;
