@@ -30,13 +30,13 @@ class SocialMediaMovementForm extends Component
     public $line_ids;
     public $whatsapp_numbers;
     public $instagram_usernames;
+    public $twibbon_links;
 
     public $id_proof_link;
     public $photo_link;
     public $transfer_proof;
     public $story_proof_link;
     public $file_proof_link;
-    public $twibbon_proof_link;
 
 
     public function render()
@@ -85,6 +85,12 @@ class SocialMediaMovementForm extends Component
                     'instagram_usernames.2' => [Rule::requiredIf(fn() => $this->teamMemberCount == 4 || $this->teamMemberCount == 5)],
                     'instagram_usernames.3' => [Rule::requiredIf(fn() => $this->teamMemberCount == 4 || $this->teamMemberCount == 5)],
                     'instagram_usernames.4' => [Rule::requiredIf(fn() => $this->teamMemberCount == 5)],
+
+                    'twibbon_links.0' => ['required'],
+                    'twibbon_links.1' => [Rule::requiredIf(fn() => $this->teamMemberCount == 4 || $this->teamMemberCount == 5)],
+                    'twibbon_links.2' => [Rule::requiredIf(fn() => $this->teamMemberCount == 4 || $this->teamMemberCount == 5)],
+                    'twibbon_links.3' => [Rule::requiredIf(fn() => $this->teamMemberCount == 4 || $this->teamMemberCount == 5)],
+                    'twibbon_links.4' => [Rule::requiredIf(fn() => $this->teamMemberCount == 5)],
                 ]);
 
                 $this->currentStep = 3;
@@ -107,7 +113,6 @@ class SocialMediaMovementForm extends Component
                 $this->validate([
                     'story_proof_link' => ['required'],
                     'file_proof_link' => ['required'],
-                    'twibbon_proof_link' => ['required'],
                 ]);
                 $this->saveAllInput();
                 break;
@@ -120,6 +125,7 @@ class SocialMediaMovementForm extends Component
             'user_id' => auth()->user()->id,
             'verification_status' => 'UNVERIFIED',
             'universities' => $this->assignUniversities(),
+            'twibbon_links' => $this->twibbon_links,
             'names' => $this->names,
             'transfer_proof' => $this->transfer_proof->store("social-media-movement/transfer-proof", 'private'),
             'whatsapp_numbers' => $this->whatsapp_numbers,
@@ -128,7 +134,6 @@ class SocialMediaMovementForm extends Component
             'story_proof_link' => $this->story_proof_link,
             'line_ids' => $this->line_ids,
             'file_proof_link' => $this->file_proof_link,
-            'twibbon_proof_link' => $this->twibbon_proof_link,
             'id_proof_link' => $this->id_proof_link,
             'identifications' => $this->identifications,
         ]);
