@@ -18,7 +18,7 @@ class isAdmin
     {   
         // $user = DB::table('users')->
         if(Auth::user()->is_admin != 1){
-            return redirect()->route('/');
+            return redirect()->route('index');
         }
         return $next($request);
     }
