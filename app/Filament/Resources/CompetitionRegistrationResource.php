@@ -123,6 +123,8 @@ class CompetitionRegistrationResource extends Resource
                     ->label('No.WA'),
                 Tables\Columns\TextColumn::make('line_id')
                     ->label('ID Line'),
+                Tables\Columns\TextColumn::make('google_drive_link')
+                    ->label('Link Google Drive'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Tanggal daftar')
                     ->dateTime(),

@@ -49,8 +49,4 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     {
         return $this->is_admin;
     }
-
-    public function zoopikRegistration(){
-        return $this->hasOne(ZoopikRegistration::class, 'user_id', 'id');
-    }
 }
