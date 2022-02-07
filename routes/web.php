@@ -44,7 +44,7 @@ Route::get('/download_sop_video', DownloadController::class . '@downloadvideo')-
 Route::get('/download_sop_mashup', DownloadController::class . '@downloadmashup')->name('dlmashup');
 Route::get('/download_sop_desain', DownloadController::class . '@downloaddesain')->name('dldesain');
 Route::get('/download_laporan_orisinalitas', DownloadController::class . '@downloadlaporan')->name('dllaporan');
-
+Route::get('/download_sop_social', DownloadController::class . '@downloadsocial')->name('dlsocial');
 
 
 Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
