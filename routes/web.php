@@ -56,6 +56,6 @@ Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware(
 
 Route::get('user-dashboard', [\App\Http\Controllers\UserDashboardController::class, 'index'])->middleware('auth')->name('user-dashboard');
 
-Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement')->middleware('auth', 'isAdmin');
+Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement')->middleware('auth');
 
 Auth::routes(['verify' => true]);
