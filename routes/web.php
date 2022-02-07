@@ -33,7 +33,7 @@ Route::post('/zoopikRegistration', [ZoopikRegistrationController::class, 'store'
 
 Route::view('/splashscreen', 'splashScreen')->middleware('auth');
 
-Route::view('/zoopikSplashScreen', 'zoopikSplashScreen')->middleware('auth');
+Route::view('/zoopiksplashscreen', 'zoopikSplashScreen')->middleware('auth');
 
 Route::get('/registrasi-lomba/{competition}', [ContestRegistController::class, 'index'])
     ->middleware('auth')
@@ -44,7 +44,7 @@ Route::get('/download_sop_video', DownloadController::class . '@downloadvideo')-
 Route::get('/download_sop_mashup', DownloadController::class . '@downloadmashup')->name('dlmashup');
 Route::get('/download_sop_desain', DownloadController::class . '@downloaddesain')->name('dldesain');
 Route::get('/download_laporan_orisinalitas', DownloadController::class . '@downloadlaporan')->name('dllaporan');
-
+Route::get('/download_sop_social', DownloadController::class . '@downloadsocial')->name('dlsocial');
 
 
 Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
@@ -56,6 +56,6 @@ Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware(
 
 Route::get('user-dashboard', [\App\Http\Controllers\UserDashboardController::class, 'index'])->middleware('auth')->name('user-dashboard');
 
-Route::view('social-media-movement', 'social-media-movement')->middleware('auth')->name('social-media-movement');
+Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement')->middleware('isAdmin');
 
 Auth::routes(['verify' => true]);

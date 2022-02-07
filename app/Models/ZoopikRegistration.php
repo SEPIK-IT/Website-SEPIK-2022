@@ -17,6 +17,8 @@ class ZoopikRegistration extends Model
         'asalUniv',
         'path_img_ktm',
         'path_img_foto',
+        'nominal_pembayaran',
+        'path_img_bukti_transfer',
         'user_id'
     ];
 
