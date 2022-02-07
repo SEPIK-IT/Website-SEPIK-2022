@@ -337,7 +337,7 @@
                         0101920231 a/n Michael Angelo Kamaluddin dengan berita acara : Nama(NRP/NIM)</p>
 
                     <div class="alert alert-danger my-2" role="alert">
-                        <b>Penting: </b> Peserta tidak diperkenankan untuk mengundurkan diri dari Sayembara.
+                        <b>Penting: </b> Peserta tidak diperkenankan untuk mengundurkan diri dari Social Media Movement.
                         Apabila peserta tiba-tiba mengundurkan diri, maka biaya pendaftaran tidak dapat
                         dikembalikan.
                     </div>
