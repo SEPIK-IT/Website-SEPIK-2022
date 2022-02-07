@@ -117,6 +117,7 @@ class SocialMediaMovementForm extends Component
     {
         SocialMediaMovement::create([
             'user_id' => auth()->user()->id,
+            'verification_status' => 'UNVERIFIED',
             'universities' => $this->assignUniversities(),
             'names' => $this->names,
             'transfer_proof' => $this->transfer_proof->store("social-media-movement/transfer-proof", 'private'),
