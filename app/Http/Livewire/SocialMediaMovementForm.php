@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\SocialMediaMovement;
+use App\Models\UniversityCache;
 use App\Rules\CheckMaxUniversity;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
@@ -131,8 +132,18 @@ class SocialMediaMovementForm extends Component
             'id_proof_link' => $this->id_proof_link,
             'identifications' => $this->identifications,
         ]);
+
+        $this->updateUniversities();
+
         $this->currentStep = 6;
         $this->canContinue = false;
+    }
+
+    public function updateUniversities()
+    {
+        foreach ($this->names as $key => $name){
+           UniversityCache::where('name', $this->universities[$key])->first()->increment('registrant');
+        }
     }
 
     public function assignUniversities(): array
