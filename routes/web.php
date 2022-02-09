@@ -6,6 +6,7 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ZoopikRegistrationController;
 use App\Http\Controllers\SayembaraController;
+use App\Http\Controllers\SocialMediaMovementController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -57,5 +58,7 @@ Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware(
 Route::get('user-dashboard', [\App\Http\Controllers\UserDashboardController::class, 'index'])->middleware('auth')->name('user-dashboard');
 
 Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement')->middleware('auth');
+Route::get('/movements', [SocialMediaMovementController::class, 'index']);
+Route::post('/movements', [SocialMediaMovementController::class, 'update']);
 
 Auth::routes(['verify' => true]);
