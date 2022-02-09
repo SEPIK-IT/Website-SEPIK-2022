@@ -15,7 +15,10 @@ class SocialMediaMovementResource extends Resource
 {
     protected static ?string $model = SocialMediaMovement::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-share';
+
+    protected static ?string $navigationGroup = "Pendaftaran";
+    protected static ?string $pluralLabel = "Pendaftar Social Media Movement";
 
     public static function form(Form $form): Form
     {
@@ -94,7 +97,22 @@ class SocialMediaMovementResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\BadgeColumn::make('verification_status')
+                    ->label('Status verifikasi')
+                    ->colors([
+                        'primary',
+                        'danger' => 'REJECTED',
+                        'warning' => 'UNVERIFIED',
+                        'success' => 'VERIFIED'
+                    ])
+                    ->formatStateUsing(fn(string $state): string => match ($state) {
+                        'VERIFIED' => 'Terverifikasi',
+                        'UNVERIFIED' => 'Belum Diverifikasi',
+                        'REJECTED' => 'Ditolak'
+                    }),
+
+                Tables\Columns\TagsColumn::make('names')
+                    ->label('Nama pendaftar'),
             ])
             ->filters([
                 //

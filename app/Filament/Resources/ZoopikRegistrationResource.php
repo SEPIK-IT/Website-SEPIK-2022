@@ -15,8 +15,10 @@ class ZoopikRegistrationResource extends Resource
 {
     protected static ?string $model = ZoopikRegistration::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-video-camera';
 
+    protected static ?string $navigationGroup = "Pendaftaran";
+    protected static ?string $pluralLabel = "Pendaftar Zoopik";
 
     public static function form(Form $form): Form
     {
