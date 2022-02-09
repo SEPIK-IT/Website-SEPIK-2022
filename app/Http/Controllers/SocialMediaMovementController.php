@@ -75,11 +75,13 @@ class SocialMediaMovementController extends Controller
         // return 0;
         //
         $id = $request['id'];
-        $data = $request['data'];
+        // $data = $request['data'];
         $changeTo = $request['changeTo'];
 
-        $hasil = Donasi::where('id', $id)
+        $hasil = SocialMediaMovement::where('id', $id)
                 ->update(['verification_status' => $changeTo]);
+
+        return redirect("/movements");
     }
 
     /**

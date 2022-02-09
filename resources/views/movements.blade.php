@@ -132,18 +132,29 @@
                                 </td>
 
 
+                                <form action="/movements" method="post">
+                                @csrf
                                 <td class="edit" id="{{ $m->id }}">
-                                    <button type="button" class="btn btn-lg" data-bs-toggle="popover">
-                                    @if ($m->verification_status === "UNVERIFIED")
-                                        <i class="bi bi-exclamation-circle-fill text-warning"></i>
-                                    @elseif ($m->verification_status === "VERIFIED")
-                                        <i class="bi bi-check-circle-fill text-success"></i>
-                                    @elseif ($m->verification_status === "REJECTED")
-                                        <i class="bi bi-x-circle-fill text-danger"></i>
-                                    @endif
-                                    </button>
-                                    <div class="data" style="display: none">{{ $m->verification_status }}</div>
-                                </td>
+                                        <button type="button" class="btn btn-lg" data-bs-toggle="popover">
+                                        @if ($m->verification_status === "UNVERIFIED")
+                                            <i class="bi bi-exclamation-circle-fill text-warning"></i>
+                                        @elseif ($m->verification_status === "VERIFIED")
+                                            <i class="bi bi-check-circle-fill text-success"></i>
+                                        @elseif ($m->verification_status === "REJECTED")
+                                            <i class="bi bi-x-circle-fill text-danger"></i>
+                                        @endif
+                                        </button>
+
+                                        <select class="form-control" name="changeTo" id="">
+                                            <option>VERIFIED</option>
+                                            <option>REJECTED</option>
+                                            <option>UNVERIFIED</option>
+                                        </select>
+                                        <input type="hidden" name="id" value="{{ $m->id }}">
+                                        <button class="btn btn-success" type="submit">save</button>
+                                        <!--<div class="data" style="display: none">{{ $m->verification_status }}</div> -->
+                                    </td>
+                                </form>
                             </tr>
                         @endforeach
                     </tbody>
