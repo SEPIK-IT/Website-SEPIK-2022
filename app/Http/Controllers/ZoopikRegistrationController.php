@@ -39,9 +39,9 @@ class ZoopikRegistrationController extends Controller
         $foto = uniqid() . '.' . $request->file('foto')->getClientOriginalName();
         $buktiTransfer = uniqid() . '.' . $request->file('buktiTransfer')->getClientOriginalName();
 
-        $ktmPath = $request->file('ktm')->storeAs('public/img/zoopikRegistration/ktm', $ktm);
-        $photoPath = $request->file('foto')->storeAs('public/img/zoopikRegistration/foto3x4', $foto);
-        $transferPath = $request->file('buktiTransfer')->storeAs('public/img/zoopikRegistration/buktiTransfer', $buktiTransfer);
+        $ktmPath = $request->file('ktm')->storeAs('img/zoopikRegistration/ktm', $ktm, 'public');
+        $photoPath = $request->file('foto')->storeAs('img/zoopikRegistration/foto3x4', $foto, 'public');
+        $transferPath = $request->file('buktiTransfer')->storeAs('img/zoopikRegistration/buktiTransfer', $buktiTransfer, 'public');
 
         ZoopikRegistration::create([
             'nama_lengkap' => Auth::user()->name,
