@@ -14,7 +14,7 @@ class CreateZoopikRegistrationTable extends Migration
     public function up()
     {
         Schema::create('zoopik_registration', function (Blueprint $table) {
-            $table->id('id_zoopik_registration');
+            $table->id();
             $table->string('nama_lengkap');
             $table->string('nrp');
             $table->string('asalUniv');
