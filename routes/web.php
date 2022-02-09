@@ -25,7 +25,7 @@ require __DIR__ . '/auth.php';
 
 Route::view('/', 'index');
 Route::view('/home', 'home')->name('homepage');
-Route::view('/sayembara', 'sayembara');
+Route::view('/sayembara', 'sayembara')->name('sayembara');
 Route::get('/pameranVideo', 'App\Http\Controllers\linkController@index');
 
 Route::get('/zoopikRegistration', [ZoopikRegistrationController::class, 'index'])->middleware('auth');
@@ -56,6 +56,6 @@ Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware(
 
 Route::get('user-dashboard', [\App\Http\Controllers\UserDashboardController::class, 'index'])->middleware('auth')->name('user-dashboard');
 
-Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement')->middleware('isAdmin');
+Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement')->middleware('auth');
 
 Auth::routes(['verify' => true]);
