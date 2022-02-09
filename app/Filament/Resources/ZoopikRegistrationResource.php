@@ -17,6 +17,7 @@ class ZoopikRegistrationResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+
     public static function form(Form $form): Form
     {
         return $form
