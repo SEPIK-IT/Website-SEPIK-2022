@@ -19,7 +19,7 @@ class StatsOverviewWidget extends BaseWidget
             Card::make(
                 'Total Donasi',
                 "Rp" . Donation::where('confirmation', 1)->sum('nominal')
-            )
+            ),
         ];
     }
 }
