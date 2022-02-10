@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CompetitionRegistrationResource\Pages;
 use App\Filament\Resources\CompetitionRegistrationResource\RelationManagers;
+use App\Forms\Components\PreviewAndDownload;
 use App\Models\CompetitionRegistration;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -78,24 +79,40 @@ class CompetitionRegistrationResource extends Resource
                             ->multiple(),
                     ]),
 
-                Forms\Components\Fieldset::make('Submisi lomba')->schema([
-                    Forms\Components\TextInput::make('google_drive_link')
-                        ->label('Link google drive')
-                        ->required()
-                        ->maxLength(500)
-                        ->columnSpan(2),
-                    Forms\Components\FileUpload::make('caption')
-                        ->label('Caption')
-                        ->disk('private')
-                        ->directory('captions')
-                        ->visibility('private'),
+                Forms\Components\Section::make('Submisi lomba')
+                    ->schema([
+                        Forms\Components\TextInput::make('google_drive_link')
+                            ->label('Link google drive')
+                            ->required()
+                            ->maxLength(500)
+                            ->columnSpan(2),
 
-                    Forms\Components\FileUpload::make('originality_statement')
-                        ->label('Lembar orisinalitas')
-                        ->disk('private')
-                        ->directory('statements')
-                        ->visibility('private'),
-                ]),
+                        Forms\Components\Grid::make()
+                            ->schema([
+                                Forms\Components\FileUpload::make('caption')
+                                    ->label('Caption')
+                                    ->disk('private')
+                                    ->directory('captions')
+                                    ->visibility('private'),
+                                PreviewAndDownload::make('caption')
+                                    ->label('Aksi')
+                                    ->disk('private'),
+                            ])
+                            ->columnSpan(2),
+
+                        Forms\Components\Grid::make()
+                            ->schema([
+                                Forms\Components\FileUpload::make('originality_statement')
+                                    ->label('Lembar orisinalitas')
+                                    ->disk('private')
+                                    ->directory('statements')
+                                    ->visibility('private'),
+                                PreviewAndDownload::make('originality_statement')
+                                    ->label('Aksi')
+                                    ->disk('private'),
+                            ])
+                            ->columnSpan(2)
+                    ]),
 
                 Forms\Components\Fieldset::make('Informasi kontak')
                     ->schema([

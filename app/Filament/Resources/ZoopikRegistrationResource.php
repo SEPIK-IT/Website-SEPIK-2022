@@ -17,8 +17,8 @@ class ZoopikRegistrationResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-video-camera';
 
-    protected static ?string $navigationGroup = "Pendaftaran";
-    protected static ?string $pluralLabel = "Pendaftar Zoopik";
+    protected static ?string $navigationGroup = "Pendaftaran Lomba";
+    protected static ?string $pluralLabel = "Zoopik";
 
     public static function form(Form $form): Form
     {
