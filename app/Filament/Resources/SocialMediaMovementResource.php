@@ -88,6 +88,10 @@ class SocialMediaMovementResource extends Resource
                         Forms\Components\TextInput::make('file_proof_link')
                             ->label('Link google drive berisi bukti video/foto instagram')
                             ->required(),
+
+                        Forms\Components\TextInput::make('transfer_proof')
+                            ->label('Link google drive berisi bukti transfer gdrive')
+                            ->required(),
                     ])
 
             ]);
