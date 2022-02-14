@@ -38,4 +38,14 @@ class DownloadController extends Controller
         $filepath = public_path().'/pdf/sopsocial.pdf';
         return Response::download($filepath); 
     }
+    public function downloadoutput()
+    {
+        $filepath = public_path().'/pdf/sopoutput.pdf';
+        return Response::download($filepath); 
+    }
+    public function downloadwawancara()
+    {
+        $filepath = public_path().'/pdf/sopwawancara.pdf';
+        return Response::download($filepath); 
+    }
 }
