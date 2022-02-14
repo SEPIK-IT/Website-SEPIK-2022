@@ -13,7 +13,7 @@ class UserDashboardController extends Controller
 
         return view('user-dashboard.index')->with([
             'competitions' => CompetitionRegistration::with('competition')->where('user_id', auth()->user()->id)->get(),
-            'socialMediaMovement' => SocialMediaMovement::where('user_id', auth()->user()->id)->first()
+            'socialMediaMovement' => SocialMediaMovement::where('user_id', auth()->user()->id)
         ]);
     }
 }
