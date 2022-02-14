@@ -1,6 +1,13 @@
 <x-layout-with-sidebar>
-    <div class="d-grid gap-4">
+    <div class="my-4">
+        @if(session('message'))
+            <div class="alert alert-{{session('message')['status']}}">
+                {{session('message')['message']}}
+            </div>
+        @endif
+    </div>
 
+    <div class="d-grid gap-4">
         <div class="d-grid gap-2">
             <img src="{{asset('img/header-form-sepik.png')}}" alt="banner" class="img-fluid rounded">
             <div class="card">
@@ -72,14 +79,27 @@
 
                 @if(!$socialMediaMovement->exists())
                 @else
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">Anda / tim sudah terdaftar!</h4>
-                        <p>Terima kasih sudah melakukan pendaftaran Social Media Movement SEPIK 2022! <br>
-                            Untuk informasi yang berkaitan dengan kegiatan ini, peserta dapat bergabung dalam Grup Line
-                            melalui link: <a
-                                href="https://line.me/ti/g2/PDH1E_d9QvrYlPKRxJjfPBhBi2SHnBw-WpATWA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">https://line.me/ti/g2/PDH1E_d9QvrYlPKRxJjfPBhBi2SHnBw-WpATWA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default</a>
-                        </p>
+                    <div class="d-grid gap-3">
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Anda / tim sudah terdaftar!</h4>
+                            <p>Terima kasih sudah melakukan pendaftaran Social Media Movement SEPIK 2022! <br>
+                                Untuk informasi yang berkaitan dengan kegiatan ini, peserta dapat bergabung dalam Grup Line
+                                melalui link: <a
+                                    href="https://line.me/ti/g2/PDH1E_d9QvrYlPKRxJjfPBhBi2SHnBw-WpATWA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">https://line.me/ti/g2/PDH1E_d9QvrYlPKRxJjfPBhBi2SHnBw-WpATWA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default</a>
+                            </p>
+                        </div>
+
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Langkah kedua</h4>
+                            <p>
+                                Silakan pilih jadwal Interview dengan cara mengklik link ini: <br>
+                                <a href="{{route('social-media-movement.pengmas.index')}}">{{route('social-media-movement.pengmas.index')}}</a>
+                                <br>
+
+                            </p>
+                        </div>
                     </div>
+
                 @endif
             </div>
         </div>

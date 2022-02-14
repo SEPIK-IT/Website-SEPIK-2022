@@ -4,6 +4,8 @@ use App\Http\Controllers\ContestRegistController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\PengmasController;
+use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\ZoopikRegistrationController;
 use App\Http\Controllers\SayembaraController;
 use App\Http\Controllers\Auth\LoginController;
@@ -54,8 +56,14 @@ Route::get('/donasi/donasi', [DonationController::class, 'donate'])->name('donat
 Route::view('/donasi/suwun', 'donasi.suwun');
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth');
 
-Route::get('user-dashboard', [\App\Http\Controllers\UserDashboardController::class, 'index'])->middleware('auth')->name('user-dashboard');
+Route::get('user-dashboard', [UserDashboardController::class, 'index'])->middleware('auth')->name('user-dashboard');
 
 Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement')->middleware('auth');
+
+
+// Pengmas
+Route::get('social-media-movement/pengmas', [PengmasController::class, 'index'])->middleware('auth')->name('social-media-movement.pengmas.index');
+Route::post('social-media-movement/pengmas', [PengmasController::class, 'store'])->middleware('auth')->name('social-media-movement.pengmas.store');
+
 
 Auth::routes(['verify' => true]);
