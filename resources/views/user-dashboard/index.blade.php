@@ -78,6 +78,9 @@
                     mengikuti Social Media Movement! Daftarkan dirimu atau tim mu sekarang!</p>
 
                 @if(!$socialMediaMovement->exists())
+                    <div class="alert alert-warning">
+                        Anda belum mendaftar Social Media Movement, yuk <a href="{{route('social-media-movement')}}">Daftar sekarang!</a>
+                    </div>
                 @else
                     <div class="d-grid gap-3">
                         <div class="alert alert-success" role="alert">
