@@ -27,7 +27,7 @@ class CheckMaxUniversity implements Rule
     public function passes($attribute, $value): bool
     {
         $maxRegistrant = [
-            'Universitas Kristen Petra' => 1200,
+            'Universitas Kristen Petra' => 1600,
             'Universitas Surabaya' => 300,
             'Universitas Ciputra' => 300,
             'Universitas Katolik Widya Mandala' => 300,

@@ -154,6 +154,7 @@
                                                     name="universities.{{$mc - 1}}"
                                                     class="form-control @error('universities.' . ($mc - 1)) is-invalid @enderror"
                                                     required>
+                                                <option value="Universitas Kristen Petra">Universitas Kristen Petra</option>
                                                 <option value="Universitas Surabaya">Universitas Surabaya</option>
                                                 <option value="Universitas Ciputra">Universitas Ciputra</option>
                                                 <option value="Universitas Katolik Widya Mandala">Universitas Katolik
