@@ -76,7 +76,7 @@
                 <h3>Social media movement</h3>
                 <p>Yuk, berkreasi dan ikut andil dalam melestarikan budaya Surabaya bersama arek-arek Surabaya dengan
                     mengikuti Social Media Movement! Daftarkan dirimu atau tim mu sekarang!</p>
-                    <div class="d-flex row ms-1">
+                    <div class="d-flex row ms-1 mb-2">
                     <div class="d-flex align-items-center justify-content-center"
                     style="cursor: pointer; background-color: rgba(68, 57, 38, 255) !important; color: white !important; border-radius: 80px; height: 50px; width: 25%;"
                     onclick="location.href='{{route('dlsocial')}}'">
