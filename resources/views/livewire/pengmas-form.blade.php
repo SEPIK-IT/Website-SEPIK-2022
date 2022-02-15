@@ -37,7 +37,8 @@
                     <option value="2022-02-21 18:00:00">Senin, 21 Februari 2022 (18.00 - 20.00 WIB)</option>
                 </x-slot>
             </x-select>
-
+            <p>Pilihlah jadwal yang berbeda dengan pilihan pertama, jika memang BENAR-BENAR TIDAK BISA, maka pilihlah di jam yang sama seperti pilihan pertama
+            </p>
             <button type="button" wire:click.prevent="checkAvailability" class="btn btn-submit my-2">Cek jadwal</button>
 
             @switch($interviewTimeCheckStatus)
