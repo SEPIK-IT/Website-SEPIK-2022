@@ -3,6 +3,7 @@
         <div class="d-grid gap-3">
             <x-input wire:model.lazy="delegate_name" name="delegate_name" label="Nama perwakilan anggota kelompok"
                      required/>
+            <p>Tuliskan nama ketua kelompok sesuai saat pendaftaran (ketua kelompok adalah orang pertama)</p>
             <x-select wire:model.lazy="interview_time" name="interview_time" label="Jadwal interview" required>
                 <x-slot name="options">
                     <option selected value="2022-02-19 10:00:00">Sabtu, 19 Februari 2022 (Sesi 1 | 10.00 -
