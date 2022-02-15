@@ -51,7 +51,10 @@
                                             karya!
                                         </div>
                                         @if($registered->competition->is_opened)
-                                            <button class="btn btn-submit">Upload karya</button>
+                                            <a class="btn btn-submit"
+                                                    href="{{route('submit-works', ['competition' => $registered->competition])}}">
+                                                Upload karya
+                                            </a>
                                         @endif
                                         @break
 
@@ -116,14 +119,16 @@
                 </div>
                 @if(!$socialMediaMovement->exists())
                     <div class="alert alert-warning">
-                        Anda belum mendaftar Social Media Movement, yuk <a href="{{route('social-media-movement')}}">Daftar sekarang!</a>
+                        Anda belum mendaftar Social Media Movement, yuk <a href="{{route('social-media-movement')}}">Daftar
+                            sekarang!</a>
                     </div>
                 @else
                     <div class="d-grid gap-3">
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Anda / tim sudah terdaftar!</h4>
                             <p>Terima kasih sudah melakukan pendaftaran Social Media Movement SEPIK 2022! <br>
-                                Untuk informasi yang berkaitan dengan kegiatan ini, peserta dapat bergabung dalam Grup Line
+                                Untuk informasi yang berkaitan dengan kegiatan ini, peserta dapat bergabung dalam Grup
+                                Line
                                 melalui link: <a
                                     href="https://line.me/ti/g2/PDH1E_d9QvrYlPKRxJjfPBhBi2SHnBw-WpATWA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">https://line.me/ti/g2/PDH1E_d9QvrYlPKRxJjfPBhBi2SHnBw-WpATWA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default</a>
                             </p>

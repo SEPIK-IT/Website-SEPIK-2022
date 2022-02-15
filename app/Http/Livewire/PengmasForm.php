@@ -16,6 +16,7 @@ class PengmasForm extends Component
 
     public $delegate_name;
     public $interview_time = "2022-02-19 10:00:00";
+    public $backup_date = "2022-02-19 10:00:00";
     public $interviewTimeCheckStatus = 0;
 
     public function render(): Factory|View|Application
@@ -44,6 +45,7 @@ class PengmasForm extends Component
         $registrant->update([
             'delegate_name' => $this->delegate_name,
             'interview_time' => Carbon::parse($this->interview_time),
+            'backup_date' => $this->backup_date
         ]);
 
         $this->updateCacheColumn();

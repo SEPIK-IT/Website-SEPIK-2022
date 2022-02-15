@@ -14,4 +14,9 @@ class ContestRegistController extends Controller
             'competition' => $competition,
         ]);
     }
+
+    public function submitWorks(Request $request, Competition $competition)
+    {
+
+    }
 }
