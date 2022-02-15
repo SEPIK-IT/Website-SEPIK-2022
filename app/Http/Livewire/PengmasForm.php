@@ -45,7 +45,7 @@ class PengmasForm extends Component
         $registrant->update([
             'delegate_name' => $this->delegate_name,
             'interview_time' => Carbon::parse($this->interview_time),
-            'backup_date' => $this->backup_date
+            'backup_date' => Carbon::parse($this->backup_date)
         ]);
 
         $this->updateCacheColumn();

@@ -5,11 +5,13 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SocialMediaMovementResource\Pages;
 use App\Filament\Resources\SocialMediaMovementResource\RelationManagers;
 use App\Models\SocialMediaMovement;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Database\Eloquent\Builder;
 
 class SocialMediaMovementResource extends Resource
 {
@@ -72,7 +74,7 @@ class SocialMediaMovementResource extends Resource
                         Forms\Components\TextInput::make('delegate_name')
                             ->label('Nama Perwakilan')
                             ->required(),
-                        
+
                         Forms\Components\Select::make('interview_time')
                             ->label('Tanggal dan Jam Wawancara Pertama')
                             ->options([
@@ -96,8 +98,7 @@ class SocialMediaMovementResource extends Resource
                             ->required(),
 
                         Forms\Components\TextInput::make('google_drive_interview')
-                            ->label('Link google drive pengumpulan abdimas')
-                            ->required(),
+                            ->label('Link google drive pengumpulan abdimas'),
 
                     ])->columns(2),
 
@@ -128,6 +129,7 @@ class SocialMediaMovementResource extends Resource
             ]);
     }
 
+
     public static function table(Table $table): Table
     {
         return $table
@@ -144,7 +146,7 @@ class SocialMediaMovementResource extends Resource
                         'HAS_INTERVIEW_TIME' => 'Sudah memilih jadwal'
                     })
                     ->sortable(),
-                    
+
                 Tables\Columns\BadgeColumn::make('verification_status')
                     ->label('Status verifikasi')
                     ->colors([
@@ -164,15 +166,33 @@ class SocialMediaMovementResource extends Resource
                     ->label('Nama pendaftar'),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('interview_status')
-                    ->label('Pemilihan jadwal interview')
+
+                Tables\Filters\MultiSelectFilter::make('member_counts')
+                    ->label('Berdasarkan jumlah anggota')
                     ->options([
-                        'NO_INTERVIEW_TIME' => 'Belum memilih jadwal',
-                        'HAS_INTERVIEW_TIME' => 'Sudah memilih jadwal'
+                        1 => '1 Anggota',
+                        2 => '2 Anggota',
+                        3 => '3 Anggota',
+                        4 => '4 Anggota',
+                        5 => '5 Anggota',
                     ]),
 
+                Tables\Filters\Filter::make('has_time')
+                    ->form([
+                        Forms\Components\Select::make('select')
+                            ->label('Berdasarkan pemilihan jadwal interview')
+                            ->options([
+                                'NO_INTERVIEW' => 'Belum memilih jadwal interview',
+                                'INTERVIEW' => 'Sudah memilih jadwal interviwe'
+                            ])
+                    ])
+                    ->query(fn(Builder $query, array $data): Builder => $data['select'] === 'NO_INTERVIEW'
+                        ? $query->whereNull('interview_time')
+                        : $query->whereNotNull('interview_time')
+                    ),
+
                 Tables\Filters\SelectFilter::make('verification_status')
-                    ->label('Status verifikasi')
+                    ->label('Berdasarkan status verifikasi')
                     ->options([
                         'UNVERIFIED' => 'Yang belum terverifikasi',
                         'VERIFIED' => 'Yang Sudah terverifikasi',

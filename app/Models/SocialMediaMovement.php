@@ -18,7 +18,6 @@ class SocialMediaMovement extends Model
         'whatsapp_numbers' => 'array',
         'twibbon_links' => 'array',
         'instagram_usernames' => 'array',
-        'interview_time' => 'datetime'
     ];
 
     // $model->interview_status
