@@ -98,7 +98,7 @@
                                 Silakan pilih jadwal Interview dengan cara mengklik link ini: <br>
                                 <a href="{{route('social-media-movement.pengmas.index')}}">{{route('social-media-movement.pengmas.index')}}</a>
                                 <br>
-
+                                <b>Pastikan pendaftaran anda sudah diverifikasi!</b>
                             </p>
                         </div>
                     </div>

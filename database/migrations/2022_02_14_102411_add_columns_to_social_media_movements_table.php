@@ -15,7 +15,7 @@ class AddColumnsToSocialMediaMovementsTable extends Migration
     {
         Schema::table('social_media_movements', function (Blueprint $table) {
             $table->string('delegate_name')->nullable();
-            $table->date('interview_time')->nullable();
+            $table->datetime('interview_time')->nullable();
             $table->string('google_drive_interview')->nullable();
         });
     }

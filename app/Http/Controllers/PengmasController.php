@@ -51,6 +51,8 @@ class PengmasController extends Controller
             $showFormStatus = "selectedTime";
         }
 
+        if ($request->get('update') === '1' && $this->getVerifiedSocialMediaMovement()->exists()) $showFormStatus = 'canSelectTime';
+
 
         return view('pengmas')->with([
             'showFormStatus' => $showFormStatus
