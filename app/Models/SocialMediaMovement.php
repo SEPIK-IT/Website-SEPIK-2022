@@ -20,4 +20,12 @@ class SocialMediaMovement extends Model
         'instagram_usernames' => 'array',
         'interview_time' => 'datetime'
     ];
+
+    // $model->interview_status
+    public function getInterviewStatusAttribute()
+    {
+        if($this->interview_time !== null) return "HAS_INTERVIEW_TIME";
+
+        return "NO_INTERVIEW_TIME";
+    }
 }

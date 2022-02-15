@@ -73,12 +73,26 @@ class SocialMediaMovementResource extends Resource
                             ->label('Nama Perwakilan')
                             ->required(),
                         
-                        Forms\Components\DateTimePicker::make('interview_time')
+                        Forms\Components\Select::make('interview_time')
                             ->label('Tanggal dan Jam Wawancara Pertama')
+                            ->options([
+                                '2022-02-19 10:00:00' => "Sabtu, 19 Februari 2022 (Sesi 1 | 10.00 - 12.00 WIB)",
+                                '2022-02-19 17:00:00' => "Sabtu, 19 Februari 2022 (Sesi 2 | 17.00 - 19.00 WIB)",
+                                '2022-02-20 10:00:00' => "Minggu, 20 Februari 2022 (Sesi 1 | 10.00 - 12.00 WIB)",
+                                '2022-02-20 17:00:00' => "Minggu, 20 Februari 2022 (Sesi 2 | 17.00 - 19.00 WIB)",
+                                '2022-02-21 18:00:00' => "Senin, 21 Februari 2022 (18.00 - 20.00 WIB)"
+                            ])
                             ->required(),
 
-                        Forms\Components\DateTimePicker::make('backup_date')
-                            ->label('Tanggal dan Jam Wawancara Opsional')
+                        Forms\Components\Select::make('backup_date')
+                            ->label('Tanggal dan Jam Wawancara Cadangan')
+                            ->options([
+                                '2022-02-19 10:00:00' => "Sabtu, 19 Februari 2022 (Sesi 1 | 10.00 - 12.00 WIB)",
+                                '2022-02-19 17:00:00' => "Sabtu, 19 Februari 2022 (Sesi 2 | 17.00 - 19.00 WIB)",
+                                '2022-02-20 10:00:00' => "Minggu, 20 Februari 2022 (Sesi 1 | 10.00 - 12.00 WIB)",
+                                '2022-02-20 17:00:00' => "Minggu, 20 Februari 2022 (Sesi 2 | 17.00 - 19.00 WIB)",
+                                '2022-02-21 18:00:00' => "Senin, 21 Februari 2022 (18.00 - 20.00 WIB)"
+                            ])
                             ->required(),
 
                         Forms\Components\TextInput::make('google_drive_interview')
@@ -118,6 +132,19 @@ class SocialMediaMovementResource extends Resource
     {
         return $table
             ->columns([
+
+                Tables\Columns\BadgeColumn::make('interview_status')
+                    ->label('Status interview (sudah memilih atau belum)')
+                    ->colors([
+                        'primary',
+                        'warning' => 'NO_INTERVIEW_TIME',
+                        'success' => 'HAS_INTERVIEW_TIME'
+                    ])->formatStateUsing(fn(string $state): string => match ($state) {
+                        'NO_INTERVIEW_TIME' => 'Belum memilih jadwal',
+                        'HAS_INTERVIEW_TIME' => 'Sudah memilih jadwal'
+                    })
+                    ->sortable(),
+                    
                 Tables\Columns\BadgeColumn::make('verification_status')
                     ->label('Status verifikasi')
                     ->colors([
@@ -137,13 +164,21 @@ class SocialMediaMovementResource extends Resource
                     ->label('Nama pendaftar'),
             ])
             ->filters([
+                Tables\Filters\SelectFilter::make('interview_status')
+                    ->label('Pemilihan jadwal interview')
+                    ->options([
+                        'NO_INTERVIEW_TIME' => 'Belum memilih jadwal',
+                        'HAS_INTERVIEW_TIME' => 'Sudah memilih jadwal'
+                    ]),
+
                 Tables\Filters\SelectFilter::make('verification_status')
                     ->label('Status verifikasi')
                     ->options([
                         'UNVERIFIED' => 'Yang belum terverifikasi',
                         'VERIFIED' => 'Yang Sudah terverifikasi',
                         'REJECTED' => 'Ditolak'
-                    ])
+                    ]),
+
             ]);
     }
 
