@@ -41,6 +41,10 @@ Route::get('/registrasi-lomba/{competition}', [ContestRegistController::class, '
     ->middleware('auth')
     ->name('contestRegistration');
 
+Route::get('registrasi-lomba/submisi-karya/{competition}', [ContestRegistController::class, 'submitWorks'])
+    ->middleware('auth')
+    ->name('submit-works');
+
 Route::get('/download_sop_human', DownloadController::class . '@downloadhuman')->name('dlhuman');
 Route::get('/download_sop_video', DownloadController::class . '@downloadvideo')->name('dlvideo');
 Route::get('/download_sop_mashup', DownloadController::class . '@downloadmashup')->name('dlmashup');
