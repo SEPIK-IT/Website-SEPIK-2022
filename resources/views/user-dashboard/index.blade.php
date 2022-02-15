@@ -76,6 +76,7 @@
                 <h3>Social media movement</h3>
                 <p>Yuk, berkreasi dan ikut andil dalam melestarikan budaya Surabaya bersama arek-arek Surabaya dengan
                     mengikuti Social Media Movement! Daftarkan dirimu atau tim mu sekarang!</p>
+                    <div class="d-flex row ms-1">
                     <div class="d-flex align-items-center justify-content-center"
                     style="cursor: pointer; background-color: rgba(68, 57, 38, 255) !important; color: white !important; border-radius: 80px; height: 50px; width: 25%;"
                     onclick="location.href='{{route('dlsocial')}}'">
@@ -112,6 +113,7 @@
                    </svg>
                    <div class="ms-2 text-white" style="color: white;">Download Booklet Output</div>
                    </div>
+                </div>
                 @if(!$socialMediaMovement->exists())
                     <div class="alert alert-warning">
                         Anda belum mendaftar Social Media Movement, yuk <a href="{{route('social-media-movement')}}">Daftar sekarang!</a>
