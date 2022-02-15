@@ -21,6 +21,23 @@
                 </x-slot>
             </x-select>
 
+            <x-select wire:model.lazy="backup_date" name="backup_date" label="Jadwal interview Cadangan" required>
+                <x-slot name="options">
+                    <option selected value="2022-02-19 10:00:00">Sabtu, 19 Februari 2022 (Sesi 1 | 10.00 -
+                        12.00 WIB)
+                    </option>
+                    <option value="2022-02-19 17:00:00">Sabtu, 19 Februari 2022 (Sesi 2 | 17.00 - 19.00 WIB)
+                    </option>
+                    <option value="2022-02-20 10:00:00">Minggu, 20 Februari 2022 (Sesi 1 | 10.00 - 12.00
+                        WIB)
+                    </option>
+                    <option value="2022-02-20 17:00:00">Minggu, 20 Februari 2022 (Sesi 2 | 17.00 - 19.00
+                        WIB)
+                    </option>
+                    <option value="2022-02-21 18:00:00">Senin, 21 Februari 2022 (18.00 - 20.00 WIB)</option>
+                </x-slot>
+            </x-select>
+
             <button type="button" wire:click.prevent="checkAvailability" class="btn btn-submit my-2">Cek jadwal</button>
 
             @switch($interviewTimeCheckStatus)
