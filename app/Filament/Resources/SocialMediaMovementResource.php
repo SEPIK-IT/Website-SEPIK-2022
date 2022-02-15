@@ -171,8 +171,6 @@ class SocialMediaMovementResource extends Resource
                     ->label('Berdasarkan jumlah anggota')
                     ->options([
                         1 => '1 Anggota',
-                        2 => '2 Anggota',
-                        3 => '3 Anggota',
                         4 => '4 Anggota',
                         5 => '5 Anggota',
                     ]),
