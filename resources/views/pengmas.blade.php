@@ -45,7 +45,7 @@
                 <h3>
                     Pemilihan Jadwal Social Media Movement (Pengmas)
                 </h3>
-                <p>Anda sudah memilih jam interview pengmas. <a href="{{route('social-media-movement.pengmas.index')}}?update=1">Klik untuk mengupdate jadwal</a></p>
+                <p>Anda sudah memilih jam interview pengmas.</p>
             </div>
         </div>
         @break
