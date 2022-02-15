@@ -171,10 +171,28 @@ class SocialMediaMovementResource extends Resource
                     ->label('Berdasarkan jumlah anggota')
                     ->options([
                         1 => '1 Anggota',
-                        2 => '2 Anggota',
-                        3 => '3 Anggota',
                         4 => '4 Anggota',
                         5 => '5 Anggota',
+                    ]),
+
+                Tables\Filters\MultiSelectFilter::make('interview_time')
+                    ->label('Berdasarkan waktu interview utama')
+                    ->options([
+                        '2022-02-19 10:00:00' => "Sabtu, 19 Februari 2022 (Sesi 1 | 10.00 - 12.00 WIB)",
+                        '2022-02-19 17:00:00' => "Sabtu, 19 Februari 2022 (Sesi 2 | 17.00 - 19.00 WIB)",
+                        '2022-02-20 10:00:00' => "Minggu, 20 Februari 2022 (Sesi 1 | 10.00 - 12.00 WIB)",
+                        '2022-02-20 17:00:00' => "Minggu, 20 Februari 2022 (Sesi 2 | 17.00 - 19.00 WIB)",
+                        '2022-02-21 18:00:00' => "Senin, 21 Februari 2022 (18.00 - 20.00 WIB)"
+                    ]),
+
+                Tables\Filters\MultiSelectFilter::make('backup_date')
+                    ->label('Berdasarkan waktu interview cadangan')
+                    ->options([
+                        '2022-02-19 10:00:00' => "Sabtu, 19 Februari 2022 (Sesi 1 | 10.00 - 12.00 WIB)",
+                        '2022-02-19 17:00:00' => "Sabtu, 19 Februari 2022 (Sesi 2 | 17.00 - 19.00 WIB)",
+                        '2022-02-20 10:00:00' => "Minggu, 20 Februari 2022 (Sesi 1 | 10.00 - 12.00 WIB)",
+                        '2022-02-20 17:00:00' => "Minggu, 20 Februari 2022 (Sesi 2 | 17.00 - 19.00 WIB)",
+                        '2022-02-21 18:00:00' => "Senin, 21 Februari 2022 (18.00 - 20.00 WIB)"
                     ]),
 
                 Tables\Filters\Filter::make('has_time')
@@ -183,13 +201,14 @@ class SocialMediaMovementResource extends Resource
                             ->label('Berdasarkan pemilihan jadwal interview')
                             ->options([
                                 'NO_INTERVIEW' => 'Belum memilih jadwal interview',
-                                'INTERVIEW' => 'Sudah memilih jadwal interviwe'
+                                'INTERVIEW' => 'Sudah memilih jadwal interviw'
                             ])
                     ])
                     ->query(fn(Builder $query, array $data): Builder => $data['select'] === 'NO_INTERVIEW'
                         ? $query->whereNull('interview_time')
                         : $query->whereNotNull('interview_time')
                     ),
+
 
                 Tables\Filters\SelectFilter::make('verification_status')
                     ->label('Berdasarkan status verifikasi')

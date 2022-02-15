@@ -136,6 +136,7 @@ class SocialMediaMovementForm extends Component
             'file_proof_link' => $this->file_proof_link,
             'id_proof_link' => $this->id_proof_link,
             'identifications' => $this->identifications,
+            'member_counts' => count($this->names)
         ]);
 
         $this->updateUniversities();
