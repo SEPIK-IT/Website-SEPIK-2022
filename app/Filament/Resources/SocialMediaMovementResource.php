@@ -68,6 +68,23 @@ class SocialMediaMovementResource extends Resource
                         Forms\Components\TagsInput::make('instagram_usernames')
                             ->label('Username instagram setiap peserta')
                             ->required(),
+
+                        Forms\Components\TextInput::make('delegate_name')
+                            ->label('Nama Perwakilan')
+                            ->required(),
+                        
+                        Forms\Components\DateTimePicker::make('interview_time')
+                            ->label('Tanggal dan Jam Wawancara Pertama')
+                            ->required(),
+
+                        Forms\Components\DateTimePicker::make('backup_date')
+                            ->label('Tanggal dan Jam Wawancara Opsional')
+                            ->required(),
+
+                        Forms\Components\TextInput::make('google_drive_interview')
+                            ->label('Link google drive pengumpulan abdimas')
+                            ->required(),
+
                     ])->columns(2),
 
                 Forms\Components\Section::make('Bukti Google Drive')
