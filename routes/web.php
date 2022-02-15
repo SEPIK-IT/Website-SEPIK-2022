@@ -7,7 +7,7 @@ use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\PengmasController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\ZoopikRegistrationController;
-use App\Http\Controllers\SayembaraController;
+use App\Http\Controllers\FesbudController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -66,7 +66,7 @@ Route::get('user-dashboard', [UserDashboardController::class, 'index'])->middlew
 
 Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement')->middleware('auth');
 
-
+Route::get('/registrasi-fesbud',[FesbudController::class, 'index'])->middleware('auth')->name('registrasi-fesbud');
 // Pengmas
 Route::get('social-media-movement/pengmas', [PengmasController::class, 'index'])->middleware('auth')->name('social-media-movement.pengmas.index');
 
