@@ -63,7 +63,6 @@ Route::view('social-media-movement', 'social-media-movement')->name('social-medi
 
 // Pengmas
 Route::get('social-media-movement/pengmas', [PengmasController::class, 'index'])->middleware('auth')->name('social-media-movement.pengmas.index');
-Route::post('social-media-movement/pengmas', [PengmasController::class, 'store'])->middleware('auth')->name('social-media-movement.pengmas.store');
 
 
 Auth::routes(['verify' => true]);
