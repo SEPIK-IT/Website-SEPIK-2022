@@ -33,7 +33,7 @@
                 <p class="fs-4">Anda telah berhasil mendaftar zoopik!</p>
                 <p class="fs-4">Mohon bergabung dengan OpenChat LINE Zoopik pada link berikut:</p>
                 <ul>
-                    <li class="fs-4">OpenChat ZOOPIK 18 Februari 2022 : <a class="fs-5" href="https://bit.ly/OClineZoopik18Feb2022">https://bit.ly/OClineZoopik18Feb2022</a> </li>
+                    {{-- <li class="fs-4">OpenChat ZOOPIK 18 Februari 2022 : <a class="fs-5" href="https://bit.ly/OClineZoopik18Feb2022">https://bit.ly/OClineZoopik18Feb2022</a> </li> --}}
                     <li class="fs-4">OpenChat ZOOPIK 4 Maret 2022 : <a class="fs-5" href="https://bit.ly/OCLineZoopik4Maret2022">https://bit.ly/OCLineZoopik4Maret2022</a> </li>
                 </ul>
                 <p class="fs-4">Jika telah bergabung, tekan tombol dibawah untuk kembali ke halaman home</p>
