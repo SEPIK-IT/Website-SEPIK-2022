@@ -1,5 +1,5 @@
 <x-layout-with-sidebar title="Daftar Social Media Movement - Surabaya Epik 2022">
-    @if(\App\Models\SocialMediaMovement::where('user_id', auth()->user()->id)->first())
+    {{-- @if(\App\Models\SocialMediaMovement::where('user_id', auth()->user()->id)->first()) --}}
 
         <div class="card my-2">
             <div class="card-body">
@@ -86,16 +86,13 @@
             </div>
         </div>
 
-        <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">Anda / tim sudah terdaftar!</h4>
-            <p>Terima kasih sudah melakukan pendaftaran Social Media Movement SEPIK 2022! <br>
-                Untuk informasi yang berkaitan dengan kegiatan ini, peserta dapat bergabung dalam Grup Line
-                melalui link: <a
-                    href="https://line.me/ti/g2/PDH1E_d9QvrYlPKRxJjfPBhBi2SHnBw-WpATWA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">https://line.me/ti/g2/PDH1E_d9QvrYlPKRxJjfPBhBi2SHnBw-WpATWA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default</a>
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Pendaftaran Social Media Movement Sudah Resmi Ditutup!</h4>
+            <p>Terima kasih sudah melakukan pendaftaran Social Media Movement SEPIK 2022!
             </p>
         </div>
-    @else
+    {{-- @else
         <livewire:social-media-movement-form/>
-    @endif
+    @endif --}}
 
 </x-layout-with-sidebar>
