@@ -40,4 +40,8 @@ class ContestRegistController extends Controller
         ]);
         return redirect(route('terima-kasih-submisi-karya'));
     }
+
+    public function thankPage(){
+        return view('thankSayembara');
+    }
 }
