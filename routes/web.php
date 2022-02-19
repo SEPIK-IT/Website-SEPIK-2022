@@ -53,7 +53,7 @@ Route::post('/registrasi-lomba/submisi-karya/update-process', [ContestRegistCont
     ->middleware('auth')
     ->name('update-works');
 
-Route::get('registrasi-lomba/submisi-karya/terima_kasih', 'berhasil-submit-sayembara')
+Route::view('registrasi-lomba/submisi-karya/terima_kasih', 'berhasil-submit-sayembara')
     ->middleware('auth')
     ->name('terima-kasih-submisi-karya');
 Route::get('/download_sop_human', DownloadController::class . '@downloadhuman')->name('dlhuman');
