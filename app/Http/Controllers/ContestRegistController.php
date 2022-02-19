@@ -38,6 +38,6 @@ class ContestRegistController extends Controller
             'originality_statement' => $request->originality_statement->storeAs("statements/{$folderFormat}", $request->originality_statement->getClientOriginalName(), 'private'),
             'verification_status' => 'UNVERIFIED'
         ]);
-        return redirect(route('user-dashboard'));
+        return redirect(route('terima-kasih-submisi-karya'));
     }
 }
