@@ -31,7 +31,7 @@ class ContestRegistController extends Controller
             'caption' => ['required', 'max:5120', 'mimes:pdf'],
             'originality_statement' => ['required', 'max:5120', 'mimes:pdf'],
         ]);
-        $submit = CompetitionRegistration::where('user_id', auth()->user()->id);
+        $submit = CompetitionRegistration::where('user_id', auth()->user()->id)->where('competition_id', $request->competition_id);
         $submit->update([
             'google_drive_link' => $request->google_drive_link,
             'caption' => $request->caption->storeAs("captions/{$folderFormat}", $request->caption->getClientOriginalName(), 'private'),
