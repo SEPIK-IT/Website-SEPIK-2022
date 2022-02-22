@@ -73,7 +73,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
-          Apakah anda yakin ingin vote?
+          Apakah anda yakin ingin vote? <br> <span class="text-danger">Anda tidak akan bisa vote lagi di kompetisi ini...</span>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>

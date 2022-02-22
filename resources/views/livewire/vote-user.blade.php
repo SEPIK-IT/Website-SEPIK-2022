@@ -1,5 +1,7 @@
 <div class="vertical-center form-width">
     <h1 style="font-size: 50px" class="font-weight-bold">VOTE</h1>
+    <span class="text-danger mb-1">Teman-teman dapat melakukan sekali voting tiap cabang sayembara. Diharapkan teman-teman dapat melakukan voting sesuai dengan keinginan dan kejujuran teman-teman semuanya, terima kasih 🙏
+    </span>
     <form wire:submit.prevent="vote">
         @csrf
     <div class="row">

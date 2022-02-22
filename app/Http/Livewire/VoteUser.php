@@ -50,7 +50,9 @@ class VoteUser extends Component
     public function render()
     {
         return view('livewire.vote-user', [
-            'competitions' => Competition::where('vote_status', '=', '1')->get(),
+            //competitions order by name
+
+            'competitions' => Competition::where('vote_status', '=', '1')->orderBy('name')->get(),
             'participants' => FakeCompetitionRegistration::where('competition_id', $this->idLomba)->get(),
         ]);
     }

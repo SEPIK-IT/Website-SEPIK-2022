@@ -45,20 +45,23 @@ class VoteResource extends Resource
         // dd(Tables\Filters\SelectFilter::make('Berdasarkan Partisipan')->relationship('fake_competition_registration', 'names'));
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('fake_competition_registration.competition_id')->label('ID Lomba'),
-                Tables\Columns\TextColumn::make('user_id')->label('ID Voter'),
-                Tables\Columns\TextColumn::make('fake_competition_registration_id')->label('ID Partisipan'),
+                // Tables\Columns\TextColumn::make('fake_competition_registration.competition_id')->label('ID Lomba'),
+                // Tables\Columns\TextColumn::make('user_id')->label('ID Voter'),
+                // Tables\Columns\TextColumn::make('fake_competition_registration_id')->label('ID Partisipan'),
                 Tables\Columns\TextColumn::make('competition.name')->label('Nama Lomba'),
                 Tables\Columns\TextColumn::make('user.name')->label('Nama Voter'),
-                Tables\Columns\TextColumn::make('fake_competition_registration.names')->label('Nama Partisipan'),
+
+                // Tables\Columns\TextColumn::make('user.email')->label('Email Voter'),
+                Tables\Columns\TextColumn::make('fake_competition_registration.names')->label('Nama Peserta'),
+                // Tables\Columns\TextColumn::make('fake_competition_registration.user.email')->label('Email Partisipan'),
                 //count vote
                 // Tables\Columns\TextColumn::make('fake_competition_registration.vote_count')->label('Jumlah Vote')->sortable(),
                 Tables\Columns\TextColumn::make('created_at')->label('Waktu')->sortable(),
 
             ])->defaultSort('created_at', 'desc')
             ->filters([
-                Tables\Filters\SelectFilter::make('Berdasarkan Lomba')->relationship('competition', 'name'),
-                Tables\Filters\SelectFilter::make('Berdasarkan Partisipan')->relationship('fake_competition_registration', 'names'),
+                Tables\Filters\SelectFilter::make('Berdasarkan kompetisi')->relationship('competition', 'name'),
+                Tables\Filters\SelectFilter::make('Berdasarkan peserta')->relationship('fake_competition_registration', 'names'),
 
             ]);
     }

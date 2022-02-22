@@ -16,6 +16,10 @@ class FakeCompetitionRegistrationResource extends Resource
     protected static ?string $model = FakeCompetitionRegistration::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationGroup = "Voting";
+
+    protected static ?string $pluralLabel = "Vote Standings";
+
 
     public static function form(Form $form): Form
     {
@@ -33,23 +37,23 @@ class FakeCompetitionRegistrationResource extends Resource
                     ->label('Nama Kompetisi')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('names')
-                    ->label('Nama peserta'),
-                Tables\Columns\TextColumn::make('origins')
-                    ->label('Instansi'),
-                Tables\Columns\TextColumn::make('regions')
-                    ->label('Daerah'),
-                Tables\Columns\TextColumn::make('whatsapp_no')
-                    ->label('No.WA'),
-                Tables\Columns\TextColumn::make('line_id')
-                    ->label('ID Line'),
+                    ->label('Nama Peserta'),
+                // Tables\Columns\TextColumn::make('origins')
+                //     ->label('Instansi'),
+                // Tables\Columns\TextColumn::make('regions')
+                //     ->label('Daerah'),
+                // Tables\Columns\TextColumn::make('whatsapp_no')
+                //     ->label('No.WA'),
+                // Tables\Columns\TextColumn::make('line_id')
+                //     ->label('ID Line'),
                 
-                Tables\Columns\TextColumn::make('created_at')
-                    ->label('Tanggal daftar')
-                    ->dateTime(),
+                // Tables\Columns\TextColumn::make('created_at')
+                //     ->label('Tanggal daftar')
+                //     ->dateTime(),
                 Tables\Columns\TextColumn::make('vote_count')
                     ->label('Jumlah Vote')->sortable(),
-                Tables\Columns\TextColumn::make('competition.vote_status')
-                    ->label('Status Voting Open'),
+                // Tables\Columns\TextColumn::make('competition.vote_status')
+                //     ->label('Status Voting Open'),
 
             ])
             ->filters([

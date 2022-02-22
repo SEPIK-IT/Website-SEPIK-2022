@@ -68,7 +68,7 @@ Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware(
 
 Route::get('/vote', function () {
     return view('vote-user');
-});
+})->middleware('auth');
 
-Route::post('/vote', [VoteUserController::class, 'vote']);
+Route::post('/vote', [VoteUserController::class, 'vote'])->middleware('auth');
 Auth::routes(['verify'=> true]);
