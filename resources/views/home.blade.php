@@ -644,9 +644,10 @@ body {
 
 				<button id="moreinfo3" style="background-color: #9c8459;color: white;"><a href="/zoopikRegistration">More Info</a></button>
 
-				<button id="moreinfo4" data-bs-toggle="modal" data-bs-target="#modalcs" style="background-color: #9c8459;color: white;">More Info</button>
+				<button id="moreinfo4" style="background-color: #9c8459;color: white;"><a href="https://surabayaepik22.com/registrasi-fesbud">More Info</a></button>
 
-				<button id="moreinfo5" data-bs-toggle="modal" data-bs-target="#modalcs" style="background-color: #9c8459;color: white;">More Info</button>
+				<button id="moreinfo5" style="background-color: #9c8459;color: white;"><a href="https://docs.google.com/forms/d/e/1FAIpQLScUVFZVldF4j46yZG1Bahd87I3Rqk5XqqKOili15hyS_6NMCA/viewform">More Info</a></button>
+
 
 
    <!--         		<button id="tooglebar" onclick="openNav()" style="background-color: transparent;"><i class="fas fa-bars fa-2x"></i></button> -->
