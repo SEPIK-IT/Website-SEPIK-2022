@@ -25,7 +25,9 @@
             <select id="peserta-lomba" wire:change="" wire:model="idJoin" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
             <option value="" selected>--Pilih Peserta--</option>
             @foreach ($participants as $participant)
-                <option value="{{ $participant->id }}">{{ $participant->names }}</option>
+                <option value="{{ $participant->id }}">@foreach ($participant->names as $name)
+                    
+                {{ $name }} @if(!$loop->last) {{ ' | ' }} @endif @endforeach</option>
             @endforeach
         </select>
         @error('idJoin')

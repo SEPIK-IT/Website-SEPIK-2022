@@ -126,6 +126,8 @@ class CompetitionRegistrationResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Tanggal daftar')
                     ->dateTime(),
+                Tables\Columns\TextColumn::make('vote_count')
+                    ->label('Jumlah Vote')->sortable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('Berdasarkan kompetisi')

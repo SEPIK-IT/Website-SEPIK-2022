@@ -52,7 +52,7 @@ class VoteResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')->label('Nama Voter'),
 
                 // Tables\Columns\TextColumn::make('user.email')->label('Email Voter'),
-                Tables\Columns\TextColumn::make('fake_competition_registration.names')->label('Nama Peserta'),
+                Tables\Columns\TagsColumn::make('competition_registration.names')->label('Nama Peserta'),
                 // Tables\Columns\TextColumn::make('fake_competition_registration.user.email')->label('Email Partisipan'),
                 //count vote
                 // Tables\Columns\TextColumn::make('fake_competition_registration.vote_count')->label('Jumlah Vote')->sortable(),
@@ -61,7 +61,7 @@ class VoteResource extends Resource
             ])->defaultSort('created_at', 'desc')
             ->filters([
                 Tables\Filters\SelectFilter::make('Berdasarkan kompetisi')->relationship('competition', 'name'),
-                Tables\Filters\SelectFilter::make('Berdasarkan peserta')->relationship('fake_competition_registration', 'names'),
+                // Tables\Filters\SelectFilter::make('Berdasarkan peserta')->relationship('competition_registration', 'names'),
 
             ]);
     }

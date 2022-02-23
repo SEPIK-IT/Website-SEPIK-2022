@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\Competition;
 use App\Models\CompetitionRegistration;
-use App\Models\FakeCompetitionRegistration;
 use App\Models\Vote;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -53,7 +52,7 @@ class VoteUser extends Component
             //competitions order by name
 
             'competitions' => Competition::where('vote_status', '=', '1')->orderBy('name')->get(),
-            'participants' => FakeCompetitionRegistration::where('competition_id', $this->idLomba)->get(),
+            'participants' => CompetitionRegistration::where('competition_id', $this->idLomba)->get(),
         ]);
     }
 }
