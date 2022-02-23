@@ -34,8 +34,8 @@ class ContestRegistController extends Controller
         $submit = CompetitionRegistration::where('user_id', auth()->user()->id)->where('competition_id', $request->competition_id);
         $submit->update([
             'google_drive_link' => $request->google_drive_link,
-            'caption' => $request->caption->storeAs("captions/{{$folderFormat}}", $request->caption->getClientOriginalName(), 'private'),
-            'originality_statement' => $request->originality_statement->storeAs("statements/{{$folderFormat}}", $request->originality_statement->getClientOriginalName(), 'private'),
+            'caption' => $request->caption->storeAs("captions/"."{$folderFormat}", $request->caption->getClientOriginalName(), 'private'),
+            'originality_statement' => $request->originality_statement->storeAs("statements/"."{$folderFormat}", $request->originality_statement->getClientOriginalName(), 'private'),
             'verification_status' => 'UNVERIFIED'
         ]);
         return redirect(route('terima-kasih-submisi-karya'));
