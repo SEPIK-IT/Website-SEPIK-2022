@@ -38,10 +38,10 @@
                 <div class="col-12 col-lg-4 mb-2 d-flex justify-content-center align-items-center">
                 <div class="card border-0 d-flex justify-content-center align-items-center" style="width:400px; background-color: transparent;">
                     <?php
-                        echo $item['link'];
+                        echo $item['youtube_link'];
                     ?>
                     <div class="card-body text-center" style="margin-top: -25px;">
-                        <h4 class="card-title">Karya Oleh</h4>
+                        <h4 class="card-title"><?php echo $item['deskripsi']; ?></h4>
                     </div>
                 </div>
                 </div> 
