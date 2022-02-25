@@ -21,7 +21,7 @@ class IllustrationResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('file_path')->label('Lokasi/Link gambar')->required(),
+                Forms\Components\FileUpload::make('file_path')->label('Upload gambar')->required()->disk('public')->image()->directory('img/PameranIlustrasi'),
                 Forms\Components\TextInput::make('name')->label('Nama pembuat')->required(),
                 Forms\Components\TextInput::make('caption')->label('Caption')->required(),
             ]);

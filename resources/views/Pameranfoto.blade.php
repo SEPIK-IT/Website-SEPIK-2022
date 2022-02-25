@@ -46,9 +46,9 @@
                 $('#' + <?php echo $atrb['id'];?>).on('click', function () {
                     Swal.fire({
                         title: '',
-                        html:"<a href='<?php echo $atrb['file_path'];?>'><img src='<?php echo $atrb['file_path'];?>' alt='' style='max-height:400px; max-width:400px'></a> <br>click to enlarge<br><br> <h2 style='color:#000'>Dibuat oleh <?php echo $atrb['name'];?></h2> <br> <div class='text-left'><?php echo $atrb['caption'];?></div>",
+                        html:"<a href='<?php echo Storage::url($atrb['file_path']);?>'><img src='<?php echo Storage::url($atrb['file_path']);?>' alt='' style='max-height:400px; max-width:400px'></a> <br>click to enlarge<br><br> <h2 style='color:#000'>Dibuat oleh <?php echo $atrb['name'];?></h2> <br> <div class='text-left'><?php echo $atrb['caption'];?></div>",
                         imageAlt: 'Picture',
-                        icon: 'question',
+                        icon: 'info',
                         confirmButtonText: 'Close'
                     })
                 });
@@ -71,7 +71,7 @@
             <div class="row">
                 <div class="col text-center">
                     <a href="#" id=<?php echo $atrb['id'];?>>
-                        <img src="<?php echo $atrb['file_path'];?>" alt="" style="height:400px;" loading="lazy">
+                        <img src="<?php echo Storage::url($atrb['file_path']);?>" alt="" style="height:400px;" loading="lazy">
                     </a>
                 </div>								
             </div>
