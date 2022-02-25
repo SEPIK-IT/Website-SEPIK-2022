@@ -29,6 +29,8 @@ Route::view('/', 'index');
 Route::view('/home', 'home')->name('homepage');
 Route::view('/sayembara', 'sayembara')->name('sayembara');
 Route::get('/pameranVideo', 'App\Http\Controllers\linkController@index');
+Route::get('/Pameranfoto', 'App\Http\Controllers\photoController@index');
+Route::get('/Pameranilustrasi', 'App\Http\Controllers\illustrationController@index');
 
 Route::get('/zoopikRegistration', [ZoopikRegistrationController::class, 'index'])->middleware('auth');
 Route::post('/zoopikRegistration', [ZoopikRegistrationController::class, 'store'])->middleware('auth');
