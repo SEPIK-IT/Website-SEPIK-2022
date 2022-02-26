@@ -9,35 +9,51 @@ use Illuminate\Support\Facades\Auth;
 class ZoopikRegistrationController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
+        $zoopikRegistrationExist = ZoopikRegistration::where('user_id', Auth::user()->id)->first();
+
+        $userRegistered = false;
+        if ($zoopikRegistrationExist != null) {
+            $userRegistered = true;
+        }
+
         return view('zoopikRegistration', [
-            'username'=>Auth::user()->name
+            'username' => Auth::user()->name,
+            'userRegistered' => $userRegistered
         ]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
-            'nrp'=>'required|numeric',
-            'asalUniv'=>'required|string',
-            'ktm'=>'required|image',
-            'foto'=>'required|image'
+            'nrp' => 'required',
+            'asalUniv' => 'required',
+            'ktm' => 'required|image',
+            'foto' => 'required|image',
+            'nominal' => 'required|numeric|min: 15000',
+            'buktiTransfer' => 'required|image'
         ]);
 
-        $ktm = $request->file('ktm')->getClientOriginalName();
-        $foto = $request->file('foto')->getClientOriginalName();
-        
-        $request->file('ktm')->storeAs('public/img/zoopikRegistration/ktm', $ktm);
-        $request->file('foto')->storeAs('public/img/zoopikRegistration/foto3x4', $foto);
+        $ktm = uniqid() . '.' . $request->file('ktm')->getClientOriginalName();
+        $foto = uniqid() . '.' . $request->file('foto')->getClientOriginalName();
+        $buktiTransfer = uniqid() . '.' . $request->file('buktiTransfer')->getClientOriginalName();
 
-        $zoopikRegistration = ZoopikRegistration::create([
-            'nama_lengkap'=>Auth::user()->name,
-            'nrp'=>$request->nrp,
-            'asalUniv'=>$request->asalUniv,
-            'path_img_ktm'=>$ktm,
-            'path_img_foto'=>$foto,
-            'user_id'=>Auth::user()->id
+        $ktmPath = $request->file('ktm')->storeAs('img/zoopikRegistration/ktm', $ktm, 'public');
+        $photoPath = $request->file('foto')->storeAs('img/zoopikRegistration/foto3x4', $foto, 'public');
+        $transferPath = $request->file('buktiTransfer')->storeAs('img/zoopikRegistration/buktiTransfer', $buktiTransfer, 'public');
+
+        ZoopikRegistration::create([
+            'nama_lengkap' => Auth::user()->name,
+            'nrp' => $request->nrp,
+            'asalUniv' => $request->asalUniv,
+            'path_img_ktm' => $ktmPath,
+            'path_img_foto' => $photoPath,
+            'nominal_pembayaran' => $request->nominal,
+            'path_img_bukti_transfer' => $transferPath,
+            'user_id' => Auth::user()->id
         ]);
 
-        return redirect('/zoopikRegistration');
+        return redirect('/zoopiksplashscreen');
     }
 }

@@ -9,5 +9,9 @@ class Competition extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'is_opened' => 'boolean'
+    ];
+
     protected $guarded = [];
 }

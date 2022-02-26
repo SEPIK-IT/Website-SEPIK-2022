@@ -36,9 +36,8 @@ class FillCompetition extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
-
 
         $competitions = [
             [
@@ -85,6 +84,11 @@ class FillCompetition extends Command
         ];
 
         $this->info('Creating competitions');
+
+        if(Competition::count() === count($competitions)){
+            $this->info("All competitions have been filled. please truncate database if you want to replace the value!");
+            return 0;
+        }
 
         foreach ($competitions as $competition) {
             Competition::create($competition);

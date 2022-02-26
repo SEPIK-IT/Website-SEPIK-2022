@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CompetitionRegistrationResource\Pages;
 use App\Filament\Resources\CompetitionRegistrationResource\RelationManagers;
+use App\Forms\Components\PreviewAndDownload;
 use App\Models\CompetitionRegistration;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -24,9 +25,14 @@ class CompetitionRegistrationResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Toggle::make('is_verified')
-                    ->helperText('Nyalakan bila ingin memverifikasi lalu klik Save')
-                    ->label('Status verifikasi'),
+                Forms\Components\Select::make('verification_status')
+                    ->helperText('Ganti status verifikasi dari pendaftar ini')
+                    ->options([
+                        'VERIFIED' => 'Pendaftar sudah diverifikasi',
+                        'WORKS_UNUPLOADED' => 'Pendaftar lomba belum mengupload karya',
+                        'UNVERIFIED' => 'Pendaftar sudah mengupload karya tapi belum diverifikasi'
+                    ])
+                    ->label('Status submisi lomba'),
 
                 Forms\Components\Section::make('Informasi peserta')
                     ->schema([
@@ -73,24 +79,40 @@ class CompetitionRegistrationResource extends Resource
                             ->multiple(),
                     ]),
 
-                Forms\Components\Fieldset::make('Submisi lomba')->schema([
-                    Forms\Components\TextInput::make('google_drive_link')
-                        ->label('Link google drive')
-                        ->required()
-                        ->maxLength(500)
-                        ->columnSpan(2),
-                    Forms\Components\FileUpload::make('caption')
-                        ->label('Caption')
-                        ->disk('private')
-                        ->directory('captions')
-                        ->visibility('private'),
+                Forms\Components\Section::make('Submisi lomba')
+                    ->schema([
+                        Forms\Components\TextInput::make('google_drive_link')
+                            ->label('Link google drive')
+                            ->required()
+                            ->maxLength(500)
+                            ->columnSpan(2),
 
-                    Forms\Components\FileUpload::make('originality_statement')
-                        ->label('Lembar orisinalitas')
-                        ->disk('private')
-                        ->directory('statements')
-                        ->visibility('private'),
-                ]),
+                        Forms\Components\Grid::make()
+                            ->schema([
+                                Forms\Components\FileUpload::make('caption')
+                                    ->label('Caption')
+                                    ->disk('private')
+                                    ->directory('captions')
+                                    ->visibility('private'),
+                                PreviewAndDownload::make('caption')
+                                    ->label('Aksi')
+                                    ->disk('private'),
+                            ])
+                            ->columnSpan(2),
+
+                        Forms\Components\Grid::make()
+                            ->schema([
+                                Forms\Components\FileUpload::make('originality_statement')
+                                    ->label('Lembar orisinalitas')
+                                    ->disk('private')
+                                    ->directory('statements')
+                                    ->visibility('private'),
+                                PreviewAndDownload::make('originality_statement')
+                                    ->label('Aksi')
+                                    ->disk('private'),
+                            ])
+                            ->columnSpan(2)
+                    ]),
 
                 Forms\Components\Fieldset::make('Informasi kontak')
                     ->schema([
@@ -110,6 +132,13 @@ class CompetitionRegistrationResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('verification_status')
+                    ->label('Status submisi')
+                    ->enum([
+                        'VERIFIED' => 'Sudah diverifikasi',
+                        'WORKS_UNUPLOADED' => 'Karya belum diupload',
+                        'UNVERIFIED' => 'Belum diverifikasi'
+                    ]),
                 Tables\Columns\TextColumn::make('competition.name')
                     ->label('Nama Kompetisi')
                     ->sortable(),
@@ -131,7 +160,14 @@ class CompetitionRegistrationResource extends Resource
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('Berdasarkan kompetisi')
-                    ->relationship('competition', 'name')
+                    ->relationship('competition', 'name'),
+                Tables\Filters\SelectFilter::make('verification_status')
+                    ->options([
+                        'UNVERIFIED' => 'Belum diverifikasi',
+                        'VERIFIED' => 'Sudah diverifikasi',
+                        'WORKS_UNUPLOADED' => 'Karya belum diupload',
+                    ])
+                    ->label('Berdasarkan status verifikasi')
             ]);
     }
 

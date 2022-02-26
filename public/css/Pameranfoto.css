@@ -1,0 +1,12 @@
+body {
+    background: url('/img/bgpolos.png');
+    background-size: cover;
+}
+
+.container{
+    margin-top: 40px;
+}
+
+.row div a{
+    margin-top: 40px;
+}

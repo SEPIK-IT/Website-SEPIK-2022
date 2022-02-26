@@ -12,7 +12,7 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="/css/contestRegist.css">
-    <title>Daftar Sayembara - {{ $title }}</title>
+    <title>Daftar {{ $title }}</title>
 </head>
 
 <body class="bg">
@@ -27,14 +27,14 @@
         </div>
 
         <div class="col p-4">
-            <a class="btn btn-sepik" href="/sayembara">Kembali</a>
+            <a class="btn btn-sepik" href="/home">Kembali</a>
             <div class="card mt-4">
                 <div class="card-header">
-                    <h1>Registrasi Sayembara - {{ $title }}</h1>
+                    <h1>Registrasi: {{ $title }}</h1>
                 </div>
                 <div class="card-body">
                     <div class="col">
-                    <p>Tekan tombol di bawah ini untuk registrasi lomba sayembara.</p>
+                    <p>Tekan tombol di bawah ini untuk registrasi Festival Budaya.</p>
                     </div>
                     <div class="col">
                     <a class="btn btn-sepik" href=" {{ $link }}">Daftar Sekarang</a>

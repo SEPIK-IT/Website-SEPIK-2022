@@ -5,9 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class ZoomSessionCache extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'message'];
+    protected $guarded = [];
+
+    protected $casts = [
+        'session_time' => 'datetime'
+    ];
 }

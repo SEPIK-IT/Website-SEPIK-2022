@@ -16,10 +16,11 @@
   @endif
   <h6 id="event" class="judul" href="#signEvent">Events</h6>
     <a class="sub-judul" href="/sayembara">Sayembara</a>
-    <a class="sub-judul" href="#">Social Media Movement</a>
+    <a class="sub-judul" href="{{ route('social-media-movement') }}">Social Media Movement</a>
     <a class="sub-judul" href="/donasi">Penggalangan Dana</a>
-    <a class="sub-judul" href="#">Festival Budaya</a>
+    <a class="sub-judul" href="{{ route('registrasi-fesbud') }}">Festival Budaya</a>
     <a class="sub-judul" href="/zoopikRegistration">Zoopik</a>
+    <a class="sub-judul" href="{{ route('user-dashboard') }}">User Dashboard</a>
     <a class="sub-judul" href="#">Closing Ceremony</a>
     <hr style="height:10px;border-width: 0px; background-color:
 #41464b; width: 80%; margin-left: 25px;  margin-top: -3px;">

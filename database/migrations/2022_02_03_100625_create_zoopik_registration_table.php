@@ -14,12 +14,14 @@ class CreateZoopikRegistrationTable extends Migration
     public function up()
     {
         Schema::create('zoopik_registration', function (Blueprint $table) {
-            $table->id('id_zoopik_registration');
+            $table->id();
             $table->string('nama_lengkap');
             $table->string('nrp');
             $table->string('asalUniv');
             $table->string('path_img_ktm');
             $table->string('path_img_foto');
+            $table->bigInteger('nominal_pembayaran');
+            $table->string('path_img_bukti_transfer');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });

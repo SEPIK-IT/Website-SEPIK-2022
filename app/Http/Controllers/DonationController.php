@@ -5,80 +5,52 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Donation;
-use App\Models\Message;
+use Illuminate\Validation\Rule;
 
 class DonationController extends Controller
 {
-    public function admin(){
-        return view('donasi/admin', [
-            'donations' => Donation::select("*")
-                        ->orderBy('confirmation', 'desc')
-                        ->orderBy('created_at', 'desc')
-                        ->get()
+
+    public function index()
+    {
+        return view('donasi/index', [
+            'total' => Donation::where('confirmation', 1)->sum('nominal'),
+            'messages' => Donation::where('confirmation', 1)->whereNotNull('message')->get()
         ]);
     }
-    public function index($page = 'index')
-    {  
-        if($page == "index"){
-            return view('donasi/index', [
-                'total' => Donation::where('confirmation', 1)->sum('nominal'),
-                'messages' => Message::all()
-            ]);
+
+    public function donate()
+    {
+
+        if (date('Y-m-d H:i:s') >= date('2022-02-07 00:00:00') && date('Y-m-d H:i:s') < date('2022-03-05 00:00:00')) {
+            return view('donasi/donasi');
+        } else {
+            return redirect('/donasi');
         }
-
-        if($page == "donasi"){
-            if(date('Y-m-d H:i:s') >= date('2022-02-07 00:00:00') && date('Y-m-d H:i:s') < date('2022-03-05 00:00:00') or true){
-                return view('donasi/donasi');
-            }else{
-                return redirect('/donasi');
-            }
-        }
-
-        // if($page == "admin"){
-        //     return view('donasi/admin', [
-        //         'donations' => Donation::select("*")
-        //                     ->orderBy('confirmation', 'desc')
-        //                     ->orderBy('created_at', 'desc')
-        //                     ->get()
-        //     ]);
-        // }
-
-        return view('donasi/' . $page);
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+
+        $request->validate([
             'name' => 'required',
-            'nominal' => 'required',
-            'source'=> 'required',
+            'sourceType' => ['required', Rule::in(['umum', 'mahasiswa'])],
+            'source' => ['required', Rule::in(['ukp', 'uc', 'wm', 'ubaya',])],
+            'origin' => Rule::requiredIf(fn() => $request->input('sourceType') === 'umum'),
             'identification' => 'required',
-            'proof' => 'required|image',
-            'message' => ''
+            'nominal' => ['required', 'gte:10000']
         ]);
 
-        $validatedData['proof'] = $request->file('proof')->store('bukti-transfer');
-
-        Donation::create($validatedData);
-
-        //kalo pesannya gak kosong baru diinsert
-        if($validatedData['message'] != ''){
-            Message::create($validatedData);
-        }
+        Donation::create([
+            'source' => $request->input('sourceType') === 'mahasiswa' ? $request->input('source') : 'umum',
+            'origin' => $request->input('sourceType') === 'mahasiswa' ? null : $request->input('origin'),
+            'name' => $request->input('name'),
+            'nominal' => $request->input('nominal'),
+            'proof' => $request->file('proof')->store('donation-transfer-proof', 'public'),
+            'identification' => $request->input('identification'),
+            'message' => $request->input('message') ?? null,
+            'confirmation' => 2
+        ]);
 
         return redirect('/donasi/suwun');
-    }
-
-    public function update(Request $request)
-    {
-        $id = $request['id'];
-        $data = $request['data'];
-        $changeTo = $request['changeTo'];
-
-        $hasil = Donation::where('donation_id', $id)
-                ->update(['confirmation' => $changeTo]);
-
-        // return [$id, $data, $changeTo];
-        return $hasil;
     }
 }
