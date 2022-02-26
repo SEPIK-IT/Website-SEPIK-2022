@@ -48,7 +48,6 @@ class CreateCompetitionRegistrationsTable extends Migration
 
             // Pembayaran
             $table->string('payment_proof', 100);
-
             $table->timestamps();
         });
     }

@@ -23,6 +23,7 @@ class CreateCompetitionsTable extends Migration
             $table->integer('last_digit');
             $table->string('line_group_link');
             $table->boolean('multiple_registration')->default(false);
+            $table->boolean('vote_status')->default(false);
             $table->timestamps();
         });
     }

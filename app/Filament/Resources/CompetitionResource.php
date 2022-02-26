@@ -51,6 +51,9 @@ class CompetitionResource extends Resource
                 Forms\Components\Toggle::make('multiple_registration')
                     ->label('Bisa daftar bertim?')
                     ->required(),
+                Forms\Components\Toggle::make('vote_status')
+                    ->label('Voting Open?')
+                    ->required(),
             ])->columns(1);
     }
 
@@ -63,6 +66,9 @@ class CompetitionResource extends Resource
                 Tables\Columns\TextColumn::make('title')->label('Judul di website'),
                 Tables\Columns\TextColumn::make('nominal')->label('Nominal transfer'),
                 Tables\Columns\BooleanColumn::make('multiple_registration')->label('Bisa daftar bertim'),
+                Tables\Columns\BooleanColumn::make('vote_status')
+                    ->label('Status Voting Open'),
+
             ])
             ->filters([
                 //

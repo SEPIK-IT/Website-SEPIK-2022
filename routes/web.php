@@ -9,6 +9,7 @@ use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\ZoopikRegistrationController;
 use App\Http\Controllers\FesbudController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\VoteUserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +77,13 @@ Route::get('/donasi/donasi', [DonationController::class, 'donate'])->name('donat
 Route::view('/donasi/suwun', 'donasi.suwun');
 Route::post('/donasi/donasi', [DonationController::class, 'store'])->middleware('auth');
 
+
+Route::get('/vote', function () {
+    return view('vote-user');
+})->middleware('auth');
+
+Route::post('/vote', [VoteUserController::class, 'vote'])->middleware('auth');
+
 Route::get('user-dashboard', [UserDashboardController::class, 'index'])->middleware('auth')->name('user-dashboard');
 
 Route::view('social-media-movement', 'social-media-movement')->name('social-media-movement')->middleware('auth');
@@ -86,3 +94,4 @@ Route::get('social-media-movement/pengmas', [PengmasController::class, 'index'])
 
 
 Auth::routes(['verify' => true]);
+
