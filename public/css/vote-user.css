@@ -15,7 +15,7 @@ body {
 }
 
 .form-width {
-    width: 40%;
+    width: 60%;
 }
 
 .batik {
@@ -27,6 +27,13 @@ body {
 @media (max-width: 576px) {
     .form-width {
         width: 95%;
+    }
+    .vertical-center {
+        margin: 0 !important;
+        position: relative !important;
+        top: 0 !important;
+        -ms-transform: translateY(0%) !important;
+        transform: translateY(0%) !important;
     }
 }
 
