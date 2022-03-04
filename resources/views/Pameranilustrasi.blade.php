@@ -13,8 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
     <title>SEPIK 2022 - Pameran Ilustrasi</title>
 
 
@@ -73,6 +73,8 @@
                     <a href="#" id=<?php echo $atrb['id'];?>>
                         <img src="<?php echo Storage::url($atrb['file_path']);?>" alt="" style="height:400px;" loading="lazy">
                     </a>
+                    <br>
+                    <span>CLICK FOR MORE INFO</span>
                 </div>								
             </div>
         @endforeach
