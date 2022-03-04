@@ -29,7 +29,8 @@ require __DIR__ . '/auth.php';
 Route::view('/', 'index');
 Route::view('/home', 'home')->name('homepage');
 Route::view('/sayembara', 'sayembara')->name('sayembara');
-Route::get('/pameranVideo', 'App\Http\Controllers\linkController@index');
+Route::get('/mashup', 'App\Http\Controllers\MashupController@index');
+Route::get('/shortCinematic', 'App\Http\Controllers\ShortCinematicController@index');
 Route::get('/Pameranfoto', 'App\Http\Controllers\photoController@index');
 Route::get('/Pameranilustrasi', 'App\Http\Controllers\illustrationController@index');
 
