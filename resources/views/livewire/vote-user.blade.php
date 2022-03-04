@@ -1,11 +1,11 @@
-<div class="form-width">
+<div class="form-width align-self-center">
     <h1 style="font-size: 50px" class="font-weight-bold">VOTE</h1>
     <span class="text-danger mb-1">Teman-teman dapat melakukan sekali voting tiap cabang sayembara. Diharapkan teman-teman dapat melakukan voting sesuai dengan keinginan dan kejujuran teman-teman semuanya, terima kasih 🙏
     </span>
     <br>
     <h3 class="mb-0">Untuk Melihat Karya:</h3>
-    <a style="background: #443926; color: white;" class="btn mb-1" href="/Pameranilustrasi" target="_blank">Pameran Ilustrasi</a>
-    <a style="background: #443926; color: white;" class="btn mb-1" href="/Pameranfoto" target="_blank">Pameran Foto</a>
+    <a style="background: #443926; color: white;" class="btn mb-1" href="/Pameranilustrasi" target="_blank">Pameran Desain Ilustrasi</a>
+    <a style="background: #443926; color: white;" class="btn mb-1" href="/Pameranfoto" target="_blank">Pameran Human Interest & Street Photography</a>
 
     <form wire:submit.prevent="vote" class="mt-1">
         @csrf

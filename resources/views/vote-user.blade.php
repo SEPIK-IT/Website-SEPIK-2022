@@ -17,9 +17,9 @@
 <body>
 
     <div class="container-fluid p-0">
-        <div class="row">
+        <div class="row vh-100">
             <div class="col-sm-2">
-                <img src="img/auth/batik_cokelat.png" class="d-none d-sm-block batik" style="" alt="">
+                <img src="img/auth/batik_cokelat.png" class="d-none d-sm-block batik h-100" style="" alt="">
             </div>
             <div class="col d-flex justify-content-center">
                 @livewire('vote-user')
