@@ -11,9 +11,7 @@
   @else
   <a class="judul" href="/login">Login</a>
   @endif
-  @if(Auth::check())
   <a class="judul" href="/vote">Vote</a>
-  @endif
   <h6 id="event" class="judul" href="#signEvent">Events</h6>
     <a class="sub-judul" href="/sayembara">Sayembara</a>
     <a class="sub-judul" href="{{ route('social-media-movement') }}">Social Media Movement</a>

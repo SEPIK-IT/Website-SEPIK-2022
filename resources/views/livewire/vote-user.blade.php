@@ -4,8 +4,12 @@
     </span>
     <br>
     <h3 class="mb-0">Untuk Melihat Karya:</h3>
-    <a style="background: #443926; color: white;" class="btn mb-1" href="/Pameranilustrasi" target="_blank">Pameran Desain Ilustrasi</a>
-    <a style="background: #443926; color: white;" class="btn mb-1" href="/Pameranfoto" target="_blank">Pameran Human Interest & Street Photography</a>
+    
+    <a style="background: #443926; color: white;" class="btn mb-1 w-100" href="/Pameranilustrasi" target="_blank">Pameran Desain Ilustrasi</a>
+    <a style="background: #443926; color: white;" class="btn mb-1 w-100" href="/Pameranfoto" target="_blank">Pameran Human Interest & Street Photography</a>
+    <a style="background: #443926; color: white;" class="btn mb-1 w-100" href="/mashup" target="_blank">Pameran Mashup</a>
+    <a style="background: #443926; color: white;" class="btn mb-1 w-100" href="/shortCinematic" target="_blank">Pameran Short Cinematic</a>
+
 
     <form wire:submit.prevent="vote" class="mt-1">
         @csrf
